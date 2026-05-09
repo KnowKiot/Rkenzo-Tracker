@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 
 const RATINGS = [
   { emoji: '🏆', label: 'Grail' },
+  { emoji: '🌟', label: 'Classic' },
   { emoji: '⭐', label: 'Best Of' },
   { emoji: '✨', label: 'Special' },
   { emoji: '🥉', label: 'Wanted' },
@@ -17,100 +18,244 @@ export default function RkenzoTracker() {
 
   const songs = [
     {
-      title: 'Throwback',
-      era: '2023 Era',
+      title: 'RUSH THIS! V3',
+      era: 'OS2S',
+      status: 'Released',
+      producer: 'Rkenzo',
+      notes: 'The first officially released song produced by Rkenzo',
+      rating: '⭐',
+      filename: '—',
+      link: 'https://www.youtube.com/watch?v=vPf7hVAEqTw',
+    },
+    {
+      title: 'RUSH THIS! V2',
+      era: 'OS2S',
+      status: 'Unreleased',
+      producer: 'Rkenzo',
+      notes: 'Unmixed version of the song',
+      rating: '—',
+      filename: 'rush this b4 mix.wav',
+      link: '',
+    },
+    {
+      title: 'Lifestyle Lately V2 Feat. Tkandz',
+      era: 'OS2S: Extended Edition',
+      status: 'Released',
+      producer: 'Rkenzo',
+      notes: 'Version of lifestyle lately with Tkandz verse but the music video would be reshot in the UK',
+      rating: '⭐',
+      filename: '',
+      link: 'https://www.youtube.com/watch?v=ZDuDBuFPsmk',
+    },
+    {
+      title: 'Lifestyle Lately V1',
+      era: 'OS2S',
+      status: 'Unreleased',
+      producer: 'Rkenzo',
+      notes: 'Version of lifestyle lately without Tkandz verse and alternate music video shot in spain',
+      rating: '—',
+      filename: '—',
+      link: '',
+    },
+    {
+      title: 'Racks Up',
+      era: 'Young Kenz',
+      status: 'Released',
+      producer: 'masonxbeats',
+      notes: 'First appearance of the Young Kenz era with sharper flows and quicker deliveries',
+      rating: '—',
+      filename: '',
+      link: 'https://www.youtube.com/watch?v=evCgCR9aJsM',
+    },
+    {
+      title: 'One Shot To Shine',
+      era: 'OS2S',
       status: 'Released',
       producer: 'Unknown',
-      notes: 'Official release',
+      notes: 'Intro and named after Rkenzos first studio EP One Shot To Shine',
+      rating: '✨',
+      filename: '',
+      link: 'https://www.youtube.com/watch?v=_gmJXkfc7OY',
+    },
+    {
+      title: 'All Eyes On Me',
+      era: 'OS2S: Extended Edition',
+      status: 'Released',
+      producer: 'coreyblazyy',
+      notes: 'Kenz uses a sharper sound here and uses familiar flows from Rush This. Very good song to say the least',
       rating: '⭐',
+      filename: '',
+      link: 'https://www.youtube.com/watch?v=kol3yTiwgQA',
+    },
+    {
+      title: 'Chose 1 Freestyle',
+      era: 'OS2S: Extended Edition',
+      status: 'Released',
+      producer: 'RealRichMoney',
+      notes: 'Rkenzo reuses some of his bars from Out Till, One Shot To Shine late and Say So V1 on this track and debuts a new sound experimenting with club sounds',
+      rating: '—',
+      filename: '',
+      link: 'https://www.youtube.com/watch?v=evCgCR9aJsM',
+    },
+    {
+      title: 'Throwback',
+      era: 'Young Kenz',
+      status: 'Released',
+      producer: 'Unknown',
+      notes: 'The first officially released song with DXNTE',
+      rating: '—',
+      filename: '—',
+      link: 'https://www.youtube.com/watch?v=L7-1jyaPnZw',
     },
     {
       title: 'DND',
-      era: '2023 Era',
+      era: 'Young Kenz',
       status: 'Released',
-      producer: 'Unknown',
-      notes: 'Durk & Drake inspired',
+      producer: 'sk3llybeats366',
+      notes: 'Rkenzos first time going into melodic drill. Uses a deeper voice and is a community favourite',
       rating: '✨',
+      filename: '—',
+      link: 'https://www.youtube.com/watch?v=jHh38yfr5T0',
     },
     {
       title: 'Never Giving Up',
-      era: 'Recent',
+      era: 'Rkenzo Foundation',
       status: 'Released',
       producer: 'Unknown',
-      notes: 'Streaming platforms',
-      rating: '⭐',
-    },
-    {
-      title: '4AM',
-      era: 'Late Night Era',
-      status: 'Snippet',
-      producer: 'Unknown',
-      notes: 'Instagram live preview',
-      rating: '🏆',
-    },
-    {
-      title: 'No Hook',
-      era: 'Vaulted',
-      status: 'Unreleased',
-      producer: '—',
-      notes: 'Previewed once and deleted',
-      rating: '🥉',
-    },
-    {
-      title: 'Pain Freestyle',
-      era: '2024 Era',
-      status: 'Snippet',
-      producer: 'Unknown',
-      notes: 'TikTok snippet circulating',
+      notes: 'Rkenzos first music video. He also seemed to have scrapped this wave rap sound marking the end of  the Rkenzo Foundation Era',
       rating: '✨',
+      filename: '—',
+      link: 'https://www.youtube.com/watch?v=Q7liMX64Duc',
     },
     {
-      title: 'Take Risks',
-      era: '2024 Era',
+      title: 'Through The Night',
+      era: 'Rkenzo Foundation',
+      status: 'Released',
+      producer: 'AriaTheProducer & VVSMelody',
+      notes: 'First official release from Rkenzo using his wave rap sound',
+      rating: '—',
+      filename: '—',
+      link: 'https://www.youtube.com/watch?v=pG9jO_771mA',
+    },
+    {
+      title: 'Alone',
+      era: 'Momentary Bliss',
+      status: 'Snippet',
+      producer: 'FinniX!Beats',
+      notes: 'Instagram live preview song was instantly hailed as a grail part of the collection of songs Rkenzo made with Finnix Switerzland',
+      rating: '🏆',
+      filename: '?',
+      link: '',
+    },
+    {
+      title: 'MAKE IT COUNT! V2',
+      era: 'OS2S',
+      status: 'Released',
+      producer: 'FinniX!Beats',
+      notes: 'Part of the collection of songs Rkenzo made with Finnix Switerzland',
+      rating: '✨',
+      filename: '—',
+      link: 'https://www.youtube.com/watch?v=jBivqZXolk8',
+    },
+    {
+      title: 'MAKE IT COUNT! V1',
+      era: 'OS2S',
+      status: 'Unreleased',
+      producer: 'FinniX!Beats',
+      notes: 'Noticably has a different more spacelike beat. Part of the collection of songs Rkenzo made with Finnix Switerzland',
+      rating: '🥉',
+      filename: 'MAKE IT COUNT',
+      link: '',
+    },
+    {
+      title: 'OS2S Freestyle',
+      era: 'OS2S: Extended Edition',
       status: 'Released',
       producer: 'Unknown',
-      notes: 'YouTube release',
-      rating: '⭐',
+      notes: 'Promotional song marking the release of his clothing brand OS2S. Music video features cameos from blancomadeit and FinniX!Beats',
+      rating: '—',
+      filename: '—',
+      link: 'https://www.youtube.com/watch?v=8FcIn74uNzk',
+    },
+    {
+      title: 'STYLE',
+      era: 'OS2S',
+      status: 'Unreleased',
+      producer: 'Pierre Bourne',
+      notes: 'Studio session made with Kadz using the beat of Cartis Goin Outta Style. Song was never finished',
+      rating: '🥉',
+      filename: 'KY OS.wav',
+      link: '',
     },
     {
       title: 'Fake Love',
-      era: 'Early Era',
-      status: 'Archived',
-      producer: '—',
+      era: 'Rkenzo Foundation',
+      status: 'Released',
+      producer: 'Flang & obmus1c',
       notes: 'Old archive track',
       rating: '🗑️',
+      filename: '—',
+      link: 'https://www.youtube.com/watch?v=rcRGjfP1Mp8',
     },
     {
-      title: 'Drillers & Trappers',
-      era: 'Street Era',
-      status: 'Snippet',
-      producer: 'Unknown',
-      notes: 'Low quality live recording',
-      rating: '🥉',
-    },
-    {
-      title: 'Lost Files',
-      era: 'Vaulted',
-      status: 'Lost',
-      producer: '—',
-      notes: 'Mentioned by fans, never surfaced',
-      rating: '🏆',
-    },
-    {
-      title: 'City Lights',
-      era: 'Melodic Era',
-      status: 'Unreleased',
-      producer: 'Unknown',
-      notes: 'Private preview circulating online',
+      title: 'Say So V2',
+      era: 'OS2S: Extended Edition',
+      status: 'Released',
+      producer: 'Segway',
+      notes: 'Revamped version of say so with a new 2nd verse, no Kadz feature and new bars for the first verse but same flow. Finally released on the OS2S: Extended Edition',
       rating: '✨',
+      filename: '—',
+      link: 'https://www.youtube.com/watch?v=w9Y_v96F9ac',
     },
     {
-      title: 'Unknown Snippet',
-      era: 'Vaulted',
-      status: 'Snippet',
-      producer: '—',
-      notes: 'Low quality live preview',
-      rating: '—',
+      title: 'Say So V1',
+      era: 'OS2S',
+      status: 'Vaulted',
+      producer: 'Segway',
+      notes: 'Full song is held, original version of Say So with a catchier first verse less lyrically powerful but the version fans like the most',
+      rating: '🏆',
+      filename: 'Say so with kadz.wav',
+      link: '',
+    },
+    {
+      title: 'Say So V1',
+      era: 'OS2S',
+      status: 'Vaulted',
+      producer: 'Segway',
+      notes: 'Full song is held, original version of Say So with a catchier first verse less lyrically powerful but the version fans like the most',
+      rating: '🏆',
+      filename: 'Say so with kadz.wav',
+      link: '',
+    },
+    {
+      title: 'Out Till Late',
+      era: 'OS2S',
+      status: 'Released',
+      producer: 'Unknown',
+      notes: 'Featuring Whizz, song was reportedly made in one take and is a fan favourite. One of his biggest songs to date',
+      rating: '⭐',
+      filename: '—',
+      link: 'https://www.youtube.com/watch?v=mAywOdTLQHA',
+    },
+    {
+      title: 'EVISU JEANS',
+      era: 'Momentary Bliss',
+      status: 'Released',
+      producer: 'coreyblazyinc',
+      notes: 'Throwaway song to mark the rollout of Momentary Bliss',
+      rating: '✨',
+      filename: '—',
+      link: 'https://www.youtube.com/watch?v=GCz7GZODsv4',
+    },
+    {
+      title: 'Papercuts',
+      era: 'OS2S',
+      status: 'Released',
+      producer: 'ROB EVN',
+      notes: 'Made the day after his girlfriend broke up with him and became an instant success which caught the attention of UK Artist Tkandz',
+      rating: '🌟',
+      filename: '—',
+      link: 'https://www.youtube.com/watch?v=zCYRFU6Nwjk',
     },
   ];
 
@@ -123,7 +268,7 @@ export default function RkenzoTracker() {
 
   const filteredSongs = useMemo(() => {
     return songs.filter((song) => {
-      const matchesSearch = [song.title, song.era, song.status, song.notes]
+      const matchesSearch = [song.title, song.era, song.status, song.notes, song.filename]
         .join(' ')
         .toLowerCase()
         .includes(search.toLowerCase());
@@ -134,7 +279,7 @@ export default function RkenzoTracker() {
 
   return (
     <div className="min-h-screen bg-black text-white p-8 font-sans">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="mb-10">
           <h1 className="text-5xl font-bold tracking-tight mb-2">
             RKENZO TRACKER
@@ -214,7 +359,9 @@ export default function RkenzoTracker() {
                   <th className="text-left p-5">Era</th>
                   <th className="text-left p-5">Status</th>
                   <th className="text-left p-5">Producer</th>
+                  <th className="text-left p-5">Filename</th>
                   <th className="text-left p-5">Notes</th>
+                  <th className="text-left p-5">Link</th>
                 </tr>
               </thead>
               <tbody>
@@ -244,12 +391,27 @@ export default function RkenzoTracker() {
                       </span>
                     </td>
                     <td className="p-5 text-zinc-300">{song.producer}</td>
+                    <td className="p-5 text-zinc-400 font-mono text-sm">{song.filename}</td>
                     <td className="p-5 text-zinc-400">{song.notes}</td>
+                    <td className="p-5">
+                      {song.link ? (
+                        <a
+                          href={song.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition text-sm"
+                        >
+                          Open ↗
+                        </a>
+                      ) : (
+                        <span className="text-zinc-600 text-sm">—</span>
+                      )}
+                    </td>
                   </tr>
                 ))}
                 {filteredSongs.length === 0 && (
                   <tr>
-                    <td colSpan={6} className="p-10 text-center text-zinc-500">
+                    <td colSpan={8} className="p-10 text-center text-zinc-500">
                       No songs match your search.
                     </td>
                   </tr>

@@ -15,7 +15,7 @@ const RATINGS = [
 const ERAS = [
   {
     name: 'Momentary Bliss',
-    image: '/images/MB.jpg',
+    image: '/images/MB.jpeg',
     description: 'Upcoming Album expected to release 2026, Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Album seems to experiment with different sounds',
   },
   {

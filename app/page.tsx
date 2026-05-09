@@ -15,28 +15,38 @@ const RATINGS = [
 const ERAS = [
   {
     name: 'Momentary Bliss',
-    image: '/images/MB.jpeg',
+    image: '/images/MB.jpg',
     description: 'Upcoming Album expected to release 2026, Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Album seems to experiment with different sounds',
+    accent: '#7ef0ff', // purple
+    accentBg: 'rgba(167,139,250,0.08)',
   },
   {
     name: 'OS2S: Extended Edition',
     image: '/images/OS2S_Deluxe.webp',
     description: 'Extended edition of One Shot To Shine featuring 3 more songs (RUSH THIS!, Say So and Lifestyle Lately ft Tkandz) if you purchased the bundle from the OS2S website',
+    accent: '#ff9129', // sky blue
+    accentBg: 'rgba(56,189,248,0.08)',
   },
   {
     name: 'One Shot To Shine',
     image: '/images/OS2S.png',
     description: 'Rkenzos debut EP which put him on the map. One Shot To Shine released 23 August 2024 contains multiple fan favourites such as Papercuts, Out Til late, One Shot To Shine and many more',
+    accent: '#ffd900', // orange
+    accentBg: 'rgba(251,146,60,0.08)',
   },
   {
     name: 'Young Kenz',
     image: '/images/YK.png',
     description: 'Early releases under Young Kenz',
+    accent: '#a78bfa', // green
+    accentBg: 'rgba(74,222,128,0.08)',
   },
   {
     name: 'Rkenzo Foundation',
     image: '/images/Foundation.png',
     description: 'The very beginning',
+    accent: '#f87171', // red
+    accentBg: 'rgba(248,113,113,0.08)',
   },
 ];
 
@@ -472,21 +482,30 @@ const songs = [
   },
 ];
 
+const eraAccent = (eraName: string) => ERAS.find((e) => e.name === eraName)?.accent ?? '#71717a';
+
+const statusColor = (status: string) => {
+  switch (status) {
+    case 'Released':  return 'bg-green-500/20 text-green-400';
+    case 'Snippet':   return 'bg-yellow-500/20 text-yellow-300';
+    case 'Vaulted':   return 'bg-purple-500/20 text-purple-300';
+    case 'Scrapped':  return 'bg-orange-500/20 text-orange-300';
+    case 'Leaked':    return 'bg-blue-500/20 text-blue-300';
+    case 'Throwaway': return 'bg-zinc-500/20 text-zinc-400';
+    default:          return 'bg-red-500/20 text-red-300';
+  }
+};
+
 export default function RkenzoTracker() {
   const [search, setSearch] = useState('');
   const [filterRating, setFilterRating] = useState('All');
   const [filterEra, setFilterEra] = useState('All');
-  // All eras open by default — tracks which ones the user has manually closed
   const [collapsedEras, setCollapsedEras] = useState<Set<string>>(new Set());
 
   const toggleEra = (eraName: string) => {
     setCollapsedEras((prev) => {
       const next = new Set(prev);
-      if (next.has(eraName)) {
-        next.delete(eraName);
-      } else {
-        next.add(eraName);
-      }
+      next.has(eraName) ? next.delete(eraName) : next.add(eraName);
       return next;
     });
   };
@@ -498,12 +517,12 @@ export default function RkenzoTracker() {
     released: songs.filter((s) => s.status === 'Released').length,
   }), []);
 
+  const grails = useMemo(() => songs.filter((s) => s.rating === '🏆'), []);
+
   const filteredSongs = useMemo(() => {
     return songs.filter((song) => {
       const matchesSearch = [song.title, song.era, song.status, song.notes, song.filename]
-        .join(' ')
-        .toLowerCase()
-        .includes(search.toLowerCase());
+        .join(' ').toLowerCase().includes(search.toLowerCase());
       const matchesRating = filterRating === 'All' || song.rating === filterRating;
       const matchesEra = filterEra === 'All' || song.era === filterEra;
       return matchesSearch && matchesRating && matchesEra;
@@ -516,18 +535,6 @@ export default function RkenzoTracker() {
       songs: filteredSongs.filter((s) => s.era === era.name),
     })).filter((era) => era.songs.length > 0);
   }, [filteredSongs]);
-
-  const statusColor = (status: string) => {
-    switch (status) {
-      case 'Released':   return 'bg-green-500/20 text-green-400';
-      case 'Snippet':    return 'bg-yellow-500/20 text-yellow-300';
-      case 'Vaulted':    return 'bg-purple-500/20 text-purple-300';
-      case 'Scrapped':   return 'bg-orange-500/20 text-orange-300';
-      case 'Leaked':     return 'bg-blue-500/20 text-blue-300';
-      case 'Throwaway':  return 'bg-zinc-500/20 text-zinc-400';
-      default:           return 'bg-red-500/20 text-red-300';
-    }
-  };
 
   return (
     <div className="min-h-screen bg-black text-white p-8 font-sans">
@@ -556,7 +563,58 @@ export default function RkenzoTracker() {
           ))}
         </div>
 
-        {/* Filters */}
+        {/* Grails Spotlight */}
+        <div className="mb-8 rounded-2xl overflow-hidden border border-yellow-500/30"
+          style={{ background: 'rgba(234,179,8,0.06)' }}>
+          <div className="px-6 py-4 border-b border-yellow-500/20 flex items-center gap-3">
+            <span className="text-2xl">🏆</span>
+            <h2 className="text-xl font-bold text-yellow-300">Grails Spotlight</h2>
+            <span className="text-yellow-600 text-sm ml-1">— the most wanted unreleased material</span>
+          </div>
+          <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {grails.map((song, i) => {
+              const accent = eraAccent(song.era);
+              return (
+                <div
+                  key={i}
+                  className="rounded-xl p-4 border flex flex-col gap-2"
+                  style={{
+                    borderColor: `${accent}40`,
+                    background: `${accent}0d`,
+                  }}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="font-semibold text-white leading-tight">{song.title}</span>
+                    <span
+                      className="text-xs px-2 py-0.5 rounded-full flex-shrink-0 font-medium mt-0.5"
+                      style={{ color: accent, background: `${accent}20` }}
+                    >
+                      {song.era}
+                    </span>
+                  </div>
+                  <span className={`text-xs px-2 py-0.5 rounded-full w-fit font-medium ${statusColor(song.status)}`}>
+                    {song.status}
+                  </span>
+                  <p className="text-zinc-400 text-xs leading-relaxed">{song.notes}</p>
+                  {song.link ? (
+                    <a
+                      href={song.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-400 hover:text-blue-300 text-xs underline underline-offset-2 mt-auto"
+                    >
+                      Open ↗
+                    </a>
+                  ) : (
+                    <span className="text-zinc-600 text-xs mt-auto">No link available</span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Rating Filter */}
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 mb-4 flex flex-wrap items-center gap-3 justify-between">
           <div className="flex flex-wrap gap-2 items-center">
             <span className="text-zinc-500 text-xs uppercase tracking-wider mr-1">Rating</span>
@@ -604,9 +662,12 @@ export default function RkenzoTracker() {
             <button
               key={era.name}
               onClick={() => setFilterEra(filterEra === era.name ? 'All' : era.name)}
-              className={`px-3 py-1 rounded-xl text-sm border transition ${
-                filterEra === era.name ? 'bg-white text-black border-white' : 'bg-zinc-800 border-zinc-700 hover:border-white'
-              }`}
+              className="px-3 py-1 rounded-xl text-sm border transition"
+              style={
+                filterEra === era.name
+                  ? { background: era.accent, color: '#000', borderColor: era.accent }
+                  : { background: 'transparent', color: era.accent, borderColor: `${era.accent}60` }
+              }
             >
               {era.name}
             </button>
@@ -618,15 +679,25 @@ export default function RkenzoTracker() {
           {groupedByEra.map((era) => {
             const isCollapsed = collapsedEras.has(era.name);
             return (
-              <div key={era.name} className="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
-
-                {/* Era Banner — click to collapse/expand */}
+              <div
+                key={era.name}
+                className="rounded-3xl overflow-hidden shadow-2xl border"
+                style={{
+                  borderColor: `${era.accent}40`,
+                  background: '#18181b',
+                }}
+              >
+                {/* Era Banner */}
                 <button
                   onClick={() => toggleEra(era.name)}
-                  className="w-full text-left flex items-stretch min-h-[120px] hover:bg-zinc-800/30 transition"
+                  className="w-full text-left flex items-stretch min-h-[120px] transition hover:brightness-110"
+                  style={{ background: era.accentBg }}
                 >
+                  {/* Colored left accent bar */}
+                  <div className="w-1 flex-shrink-0" style={{ background: era.accent }} />
+
                   {/* Era Image */}
-                  <div className="w-40 flex-shrink-0 bg-zinc-800 flex items-center justify-center overflow-hidden">
+                  <div className="w-40 flex-shrink-0 flex items-center justify-center overflow-hidden bg-zinc-800">
                     {era.image ? (
                       <img src={era.image} alt={era.name} className="w-full h-full object-cover" />
                     ) : (
@@ -638,15 +709,20 @@ export default function RkenzoTracker() {
                   </div>
 
                   {/* Era Info */}
-                  <div className="flex-1 p-6 flex flex-col justify-center border-l border-zinc-800">
+                  <div
+                    className="flex-1 p-6 flex flex-col justify-center border-l"
+                    style={{ borderColor: `${era.accent}30` }}
+                  >
                     <div className="flex items-center justify-between gap-4">
-                      <h2 className="text-2xl font-bold tracking-tight">{era.name}</h2>
+                      <h2 className="text-2xl font-bold tracking-tight" style={{ color: era.accent }}>
+                        {era.name}
+                      </h2>
                       <span className="text-zinc-500 text-xl mr-2 flex-shrink-0">
                         {isCollapsed ? '▸' : '▾'}
                       </span>
                     </div>
                     <p className="text-zinc-400 text-sm mt-1">{era.description}</p>
-                    <div className="flex flex-wrap gap-4 mt-3 text-sm text-zinc-500">
+                    <div className="flex flex-wrap gap-4 mt-3 text-sm" style={{ color: `${era.accent}99` }}>
                       <span>{era.songs.length} song{era.songs.length !== 1 ? 's' : ''}</span>
                       <span>{era.songs.filter((s) => s.status === 'Released').length} released</span>
                       <span>{era.songs.filter((s) => s.status === 'Snippet').length} snippets</span>
@@ -656,12 +732,13 @@ export default function RkenzoTracker() {
                   </div>
                 </button>
 
-                {/* Songs Table — hidden when collapsed */}
+                {/* Songs Table */}
                 {!isCollapsed && (
-                  <div className="overflow-x-auto border-t border-zinc-800">
+                  <div className="overflow-x-auto" style={{ borderTop: `1px solid ${era.accent}25` }}>
                     <table className="w-full">
                       <thead>
-                        <tr className="border-b border-zinc-800 text-zinc-500 text-xs uppercase tracking-wider">
+                        <tr className="text-zinc-500 text-xs uppercase tracking-wider"
+                          style={{ borderBottom: `1px solid ${era.accent}20` }}>
                           <th className="text-left px-5 py-3">Rating</th>
                           <th className="text-left px-5 py-3">Song</th>
                           <th className="text-left px-5 py-3">Status</th>
@@ -675,14 +752,15 @@ export default function RkenzoTracker() {
                         {era.songs.map((song, index) => (
                           <tr
                             key={index}
-                            className="border-b border-zinc-800 last:border-0 hover:bg-zinc-800/50 transition"
+                            className="hover:bg-white/5 transition"
+                            style={{ borderBottom: `1px solid ${era.accent}15` }}
                           >
                             <td className="px-5 py-4 text-xl">
                               <span title={RATINGS.find((r) => r.emoji === song.rating)?.label || 'Unrated'}>
                                 {song.rating || '—'}
                               </span>
                             </td>
-                            <td className="px-5 py-4 font-medium">{song.title}</td>
+                            <td className="px-5 py-4 font-medium text-white">{song.title}</td>
                             <td className="px-5 py-4">
                               <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusColor(song.status)}`}>
                                 {song.status}
@@ -717,9 +795,7 @@ export default function RkenzoTracker() {
           })}
 
           {groupedByEra.length === 0 && (
-            <div className="text-center text-zinc-500 py-20">
-              No songs match your search.
-            </div>
+            <div className="text-center text-zinc-500 py-20">No songs match your search.</div>
           )}
         </div>
 
@@ -741,9 +817,7 @@ export default function RkenzoTracker() {
             <h3 className="text-xl font-semibold mb-4">Tracker Categories</h3>
             <div className="flex flex-wrap gap-3">
               {['Leaks', 'Snippets', 'Features', 'Vaulted', 'HQ', 'Lost Media'].map((tag) => (
-                <span key={tag} className="bg-zinc-800 border border-zinc-700 px-4 py-2 rounded-xl text-sm">
-                  {tag}
-                </span>
+                <span key={tag} className="bg-zinc-800 border border-zinc-700 px-4 py-2 rounded-xl text-sm">{tag}</span>
               ))}
             </div>
           </div>

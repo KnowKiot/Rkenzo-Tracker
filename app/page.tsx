@@ -44,7 +44,7 @@ const ERAS = [
   {
     name: 'Rkenzo Foundation',
     image: '/images/Foundation.png',
-    description: 'The very beginning',
+    description: 'The first releases of his songs under the name "Rkenzo". During this era he focused more on the wave rap sound and only released 3 songs before he transitioned his sound into drill',
     accent: '#f87171', // red
     accentBg: 'rgba(248,113,113,0.08)',
   },
@@ -62,6 +62,7 @@ const songs = [
     filename: '—',
     link: 'https://www.instagram.com/reel/DXco17oDKcb/',
   },
+
   {
     title: 'Kalakatta 2.0 Ft Rkenzo',
     era: 'Momentary Bliss',
@@ -411,7 +412,7 @@ const songs = [
   // Young Kenz
   {
     title: 'JOEY CLIPSTAR FREESTYLE',
-    era: 'One Shot To Shine',
+    era: 'Young Kenz',
     status: 'Released',
     producer: 'Ayp',
     notes: 'Last song rkenzo released during the young kenz era marking his transition into One Shot To Shine',

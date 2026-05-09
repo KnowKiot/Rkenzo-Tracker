@@ -415,7 +415,7 @@ const songs = [
     era: 'Young Kenz',
     status: 'Released',
     producer: 'Ayp',
-    notes: 'Last song rkenzo released during the young kenz era marking his transition into One Shot To Shine',
+    notes: 'Last song rkenzo released during the young kenz era marking his transition into One Shot To Shine. He very famously said "I was stressed on my last fiver" in this song and reflects upon his personal growth and aspirations',
     rating: '✨',
     filename: '—',
     link: 'https://www.youtube.com/watch?v=8HbGLCi-BCE&list=RD8HbGLCi-BCE&start_radio=1',

@@ -37,7 +37,7 @@ const ERAS = [
   {
     name: 'Young Kenz',
     image: '/images/YK.png',
-    description: 'Early releases under Young Kenz',
+    description: 'Early releases under Young Kenz, during this era kenz experimented heavily with drill tapping into melodic and other styles of drill marking his end of wave rap',
     accent: '#a78bfa', // green
     accentBg: 'rgba(74,222,128,0.08)',
   },
@@ -73,7 +73,7 @@ const songs = [
     link: 'https://www.youtube.com/watch?v=9xhi5VvcJPM&list=RD9xhi5VvcJPM&start_radio=1',
   },
   {
-    title: 'Blue Boys / Therapy Ft Tkandz',
+    title: 'Milan Ft Tkandz',
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'Unknown',
@@ -183,7 +183,7 @@ const songs = [
     link: '',
   },
   {
-    title: 'White Girl Freestyle',
+    title: 'Fan Girl Freestyle',
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'Unknown',
@@ -193,7 +193,7 @@ const songs = [
     link: 'https://www.instagram.com/p/DQ4tlyXDBo3/',
   },
   {
-    title: 'Need That Dough',
+    title: 'On Go',
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'coreyblazyy',
@@ -407,7 +407,19 @@ const songs = [
     link: 'https://www.youtube.com/watch?v=zCYRFU6Nwjk',
   },
 
+
   // Young Kenz
+  {
+    title: 'JOEY CLIPSTAR FREESTYLE',
+    era: 'One Shot To Shine',
+    status: 'Released',
+    producer: 'Ayp',
+    notes: 'Last song rkenzo released during the young kenz era marking his transition into One Shot To Shine',
+    rating: '✨',
+    filename: '—',
+    link: 'https://www.youtube.com/watch?v=8HbGLCi-BCE&list=RD8HbGLCi-BCE&start_radio=1',
+  },
+
   {
     title: 'Throwback',
     era: 'Young Kenz',
@@ -424,7 +436,7 @@ const songs = [
     status: 'Released',
     producer: 'sk3llybeats366',
     notes: "Rkenzo's first time going into melodic drill. Uses a deeper voice and is a community favourite",
-    rating: '✨',
+    rating: '⭐',
     filename: '—',
     link: 'https://www.youtube.com/watch?v=jHh38yfr5T0',
   },

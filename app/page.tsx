@@ -15,9 +15,9 @@ const RATINGS = [
 const ERAS = [
   {
     name: 'Momentary Bliss',
-    image: '/images/MB.jpg',
+    image: '/images/MB.jpeg',
     description: 'Upcoming Album expected to release 2026, Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Album seems to experiment with different sounds',
-    accent: '#7ef0ff', // purple
+    accent: '#abf5ff', // purple
     accentBg: 'rgba(167,139,250,0.08)',
   },
   {
@@ -31,7 +31,7 @@ const ERAS = [
     name: 'One Shot To Shine',
     image: '/images/OS2S.png',
     description: 'Rkenzos debut EP which put him on the map. One Shot To Shine released 23 August 2024 contains multiple fan favourites such as Papercuts, Out Til late, One Shot To Shine and many more',
-    accent: '#ffd900', // orange
+    accent: '#ffd900e7', // orange
     accentBg: 'rgba(251,146,60,0.08)',
   },
   {

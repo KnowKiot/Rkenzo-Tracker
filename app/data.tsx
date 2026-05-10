@@ -9,6 +9,8 @@ export const RATINGS = [
   { emoji: '🌟', label: 'Classic' },
   { emoji: '⭐', label: 'Best Of' },
   { emoji: '✨', label: 'Special' },
+  { emoji: '🥇', label: 'Most Wanted' },
+  { emoji: '🥈', label: '2nd Best' },
   { emoji: '🥉', label: 'Wanted' },
   { emoji: '🗑️', label: 'Worst Of' },
   { emoji: '—', label: 'Unrated' },
@@ -133,7 +135,7 @@ export const SONGS: Song[] = [
     producer: 'Unknown',
     notes:
       'Snippet uploaded to Instagram on April 18th 2026 where both boys are wearing light blue drip and tkandz previews a verse. Probably will drop leading up to the release of Momentary Bliss',
-    rating: '',
+    rating: '🥈',
     filename: '—',
     link: 'https://www.instagram.com/reel/DXR_71rjGq4/',
   },

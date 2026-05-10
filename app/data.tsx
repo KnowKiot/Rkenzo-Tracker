@@ -3,6 +3,7 @@
 //  Edit this file to add / update songs, eras,
 //  ratings, and music videos.
 // ─────────────────────────────────────────────
+
 export const RATINGS = [
   { emoji: '🏆', label: 'Grail' },
   { emoji: '🌟', label: 'Classic' },
@@ -43,10 +44,14 @@ export interface Era {
   accentBg: string;
 }
 
+export type VideoStatus = 'Released' | 'Unreleased' | 'Scrapped';
+
 export interface MusicVideo {
   title: string;
   era: string;
   youtubeId: string; // just the video ID, e.g. "dQw4w9WgXcQ"
+  status: VideoStatus;
+  rating: RatingEmoji;
   director?: string;
   releaseDate?: string;
   notes?: string;
@@ -554,76 +559,143 @@ export const SONGS: Song[] = [
 
 // ─── MUSIC VIDEOS ────────────────────────────
 // youtubeId = the part after "watch?v=" in the URL
+// For unreleased/scrapped videos with no YouTube ID, use youtubeId: ''
 
 export const MUSIC_VIDEOS: MusicVideo[] = [
+  // ── Momentary Bliss ──
   {
-    title: 'Papercuts',
-    era: 'One Shot To Shine',
-    youtubeId: 'zCYRFU6Nwjk',
-    releaseDate: '2024',
-    notes: 'Breakout visual — shot in the ends, raw and authentic',
+    title: 'EVISU JEANS (Live Performance)',
+    era: 'Momentary Bliss',
+    youtubeId: 'HrTWu-lV6DQ',
+    status: 'Released',
+    rating: '✨',
+    releaseDate: '2026',
+    notes: 'Live performance of EVISU JEANS and is much better than the actual music video showcasing a more energentic kenz and a better visuals overall',
   },
-  {
-    title: 'Out Till Late',
-    era: 'One Shot To Shine',
-    youtubeId: 'mAywOdTLQHA',
-    releaseDate: '2024',
-    notes: 'Ft Whizz. Fan-favourite visual, reportedly filmed in one session',
-  },
+
   {
     title: 'EVISU JEANS',
     era: 'Momentary Bliss',
     youtubeId: 'GCz7GZODsv4',
-    releaseDate: '2025',
-    notes: 'Marks the rollout of Momentary Bliss. Clean flex visual',
-  },
-  {
-    title: 'MAKE IT COUNT! V2',
-    era: 'Momentary Bliss',
-    youtubeId: 'jBivqZXolk8',
-    releaseDate: '2025',
-    notes: 'FinniX!Beats collab. Visual shot with the Swiss camp',
-  },
-  {
-    title: 'RUSH THIS! V4',
-    era: 'OS2S: Extended Edition',
-    youtubeId: 'vPf7hVAEqTw',
-    releaseDate: '2024',
-    notes: 'Official release version with RealRichMoney production',
-  },
-  {
-    title: 'Lifestyle Lately Ft. Tkandz',
-    era: 'OS2S: Extended Edition',
-    youtubeId: 'ZDuDBuFPsmk',
-    releaseDate: '2024',
-    notes: 'UK reshot version featuring Tkandz',
-  },
-  {
-    title: 'OS2S Freestyle',
-    era: 'OS2S: Extended Edition',
-    youtubeId: '8FcIn74uNzk',
-    releaseDate: '2024',
-    notes: 'Promo for the OS2S clothing drop — cameos from blancomadeit & FinniX!Beats',
-  },
-  {
-    title: 'JOEY CLIPSTAR FREESTYLE',
-    era: 'Young Kenz',
-    youtubeId: '8HbGLCi-BCE',
-    releaseDate: '2023',
-    notes: '"I was stressed on my last fiver" — cult favourite transition moment',
-  },
-  {
-    title: 'Never Giving Up',
-    era: 'Rkenzo Foundation',
-    youtubeId: 'Q7liMX64Duc',
-    releaseDate: '2022',
-    notes: "Rkenzo's debut music video. Wave rap era.",
+    status: 'Released',
+    rating: '',
+    releaseDate: '2026',
+    notes: 'Marks the rollout of Momentary Bliss. Shot at tower bridge some cool scenes but overall felt rushed to push the roll out of Momentary Bliss forward',
   },
   {
     title: 'Chasing Paper',
     era: 'Momentary Bliss',
     youtubeId: 'MFjM_NQvPC0',
+    status: 'Released',
+    rating: '',
+    releaseDate: '2026',
+    notes: 'Second Momentary Bliss rollout drop — likely a throwaway',
+  },
+  {
+    title: 'MAKE IT COUNT! V2',
+    era: 'Momentary Bliss',
+    youtubeId: 'jBivqZXolk8',
+    status: 'Released',
+    rating: '⭐',
     releaseDate: '2025',
-    notes: 'Second Momentary Bliss rollout drop',
+    notes: 'FinniX!Beats collab. Visual shot with the Swiss camp',
+  },
+
+  // ── OS2S: Extended Edition ──
+  {
+    title: 'Say So V2',
+    era: 'OS2S: Extended Edition',
+    youtubeId: 'w9Y_v96F9ac',
+    status: 'Released',
+    rating: '⭐',
+    releaseDate: '2025',
+    notes: 'Official music video for the revamped Say So reportedly meant to be shot in France but was ultimately shot in the UK',
+  },
+  {
+    title: 'OS2S Freestyle',
+    era: 'OS2S: Extended Edition',
+    youtubeId: '8FcIn74uNzk',
+    status: 'Released',
+    rating: '✨',
+    releaseDate: '2024',
+    notes: 'Promo for the OS2S clothing drop — cameos from blancomadeit & FinniX!Beats',
+  },
+  {
+    title: 'Lifestyle Lately V2 Ft. Tkandz',
+    era: 'OS2S: Extended Edition',
+    youtubeId: 'ZDuDBuFPsmk',
+    status: 'Released',
+    rating: '⭐',
+    releaseDate: '2024',
+    notes: 'UK reshot version featuring Tkandz marking their first public collaboration',
+  },
+  {
+    title: 'Lifestyle Lately V1',
+    era: 'OS2S: Extended Edition',
+    youtubeId: '',
+    status: 'Scrapped',
+    rating: '🏆',
+    releaseDate: '2024',
+    notes: 'Rkenzo would post to tiktok showcasing lifestyle lately V1 in spain supposedly for a music video but never released due to a crazy story rkenzo hasnt touch in depth of but claims a madness happened. Replaced by the UK reshot version with Tkandz',
+  },
+  {
+    title: 'RUSH THIS! V4 (Lyric Video)',
+    era: 'OS2S: Extended Edition',
+    youtubeId: 'vPf7hVAEqTw',
+    status: 'Released',
+    rating: '',
+    releaseDate: '2024',
+    notes: 'Official lyric video with RealRichMoney production. Shame there is no proper MV for this one',
+  },
+
+  // ── One Shot To Shine ──
+  {
+    title: 'Papercuts',
+    era: 'One Shot To Shine',
+    youtubeId: 'zCYRFU6Nwjk',
+    status: 'Released',
+    rating: '🌟',
+    releaseDate: '2024',
+    notes: 'Breakout visual — shot in the ends, raw and authentic',
+  },
+  {
+    title: 'CANT WAIT',
+    era: 'One Shot To Shine',
+    youtubeId: 'yHUsIK3i2f0',
+    status: 'Released',
+    rating: '',
+    releaseDate: '2024',
+    notes: 'Apparently this music video was shot for free — only the second proper MV from the OS2S era',
+  },
+
+  // ── Young Kenz ──
+  {
+    title: 'DND',
+    era: 'Young Kenz',
+    youtubeId: 'jHh38yfr5T0',
+    status: 'Released',
+    rating: '⭐',
+    releaseDate: '2023',
+    notes: "First music video of the Young Kenz era. Melodic drill, deeper voice, noticeably higher production quality",
+  },
+  {
+    title: 'JOEY CLIPSTAR FREESTYLE',
+    era: 'Young Kenz',
+    youtubeId: '8HbGLCi-BCE',
+    status: 'Released',
+    rating: '',
+    releaseDate: '2023',
+    notes: '"I was stressed on my last fiver" — cult favourite, marks the end of the Young Kenz era',
+  },
+
+  // ── Rkenzo Foundation ──
+  {
+    title: 'Never Giving Up',
+    era: 'Rkenzo Foundation',
+    youtubeId: 'Q7liMX64Duc',
+    status: 'Released',
+    rating: '✨',
+    releaseDate: '2022',
+    notes: "Debut music video. Wave rap era — he scrapped this sound straight after",
   },
 ];

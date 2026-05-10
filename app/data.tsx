@@ -25,6 +25,7 @@ export type SongStatus =
   | 'Scrapped'
   | 'Leaked'
   | 'Throwaway'
+  | 'Rumoured'
   | 'Unreleased';
 
 export interface Song {
@@ -111,7 +112,7 @@ export const SONGS: Song[] = [
   {
     title: 'What Da Fack Freestyle',
     era: 'Momentary Bliss',
-    status: 'Snippet',
+    status: 'Throwaway',
     producer: 'Unknown',
     notes: 'Throwaway freestyle to capitalise of his viral "what the fuck happened here mate" tiktok',
     rating: '',
@@ -135,7 +136,7 @@ export const SONGS: Song[] = [
     producer: 'Unknown',
     notes:
       'Snippet uploaded to Instagram on April 18th 2026 where both boys are wearing light blue drip and tkandz previews a verse. Probably will drop leading up to the release of Momentary Bliss',
-    rating: '🥈',
+    rating: '🥇',
     filename: '—',
     link: 'https://www.instagram.com/reel/DXR_71rjGq4/',
   },
@@ -162,7 +163,7 @@ export const SONGS: Song[] = [
   {
     title: 'Unheard collaborations with blancomadeit',
     era: 'Momentary Bliss',
-    status: 'Snippet',
+    status: 'Rumoured',
     producer: 'Unknown',
     notes: 'Blancomadeit and kenz have been spotted in the studio many times and supposedly have a song',
     rating: '',
@@ -174,7 +175,7 @@ export const SONGS: Song[] = [
     era: 'Momentary Bliss',
     status: 'Released',
     producer: 'Unknown',
-    notes: 'Second song released in the Momentary Bliss rollout',
+    notes: 'Second song released in the Momentary Bliss rollout likely another throwaway song',
     rating: '',
     filename: '—',
     link: 'https://www.youtube.com/watch?v=MFjM_NQvPC0',
@@ -244,10 +245,10 @@ export const SONGS: Song[] = [
   {
     title: 'Fan Girl Freestyle',
     era: 'Momentary Bliss',
-    status: 'Snippet',
+    status: 'Throwaway',
     producer: 'Unknown',
     notes: 'Freestyle rkenzo uploaded via instagram',
-    rating: '🥉',
+    rating: '🥈',
     filename: '—',
     link: 'https://www.instagram.com/p/DQ4tlyXDBo3/',
   },
@@ -357,6 +358,16 @@ export const SONGS: Song[] = [
     link: '',
   },
   {
+    title: 'Unheard collaborations with Mr Imagination',
+    era: 'OS2S: Extended Edition',
+    status: 'Rumoured',
+    producer: 'Unknown',
+    notes: 'Rkenzo and Mr Imagination were recording together in Ghana and have likely made songs after Ambrosia',
+    rating: '🥉',
+    filename: '—',
+    link: '',
+  },
+  {
     title: 'Lifestyle Lately V2 Feat. Tkandz',
     era: 'OS2S: Extended Edition',
     status: 'Released',
@@ -387,7 +398,39 @@ export const SONGS: Song[] = [
     filename: '—',
     link: 'https://soundcloud.com/one-shot-2-shine-vault/mind-on-cake-feat-tkandz?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
   },
-
+  {
+    title: 'DJ AG Freestyle',
+    era: 'OS2S: Extended Edition',
+    status: 'Throwaway',
+    producer: 'Unknown',
+    notes:
+      'Freestyle rkenzo previewed with south london DJ AG, recorded on ig live',
+    rating: '🥉',
+    filename: '—',
+    link: 'https://www.instagram.com/p/DCkD3JFOXxD/',
+  },
+  {
+    title: 'Mental Ft Tkandz & Rkenzo',
+    era: 'OS2S: Extended Edition',
+    status: 'Released',
+    producer: 'Unknown',
+    notes:
+      'Australian artist song featuring both Tkandz and Rkenzo. song was sent to rkenzo around october/november 2024 and Rkenzo gives a fresh new flow aligning with the OS2S theme reuses his famous han solo bar and sees Tkandz deliver a american flow verse. Song was taken down by Tkandz label for unknown reasons',
+    rating: '🥉',
+    filename: '—',
+    link: 'Unavailable due to copyright claims',
+  },
+  {
+    title: 'Too Fast',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes:
+      'Collaborative song Rkenzo made with one of his collegues from his university course, Rkenzo experiments with a new sound and reuses some bars but the melodic delivery from both artists in a catchy manner, fans anticipate it to release on Momentary Bliss but doesnt seem likely',
+    rating: '🏆',
+    filename: '—',
+    link: '',
+  },
   // ── One Shot To Shine ────────────────────────
   {
     title: 'Crossroads',

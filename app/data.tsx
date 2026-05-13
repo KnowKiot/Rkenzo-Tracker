@@ -26,6 +26,7 @@ export type SongStatus =
   | 'Leaked'
   | 'Throwaway'
   | 'Rumoured'
+  | 'Confirmed'
   | 'Unreleased';
 
 export interface Song {
@@ -155,7 +156,7 @@ export const SONGS: Song[] = [
     era: 'Momentary Bliss',
     status: 'Throwaway',
     producer: 'GUSTO & LukasBL.',
-    notes: 'Throwaway snippet uploaded to instagram',
+    notes: 'Throwaway snippet uploaded to instagram. Song samples Central Cee’s WAGWAN instrumental song probably was made to capitalise on the popularity of the WAGWAN and never intended for release',
     rating: '',
     filename: '—',
     link: 'https://www.instagram.com/reel/DW2KQOKjLZF/',
@@ -189,6 +190,26 @@ export const SONGS: Song[] = [
     rating: '✨',
     filename: '—',
     link: 'https://www.youtube.com/watch?v=GCz7GZODsv4',
+  },
+  {
+    title: 'Show me your love',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Song considered for Momentary Bliss tracklist',
+    rating: '',
+    filename: '',
+    link: '',
+  },
+  {
+    title: 'Fallin in',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Song considered for Momentary Bliss tracklist',
+    rating: '',
+    filename: '',
+    link: '',
   },
   {
     title: 'Underground Sound song with FinniX!Beats',
@@ -330,7 +351,7 @@ export const SONGS: Song[] = [
     title: 'RUSH THIS! V1',
     era: 'OS2S: Extended Edition',
     status: 'Scrapped',
-    producer: 'coreyblazyy',
+    producer: 'seigmon',
     notes: 'Unmixed version of the song',
     rating: '—',
     filename: 'rush this b4 mix.wav',
@@ -408,6 +429,16 @@ export const SONGS: Song[] = [
     rating: '🥉',
     filename: '—',
     link: 'https://www.instagram.com/p/DCkD3JFOXxD/',
+  },
+  {
+    title: 'Go Mode',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Song made in OS2S: Extended Edition Era but never saw the light of day',
+    rating: '',
+    filename: '',
+    link: '',
   },
   {
     title: 'Mental Ft Tkandz & Rkenzo',
@@ -528,6 +559,18 @@ export const SONGS: Song[] = [
     filename: '—',
     link: 'https://www.youtube.com/watch?v=8HbGLCi-BCE&list=RD8HbGLCi-BCE&start_radio=1',
   },
+
+  {
+    title: "Let's Get It",
+    era: 'Young Kenz',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Unreleased song made during the Young Kenz era which he shared to Mr Imagination. This song never released but the people who have heard it consider it as the best song from this era',
+    rating: '🥇',
+    filename: '',
+    link: '',
+  },
+
   {
     title: 'Throwback',
     era: 'Young Kenz',
@@ -548,6 +591,18 @@ export const SONGS: Song[] = [
     filename: '—',
     link: 'https://www.youtube.com/watch?v=jHh38yfr5T0',
   },
+  
+  {
+    title: 'Rolling',
+    era: 'Young Kenz',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Demo Rkenzo made with Kadz in his room but was never finished into an actual song.',
+    rating: '🥉',
+    filename: '',
+    link: '',
+  },
+
   {
     title: 'Racks Up',
     era: 'Young Kenz',

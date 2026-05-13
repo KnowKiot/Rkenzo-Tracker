@@ -212,6 +212,16 @@ export const SONGS: Song[] = [
     link: '',
   },
   {
+    title: 'Tracy Beaker',
+    era: 'Momentary Bliss',
+    status: 'Snippet',
+    producer: 'Unknown',
+    notes: 'Freestyle previewed to tiktok via rkenzo, using a never before seen flow and a catchy hook. Song is speculated to be on Momentary Bliss and is highly anticipated by fans as it would be unfortunate for it to be a throwaway',
+    rating: '🥈',
+    filename: '',
+    link: 'https://www.tiktok.com/@rkenzo.1/video/7609352871368248598?_r=1&_t=ZS-96Ky1x4NLt2',
+  },
+  {
     title: 'Underground Sound song with FinniX!Beats',
     era: 'Momentary Bliss',
     status: 'Snippet',
@@ -250,7 +260,7 @@ export const SONGS: Song[] = [
       'Instagram live preview. Instantly hailed as a grail — part of the collection of songs Rkenzo made with FinniX Switzerland',
     rating: '🏆',
     filename: '',
-    link: '',
+    link: 'https://imgur.gg/f/EgxCX5j',
   },
   {
     title: 'MAKE IT COUNT! V1',
@@ -343,9 +353,9 @@ export const SONGS: Song[] = [
     status: 'Leaked',
     producer: 'coreyblazyy',
     notes: 'Version of RUSH THIS with a spacelike beat',
-    rating: '✨',
+    rating: '🥈',
     filename: 'Rkenzo - RUSH THIS! Remix by @prodbycorey_.m4a',
-    link: '',
+    link: 'https://imgur.gg/f/YsaasWo',
   },
   {
     title: 'RUSH THIS! V1',
@@ -389,13 +399,23 @@ export const SONGS: Song[] = [
     link: '',
   },
   {
+    title: 'Peso',
+    era: 'OS2S: Extended Edition',
+    status: 'Scrapped',
+    producer: 'Unknown',
+    notes: 'Experimental drill song Rkenzo recorded after coming back from spain and shooting Lifetstyle Lately V1 music video. Sone never surfaced but fans anticipate it, song uses bars from Say So',
+    rating: '🥉',
+    filename: 'sexy drill 3.wav',
+    link: 'https://vt.tiktok.com/ZSxJRKWEw/',
+  },
+  {
     title: 'Lifestyle Lately V2 Feat. Tkandz',
     era: 'OS2S: Extended Edition',
     status: 'Released',
     producer: 'Gore Ocean',
     notes: 'Version of Lifestyle Lately with Tkandz verse but the music video was reshot in the UK',
     rating: '⭐',
-    filename: '—',
+    filename: 'Lifestyle Lately Ft Tkandz (X).wav',
     link: 'https://www.youtube.com/watch?v=ZDuDBuFPsmk',
   },
   {
@@ -405,7 +425,7 @@ export const SONGS: Song[] = [
     producer: 'Gore Ocean',
     notes: 'Version of Lifestyle Lately without Tkandz verse and alternate music video shot in Spain',
     rating: '—',
-    filename: '—',
+    filename: 'Lifestyle Lately (X).wav',
     link: '',
   },
   {
@@ -492,7 +512,7 @@ export const SONGS: Song[] = [
     notes: "Studio session made with Kadz using the beat of Carti's Goin Outta Style. Song was never finished",
     rating: '🥉',
     filename: 'KY OS.wav',
-    link: '',
+    link: 'https://imgur.gg/f/vhzirEF',
   },
   {
     title: 'Go With It',
@@ -543,7 +563,7 @@ export const SONGS: Song[] = [
     notes:
       'Made the day after his girlfriend broke up with him. Became an instant success which caught the attention of UK artist Tkandz',
     rating: '🌟',
-    filename: '—',
+    filename: 'Rkenzo - PaperCuts.wav',
     link: 'https://www.youtube.com/watch?v=zCYRFU6Nwjk',
   },
 

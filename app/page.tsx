@@ -338,7 +338,10 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
         }}
       >
         <div style={{ borderTop: `1px solid ${accent}25` }}>
-          {tl.tracks.map((track, i) => (
+          {tl.tracks
+            .slice()
+            .sort((a, b) => a.position - b.position)
+            .map((track, i) => (
             <div
               key={i}
               className="flex items-start gap-4 px-6 py-4 hover:bg-white/5 transition-colors duration-150"
@@ -395,8 +398,13 @@ function TracklistsSection({ filterEra }: { filterEra: string }) {
   const filtered = useMemo(
     () =>
       TRACKLISTS.filter((tl) => {
-        const matchesEra    = filterEra === 'All' || tl.era === filterEra;
-        const matchesStatus = filterStatus === 'All' || tl.status === filterStatus;
+        const matchesEra = filterEra === 'All' || tl.era === filterEra;
+        const matchesStatus =
+          filterStatus === 'All'
+            ? true
+            : filterStatus === 'Confirmed'
+            ? tl.status === 'Confirmed'
+            : ['Rumoured', 'Scrapped'].includes(tl.status);
         return matchesEra && matchesStatus;
       }),
     [filterEra, filterStatus],

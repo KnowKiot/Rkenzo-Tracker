@@ -232,6 +232,7 @@ export const SONGS: Song[] = [
     filename: '',
     link: '',
   },
+
   {
     title: 'Tracy Beaker',
     era: 'Momentary Bliss',
@@ -242,6 +243,7 @@ export const SONGS: Song[] = [
     filename: '',
     link: 'https://www.tiktok.com/@rkenzo.1/video/7609352871368248598?_r=1&_t=ZS-96Ky1x4NLt2',
   },
+
   {
     title: 'Underground Sound song with FinniX!Beats',
     era: 'Momentary Bliss',
@@ -252,6 +254,7 @@ export const SONGS: Song[] = [
     filename: '',
     link: '',
   },
+  
   {
     title: 'MAKE IT COUNT! V2',
     era: 'Momentary Bliss',
@@ -262,6 +265,7 @@ export const SONGS: Song[] = [
     filename: '—',
     link: 'https://www.youtube.com/watch?v=jBivqZXolk8',
   },
+
   {
     title: 'One Million Streams Freestyle',
     era: 'Momentary Bliss',
@@ -272,8 +276,9 @@ export const SONGS: Song[] = [
     filename: '—',
     link: 'https://www.instagram.com/reel/DTYS9GKDCzV/',
   },
+
   {
-    title: 'Alone Now',
+    title: 'Alone',
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'FinniX!Beats',
@@ -283,6 +288,7 @@ export const SONGS: Song[] = [
     filename: '',
     link: 'https://imgur.gg/f/EgxCX5j',
   },
+
   {
     title: 'MAKE IT COUNT! V1',
     era: 'Momentary Bliss',
@@ -894,19 +900,14 @@ export const TRACKLISTS: Tracklist[] = [
         producer: 'coreyblazyinc',
         notes: 'Already released as a rollout single — likely the opener or an early track',
       },
+      
       {
-        position: 4,
-        title: 'On Go',
-        confirmed: false,
-        notes: 'Freestyle rkenzo uploaded via instagram. Song is reportedly not a throwaway and has a 2nd verse. Rkenzo is contemplating on finishing it and putting it on Momentary Bliss',
-      },
-      {
-        position: 6,
-        title: 'MAKE IT COUNT!',
+        position: 2,
+        title: 'Rick Owens',
         confirmed: true,
-        producer: 'FinniX!Beats',
-        notes: 'Released standalone but widely expected to be on the album given the Swiss camp connection',
+        notes: 'Snippet was first uploaded on TikTok May 2026 — short but sounds like a full track is done',
       },
+
       {
         position: 3,
         title: 'Milan',
@@ -914,19 +915,15 @@ export const TRACKLISTS: Tracklist[] = [
         features: 'ft. Tkandz',
         notes: 'Snippeted April 2026 — likely a lead single or album cut given the full verse preview. Rkenzo said if Tkandz label doesnt clear his feature then he will replace this song with another highly anticipated artist feature',
       },
+
+
       {
-        position: 2,
-        title: 'Rick Owens',
-        confirmed: true,
-        notes: 'Snippet was first uploaded on TikTok May 2026 — short but sounds like a full track is done',
-      },
-      {
-        position: 7,
-        title: 'Alone',
+        position: 4,
+        title: 'On Go',
         confirmed: false,
-        producer: 'FinniX!Beats',
-        notes: 'Instantly hailed as a grail after the instagram live preview. Fans are desperate for this one',
+        notes: 'Freestyle rkenzo uploaded via instagram. Song is reportedly not a throwaway and has a 2nd verse. Rkenzo is contemplating on finishing it and putting it on Momentary Bliss',
       },
+
       {
         position: 5,
         title: 'Tracey Beaker',
@@ -934,6 +931,24 @@ export const TRACKLISTS: Tracklist[] = [
         producer: 'blancomadeit',
         notes: 'Freestyle previewed to tiktok via rkenzo, using a never before seen flow and a catchy hook. Song is speculated to be on Momentary Bliss and is highly anticipated by fans as it would be unfortunate for it to be a throwaway. Apparently, blancomadeit recorded a verse for this song',
       },
+
+      {
+        position: 6,
+        title: 'MAKE IT COUNT!',
+        confirmed: true,
+        producer: 'FinniX!Beats',
+        notes: 'Released standalone but widely expected to be on the album given the Swiss camp connection',
+      },
+
+
+      {
+        position: 7,
+        title: 'Alone',
+        confirmed: false,
+        producer: 'FinniX!Beats',
+        notes: 'Instantly hailed as a grail after the instagram live preview. Fans are desperate for this one',
+      },
+
     ],
   },
 
@@ -951,13 +966,14 @@ export const TRACKLISTS: Tracklist[] = [
         confirmed: true,
         notes: 'Title track and intro to the EP',
       },
+
       {
-        position: 5,
-        title: 'Papercuts',
+        position: 2,
+        title: 'CANT WAIT',
         confirmed: true,
-        producer: 'ROB EVN',
-        notes: 'Made the day after his girlfriend broke up with him. Biggest song on the project',
+        notes: 'Bars referencing his ex',
       },
+
       {
         position: 3,
         title: 'Out Till Late',
@@ -965,6 +981,7 @@ export const TRACKLISTS: Tracklist[] = [
         features: 'ft. Whizz',
         notes: 'Reportedly made in one take',
       },
+      
       {
         position: 4,
         title: 'Go With It',
@@ -972,12 +989,16 @@ export const TRACKLISTS: Tracklist[] = [
         producer: 'YiciBeats',
         notes: 'More emotional cut, small callback to Never Giving Up',
       },
+
+
       {
-        position: 2,
-        title: 'CANT WAIT',
+        position: 5,
+        title: 'Papercuts',
         confirmed: true,
-        notes: 'Bars referencing his ex',
+        producer: 'ROB EVN',
+        notes: 'Made the day after his girlfriend broke up with him. Biggest song on the project',
       },
+
       {
         position: 6,
         title: 'Crossroads',
@@ -1001,13 +1022,21 @@ export const TRACKLISTS: Tracklist[] = [
         confirmed: true,
         notes: 'Title track and intro to the EP',
       },
+
       {
-        position: 5,
-        title: 'Papercuts',
+        position: 2,
+        title: 'Crossroads',
         confirmed: true,
-        producer: 'ROB EVN',
-        notes: 'Made the day after his girlfriend broke up with him. Biggest song on the project',
+        notes: 'Personal track but changed to the 2nd position',
       },
+
+      {
+        position: 3,
+        title: 'CANT WAIT',
+        confirmed: true,
+        notes: 'Bars referencing his ex',
+      },
+
       {
         position: 4,
         title: 'Out Till Late',
@@ -1015,6 +1044,15 @@ export const TRACKLISTS: Tracklist[] = [
         features: 'ft. Whizz',
         notes: 'Reportedly made in one take',
       },
+
+      {
+        position: 5,
+        title: 'Papercuts',
+        confirmed: true,
+        producer: 'ROB EVN',
+        notes: 'Made the day after his girlfriend broke up with him. Biggest song on the project',
+      },
+
       {
         position: 6,
         title: 'Go With It',
@@ -1022,18 +1060,8 @@ export const TRACKLISTS: Tracklist[] = [
         producer: 'YiciBeats',
         notes: 'More emotional cut, small callback to Never Giving Up',
       },
-      {
-        position: 3,
-        title: 'CANT WAIT',
-        confirmed: true,
-        notes: 'Bars referencing his ex',
-      },
-      {
-        position: 2,
-        title: 'Crossroads',
-        confirmed: true,
-        notes: 'Personal track but changed to the 2nd position',
-      },
+
+
       {
         position: 7,
         title: 'Fuck The World',
@@ -1057,29 +1085,38 @@ export const TRACKLISTS: Tracklist[] = [
         confirmed: true,
         notes: 'Carried over from the original EP',
       },
+
+
       {
-        position: 5,
-        title: 'Papercuts',
+        position: 2,
+        title: 'CANT WAIT',
         confirmed: true,
-        producer: 'ROB EVN',
       },
+
       {
         position: 3,
         title: 'Out Till Late',
         confirmed: true,
         features: 'ft. Whizz',
       },
+
       {
         position: 4,
         title: 'Go With It',
         confirmed: true,
         producer: 'YiciBeats',
       },
+
+
       {
-        position: 2,
-        title: 'CANT WAIT',
+        position: 5,
+        title: 'Papercuts',
         confirmed: true,
+        producer: 'ROB EVN',
       },
+
+
+
       {
         position: 6,
         title: 'Crossroads',

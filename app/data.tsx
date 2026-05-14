@@ -61,6 +61,27 @@ export interface MusicVideo {
   notes?: string;
 }
 
+export type TracklistStatus = 'Confirmed' | 'Rumoured' | 'Scrapped';
+ 
+export interface TrackEntry {
+  position: number;
+  title: string;
+  confirmed: boolean;   // is this specific track confirmed, or just rumoured?
+  features?: string;    // e.g. "ft. Tkandz"
+  producer?: string;
+  notes?: string;
+}
+ 
+export interface Tracklist {
+  project: string;      // album / EP / mixtape name
+  era: string;
+  status: TracklistStatus;
+  source?: string;      // where the tracklist came from, e.g. "rkenzo instagram live"
+  updatedDate?: string; // when this tracklist was last updated
+  notes?: string;       // general notes about the project
+  tracks: TrackEntry[];
+}
+
 // ─── ERAS ────────────────────────────────────
 
 export const ERAS: Era[] = [
@@ -145,9 +166,9 @@ export const SONGS: Song[] = [
     title: 'Rick Owens',
     era: 'Momentary Bliss',
     status: 'Snippet',
-    producer: 'Unknown',
-    notes: 'Snippet uploaded to TikTok 9th May 2026',
-    rating: '',
+    producer: 'Sogimura',
+    notes: 'Snippet uploaded to TikTok 9th May 2026. Song samples "prolly my spookiest beat"',
+    rating: '🏆',
     filename: '—',
     link: 'https://vt.tiktok.com/ZS97hTvbP/',
   },
@@ -215,8 +236,8 @@ export const SONGS: Song[] = [
     title: 'Tracy Beaker',
     era: 'Momentary Bliss',
     status: 'Snippet',
-    producer: 'Unknown',
-    notes: 'Freestyle previewed to tiktok via rkenzo, using a never before seen flow and a catchy hook. Song is speculated to be on Momentary Bliss and is highly anticipated by fans as it would be unfortunate for it to be a throwaway',
+    producer: 'blancomadeit',
+    notes: 'Freestyle previewed to tiktok via rkenzo, using a never before seen flow and a catchy hook. Song is speculated to be on Momentary Bliss and is highly anticipated by fans as it would be unfortunate for it to be a throwaway. Apparently, blancomadeit recorded a verse for this song',
     rating: '🥈',
     filename: '',
     link: 'https://www.tiktok.com/@rkenzo.1/video/7609352871368248598?_r=1&_t=ZS-96Ky1x4NLt2',
@@ -252,7 +273,7 @@ export const SONGS: Song[] = [
     link: 'https://www.instagram.com/reel/DTYS9GKDCzV/',
   },
   {
-    title: 'Alone',
+    title: 'Alone Now',
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'FinniX!Beats',
@@ -271,7 +292,7 @@ export const SONGS: Song[] = [
       'Noticeably has a different more spacelike beat. Part of the collection of songs Rkenzo made with FinniX Switzerland',
     rating: '🥉',
     filename: 'MAKE IT COUNT.wav',
-    link: '',
+    link: 'https://imgur.gg/f/YsaasWo',
   },
   {
     title: 'Fan Girl Freestyle',
@@ -288,7 +309,7 @@ export const SONGS: Song[] = [
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'coreyblazyy',
-    notes: 'Freestyle rkenzo uploaded via instagram',
+    notes: 'Freestyle rkenzo uploaded via instagram. Song is reportedly not a throwaway and has a 2nd verse. Rkenzo is contemplating on finishing it and putting it on Momentary Bliss',
     rating: '🥉',
     filename: '—',
     link: 'https://www.instagram.com/reel/DQIIYMojNda/',
@@ -345,7 +366,7 @@ export const SONGS: Song[] = [
     notes: 'Version of RUSH THIS with alternative production',
     rating: '✨',
     filename: '2. Rkenzo - RUSH THIS! Remix by @prodbycorey_.m4a',
-    link: 'LINK REQUIRED',
+    link: 'https://imgur.gg/f/6qWbMe6',
   },
   {
     title: 'RUSH THIS! V2',
@@ -355,7 +376,7 @@ export const SONGS: Song[] = [
     notes: 'Version of RUSH THIS with a spacelike beat',
     rating: '🥈',
     filename: 'Rkenzo - RUSH THIS! Remix by @prodbycorey_.m4a',
-    link: 'https://imgur.gg/f/YsaasWo',
+    link: 'https://imgur.gg/f/Byi92XL',
   },
   {
     title: 'RUSH THIS! V1',
@@ -475,11 +496,11 @@ export const SONGS: Song[] = [
     title: 'Too Fast',
     era: 'OS2S: Extended Edition',
     status: 'Vaulted',
-    producer: 'Unknown',
+    producer: 'Black Cat',
     notes:
       'Collaborative song Rkenzo made with one of his collegues from his university course, Rkenzo experiments with a new sound and reuses some bars but the melodic delivery from both artists in a catchy manner, fans anticipate it to release on Momentary Bliss but doesnt seem likely as the feature was never cleared from the other artist',
     rating: '🏆',
-    filename: '—',
+    filename: 'TOO FAST mix.m4a',
     link: '',
   },
   // ── One Shot To Shine ────────────────────────
@@ -488,7 +509,7 @@ export const SONGS: Song[] = [
     era: 'One Shot To Shine',
     status: 'Released',
     producer: 'Unknown',
-    notes: 'Released on the EP One Shot To Shine. Kenz gives more insight into his personal life and struggle',
+    notes: 'Released on the EP One Shot To Shine. Kenz gives more insight into his personal life and struggle. Crossroads was never entended to be the outro it was actually the 2nd song until Kenz changed it',
     rating: '',
     filename: '—',
     link: 'https://www.youtube.com/watch?v=ZPkRZ9VNhho',
@@ -500,7 +521,7 @@ export const SONGS: Song[] = [
     producer: 'Segway',
     notes:
       'Original version of Say So containing an open verse for Tkandz which Kadz would later record on. Rkenzo comes with a catchier first verse — less lyrically powerful but the version fans like the most',
-    rating: '🏆',
+    rating: '⭐',
     filename: 'Say so with Kadz.wav',
     link: 'https://imgur.gg/f/bgZEljF',
   },
@@ -526,15 +547,27 @@ export const SONGS: Song[] = [
     link: 'https://www.youtube.com/watch?v=4UatIB9ZjoE',
   },
   {
-    title: 'One Shot To Shine',
+    title: 'One Shot 2 Shine',
     era: 'One Shot To Shine',
     status: 'Released',
     producer: 'Unknown',
-    notes: "Intro and namesake of Rkenzo's first studio EP One Shot To Shine",
+    notes: "Intro and namesake of Rkenzo's first studio EP One Shot 2 Shine",
     rating: '✨',
     filename: '—',
     link: 'https://www.youtube.com/watch?v=_gmJXkfc7OY',
   },
+
+  {
+    title: "Keep Goin'",
+    era: 'One Shot To Shine',
+    status: 'Scrapped',
+    producer: 'Unknown',
+    notes: 'Appeared as the intro on the original tracklist for OS2S but was changed for the song One Shot 2 Shine. Song will most likely never release',
+    rating: '',
+    filename: '—',
+    link: '',
+  },
+
   {
     title: 'CANT WAIT',
     era: 'One Shot To Shine',
@@ -545,16 +578,40 @@ export const SONGS: Song[] = [
     filename: '—',
     link: 'https://www.youtube.com/watch?v=yHUsIK3i2f0',
   },
+
   {
-    title: 'Out Till Late',
+    title: 'Out Till Late V2',
     era: 'One Shot To Shine',
     status: 'Released',
     producer: 'Unknown',
-    notes: 'Featuring Whizz. Reportedly made in one take and is a fan favourite. One of his biggest songs to date',
+    notes: 'Featuring Whizz. Reportedly made in one take and is a fan favourite. One of his biggest songs to date. Rkenzo reportedly changed his verse after whizz left the studio and provided a more lyric 2nd verse probably due to how whizz was flowing on this track 😭',
     rating: '⭐',
     filename: '—',
     link: 'https://www.youtube.com/watch?v=mAywOdTLQHA',
   },
+
+  {
+    title: 'Fuck The World',
+    era: 'One Shot To Shine',
+    status: 'Scrapped',
+    producer: 'Unknown',
+    notes: 'Spotted on the original tracklist for OS2S as the outro but for unknown reasons was changed to crossroads.',
+    rating: '',
+    filename: '—',
+    link: '',
+  },
+
+  {
+    title: "Keep Goin'",
+    era: 'One Shot To Shine',
+    status: 'Scrapped',
+    producer: 'Unknown',
+    notes: 'Appeared as the intro on the original tracklist for OS2S but was changed for the song One Shot 2 Shine. Song will most likely never release',
+    rating: '',
+    filename: '—',
+    link: '',
+  },
+
   {
     title: 'Papercuts',
     era: 'One Shot To Shine',
@@ -817,5 +874,239 @@ export const MUSIC_VIDEOS: MusicVideo[] = [
     rating: '✨',
     releaseDate: '2022',
     notes: "Debut music video. Wave rap era — he scrapped this sound straight after",
+  },
+];
+
+// ─── TRACKLISTS ──────────────────────────────
+export const TRACKLISTS: Tracklist[] = [
+  {
+    project: 'Momentary Bliss',
+    era: 'Momentary Bliss',
+    status: 'Rumoured',
+    source: 'Community speculation based on snippets and instagram lives',
+    updatedDate: 'May 2026',
+    notes: 'No official tracklist has been released. Track order and inclusions are entirely speculative based on known snippets. Album expected 2026.',
+    tracks: [
+      {
+        position: 1,
+        title: 'EVISU JEANS',
+        confirmed: true,
+        producer: 'coreyblazyinc',
+        notes: 'Already released as a rollout single — likely the opener or an early track',
+      },
+      {
+        position: 4,
+        title: 'On Go',
+        confirmed: false,
+        notes: 'Freestyle rkenzo uploaded via instagram. Song is reportedly not a throwaway and has a 2nd verse. Rkenzo is contemplating on finishing it and putting it on Momentary Bliss',
+      },
+      {
+        position: 6,
+        title: 'MAKE IT COUNT!',
+        confirmed: true,
+        producer: 'FinniX!Beats',
+        notes: 'Released standalone but widely expected to be on the album given the Swiss camp connection',
+      },
+      {
+        position: 3,
+        title: 'Milan',
+        confirmed: false,
+        features: 'ft. Tkandz',
+        notes: 'Snippeted April 2026 — likely a lead single or album cut given the full verse preview. Rkenzo said if Tkandz label doesnt clear his feature then he will replace this song with another highly anticipated artist feature',
+      },
+      {
+        position: 2,
+        title: 'Rick Owens',
+        confirmed: true,
+        notes: 'Snippet was first uploaded on TikTok May 2026 — short but sounds like a full track is done',
+      },
+      {
+        position: 7,
+        title: 'Alone',
+        confirmed: false,
+        producer: 'FinniX!Beats',
+        notes: 'Instantly hailed as a grail after the instagram live preview. Fans are desperate for this one',
+      },
+      {
+        position: 5,
+        title: 'Tracey Beaker',
+        confirmed: false,
+        producer: 'blancomadeit',
+        notes: 'Freestyle previewed to tiktok via rkenzo, using a never before seen flow and a catchy hook. Song is speculated to be on Momentary Bliss and is highly anticipated by fans as it would be unfortunate for it to be a throwaway. Apparently, blancomadeit recorded a verse for this song',
+      },
+    ],
+  },
+
+  {
+    project: 'One Shot To Shine V2',
+    era: 'One Shot To Shine',
+    status: 'Confirmed',
+    source: 'Official EP release — August 23rd 2024',
+    updatedDate: 'August 2024',
+    notes: 'Debut EP. Officially released tracklist.',
+    tracks: [
+      {
+        position: 1,
+        title: 'One Shot To Shine',
+        confirmed: true,
+        notes: 'Title track and intro to the EP',
+      },
+      {
+        position: 5,
+        title: 'Papercuts',
+        confirmed: true,
+        producer: 'ROB EVN',
+        notes: 'Made the day after his girlfriend broke up with him. Biggest song on the project',
+      },
+      {
+        position: 3,
+        title: 'Out Till Late',
+        confirmed: true,
+        features: 'ft. Whizz',
+        notes: 'Reportedly made in one take',
+      },
+      {
+        position: 4,
+        title: 'Go With It',
+        confirmed: true,
+        producer: 'YiciBeats',
+        notes: 'More emotional cut, small callback to Never Giving Up',
+      },
+      {
+        position: 2,
+        title: 'CANT WAIT',
+        confirmed: true,
+        notes: 'Bars referencing his ex',
+      },
+      {
+        position: 6,
+        title: 'Crossroads',
+        confirmed: true,
+        notes: 'Closing track — most personal song on the EP',
+      },
+    ],
+  },
+
+  {
+    project: 'One Shot To Shine V1',
+    era: 'One Shot To Shine',
+    status: 'Scrapped',
+    source: 'Original tracklist before the EP release, shared by Rkenzo',
+    updatedDate: 'August 2024',
+    notes: 'Rearranged order of the tracks on OS2S with some new changes like Fuck the world and Keep Goin and an addition 7th song',
+    tracks: [
+      {
+        position: 1,
+        title: "Keep Goin'",
+        confirmed: true,
+        notes: 'Title track and intro to the EP',
+      },
+      {
+        position: 5,
+        title: 'Papercuts',
+        confirmed: true,
+        producer: 'ROB EVN',
+        notes: 'Made the day after his girlfriend broke up with him. Biggest song on the project',
+      },
+      {
+        position: 4,
+        title: 'Out Till Late',
+        confirmed: true,
+        features: 'ft. Whizz',
+        notes: 'Reportedly made in one take',
+      },
+      {
+        position: 6,
+        title: 'Go With It',
+        confirmed: true,
+        producer: 'YiciBeats',
+        notes: 'More emotional cut, small callback to Never Giving Up',
+      },
+      {
+        position: 3,
+        title: 'CANT WAIT',
+        confirmed: true,
+        notes: 'Bars referencing his ex',
+      },
+      {
+        position: 2,
+        title: 'Crossroads',
+        confirmed: true,
+        notes: 'Personal track but changed to the 2nd position',
+      },
+      {
+        position: 7,
+        title: 'Fuck The World',
+        confirmed: true,
+        notes: 'Closing track — most personal song on the EP',
+      },
+    ],
+  },
+
+  {
+    project: 'OS2S: Extended Edition',
+    era: 'OS2S: Extended Edition',
+    status: 'Confirmed',
+    source: 'Official bundle release via OS2S website',
+    updatedDate: '2024',
+    notes: 'Extended version of One Shot To Shine with 3 bonus tracks, only available if you purchased the bundle.',
+    tracks: [
+      {
+        position: 1,
+        title: 'One Shot To Shine',
+        confirmed: true,
+        notes: 'Carried over from the original EP',
+      },
+      {
+        position: 5,
+        title: 'Papercuts',
+        confirmed: true,
+        producer: 'ROB EVN',
+      },
+      {
+        position: 3,
+        title: 'Out Till Late',
+        confirmed: true,
+        features: 'ft. Whizz',
+      },
+      {
+        position: 4,
+        title: 'Go With It',
+        confirmed: true,
+        producer: 'YiciBeats',
+      },
+      {
+        position: 2,
+        title: 'CANT WAIT',
+        confirmed: true,
+      },
+      {
+        position: 6,
+        title: 'Crossroads',
+        confirmed: true,
+      },
+      {
+        position: 7,
+        title: 'RUSH THIS!',
+        confirmed: true,
+        producer: 'RealRichMoney & Rkenzo',
+        notes: 'Bonus track — production changed from the original coreyblazyy versions',
+      },
+      {
+        position: 8,
+        title: 'Say So',
+        confirmed: true,
+        producer: 'Segway',
+        notes: 'Bonus track — revamped version, no Kadz feature',
+      },
+      {
+        position: 9,
+        title: 'Lifestyle Lately',
+        confirmed: true,
+        features: 'ft. Tkandz',
+        producer: 'Gore Ocean',
+        notes: 'Bonus track — UK reshot version with Tkandz',
+      },
+    ],
   },
 ];

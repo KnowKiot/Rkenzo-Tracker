@@ -954,7 +954,7 @@ export const TRACKLISTS: Tracklist[] = [
   {
     project: 'OS2S: Extended Edition',
     era: 'OS2S: Extended Edition',
-    status: 'Released',
+    status: 'Confirmed',
     source: 'Official bundle release via OS2S website',
     updatedDate: '2024',
     notes: 'Extended version of One Shot To Shine with 3 bonus tracks, only available if you purchased the bundle.',
@@ -1030,7 +1030,7 @@ export const TRACKLISTS: Tracklist[] = [
   {
     project: 'One Shot To Shine V2',
     era: 'One Shot To Shine',
-    status: 'Released',
+    status: 'Confirmed',
     source: 'Official EP release — August 23rd 2024',
     updatedDate: 'August 2024',
     notes: 'Debut EP. Officially released tracklist.',

@@ -519,7 +519,7 @@ export default function RkenzoTracker() {
     }`;
 
   return (
-    <div className="min-h-screen bg-black text-white p-8 font-sans">
+    <div className="min-h-screen text-white p-8 font-sans" style={{ background: 'linear-gradient(to bottom, #0a0a0a, #0c0c0c)' }}>
       <div className="max-w-7xl mx-auto">
 
         {/* ── Header ── */}

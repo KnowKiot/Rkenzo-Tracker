@@ -271,6 +271,18 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
   const [open, setOpen] = useState(true);
   const accent = eraAccent(tl.era);
   const isConfirmed = tl.status === 'Confirmed';
+  const statusLabel =
+    tl.status === 'Confirmed'
+      ? '✅ Confirmed'
+      : tl.status === 'Rumoured'
+      ? '🔮 Rumoured'
+      : '🗑️ Scrapped';
+  const statusStyle =
+    tl.status === 'Confirmed'
+      ? { background: 'rgba(34,197,94,0.15)', color: '#4ade80', borderColor: 'rgba(34,197,94,0.35)' }
+      : tl.status === 'Rumoured'
+      ? { background: 'rgba(234,179,8,0.15)', color: '#fde047', borderColor: 'rgba(234,179,8,0.35)' }
+      : { background: 'rgba(248,113,113,0.15)', color: '#f87171', borderColor: 'rgba(248,113,113,0.35)' };
   const confirmedCount = tl.tracks.filter((t) => t.confirmed).length;
 
   return (
@@ -293,16 +305,11 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
               <h3 className="text-xl font-bold tracking-tight" style={{ color: accent }}>
                 {tl.project}
               </h3>
-              {/* Confirmed / Rumoured badge */}
               <span
                 className="text-xs px-3 py-1 rounded-full font-semibold border flex-shrink-0"
-                style={
-                  isConfirmed
-                    ? { background: 'rgba(34,197,94,0.15)', color: '#4ade80', borderColor: 'rgba(34,197,94,0.35)' }
-                    : { background: 'rgba(234,179,8,0.15)', color: '#fde047', borderColor: 'rgba(234,179,8,0.35)' }
-                }
+                style={statusStyle}
               >
-                {isConfirmed ? '✅ Confirmed' : '🔮 Rumoured'}
+                {statusLabel}
               </span>
             </div>
             <span
@@ -344,7 +351,9 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
             .map((track, i) => (
             <div
               key={i}
-              className="flex items-start gap-4 px-6 py-4 hover:bg-white/5 transition-colors duration-150"
+              className={`flex items-start gap-4 px-6 py-4 hover:bg-white/5 transition-colors duration-150 ${
+                track.confirmed ? 'text-white' : 'text-zinc-400'
+              }`}
               style={{ borderBottom: `1px solid ${accent}15` }}
             >
               {/* Track number */}
@@ -362,14 +371,14 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
                     {track.title}
                   </span>
                   {track.features && (
-                    <span className="text-xs text-zinc-500">{track.features}</span>
+                    <span className={track.confirmed ? 'text-zinc-400 text-xs' : 'text-zinc-500 text-xs'}>{track.features}</span>
                   )}
                   {track.producer && (
-                    <span className="text-xs text-zinc-600">prod. {track.producer}</span>
+                    <span className={track.confirmed ? 'text-zinc-400 text-xs' : 'text-zinc-500 text-xs'}>prod. {track.producer}</span>
                   )}
                 </div>
                 {track.notes && (
-                  <p className="text-zinc-600 text-xs mt-1 leading-relaxed">{track.notes}</p>
+                  <p className={track.confirmed ? 'text-zinc-400 text-xs mt-1 leading-relaxed' : 'text-zinc-500 text-xs mt-1 leading-relaxed'}>{track.notes}</p>
                 )}
               </div>
 
@@ -393,7 +402,7 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
 }
 
 function TracklistsSection({ filterEra }: { filterEra: string }) {
-  const [filterStatus, setFilterStatus] = useState<'All' | 'Confirmed' | 'Rumoured'>('All');
+  const [filterStatus, setFilterStatus] = useState<StatusFilter>('All');
 
   const filtered = useMemo(
     () =>
@@ -402,7 +411,7 @@ function TracklistsSection({ filterEra }: { filterEra: string }) {
         const matchesStatus =
           filterStatus === 'All'
             ? true
-            : filterStatus === 'Confirmed'
+            : filterStatus === 'Released'
             ? tl.status === 'Confirmed'
             : ['Rumoured', 'Scrapped'].includes(tl.status);
         return matchesEra && matchesStatus;
@@ -415,21 +424,21 @@ function TracklistsSection({ filterEra }: { filterEra: string }) {
       {/* Status filter */}
       <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 mb-6 flex flex-wrap items-center gap-3">
         <span className="text-zinc-500 text-xs uppercase tracking-wider mr-1">Status</span>
-        {(['All', 'Confirmed', 'Rumoured'] as const).map((s) => (
+        {(['All', 'Released', 'Unreleased'] as StatusFilter[]).map((s) => (
           <button
             key={s}
             onClick={() => setFilterStatus(s)}
             className={`px-3 py-1 rounded-xl text-sm border transition ${
               filterStatus === s
-                ? s === 'Confirmed'
+                ? s === 'Released'
                   ? 'bg-green-500 text-black border-green-500'
-                  : s === 'Rumoured'
-                  ? 'bg-yellow-400 text-black border-yellow-400'
+                  : s === 'Unreleased'
+                  ? 'bg-red-500/80 text-white border-red-500'
                   : 'bg-white text-black border-white'
                 : 'bg-zinc-800 border-zinc-700 hover:border-white'
             }`}
           >
-            {s === 'Confirmed' ? '✅ Confirmed' : s === 'Rumoured' ? '🔮 Rumoured' : 'All'}
+            {s === 'Released' ? '✅ Released' : s === 'Unreleased' ? '🔒 Unreleased' : 'All'}
           </button>
         ))}
       </div>
@@ -469,6 +478,11 @@ export default function RkenzoTracker() {
   }), []);
 
   const grails = useMemo(() => SONGS.filter((s) => s.rating === '🏆'), []);
+  const lastUpdated = new Date().toLocaleDateString('en-GB', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
 
   // ── Filtered songs ──
   const filteredSongs = useMemo(() => {
@@ -512,7 +526,7 @@ export default function RkenzoTracker() {
         <div className="mb-10">
           <h1 className="text-5xl font-bold tracking-tight mb-2">RKENZO TRACKER</h1>
           <p className="text-zinc-400 text-lg">
-            Community archive for songs, snippets, leaks and unreleased material.
+            Community archive for songs, snippets, leaks and unreleased material. Powered by Kiot
           </p>
         </div>
 
@@ -553,7 +567,7 @@ export default function RkenzoTracker() {
               return (
                 <div
                   key={i}
-                  className="rounded-xl p-4 border flex flex-col gap-2"
+                  className="rounded-xl p-4 border flex flex-col gap-2 transform transition-all duration-200 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl"
                   style={{ borderColor: `${accent}40`, background: `${accent}0d` }}
                 >
                   <div className="flex items-start justify-between gap-2">
@@ -813,6 +827,9 @@ export default function RkenzoTracker() {
           </div>
         </div>
 
+        <div className="mt-8 text-right text-xs text-zinc-500">
+          Last updated: {lastUpdated}
+        </div>
       </div>
     </div>
   );

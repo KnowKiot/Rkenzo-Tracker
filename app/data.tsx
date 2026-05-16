@@ -197,7 +197,7 @@ export const SONGS: Song[] = [
     era: 'Momentary Bliss',
     status: 'Released',
     producer: 'Unknown',
-    notes: 'Second song released in the Momentary Bliss rollout likely another throwaway song',
+    notes: 'Second song released in the Momentary Bliss rollout likely another throwaway song. Kenz also claimed he made this song in under 10 seconds',
     rating: '🗑️',
     filename: '—',
     link: 'https://www.youtube.com/watch?v=MFjM_NQvPC0',
@@ -488,21 +488,21 @@ export const SONGS: Song[] = [
     link: '',
   },
   {
-    title: 'Mental Ft Tkandz & Rkenzo',
+    title: 'Black Cat - Mental Ft Tkandz & Rkenzo',
     era: 'OS2S: Extended Edition',
     status: 'Released',
-    producer: 'Unknown',
+    producer: 'Black Cat',
     notes:
       'Australian artist song featuring both Tkandz and Rkenzo. song was sent to rkenzo around october/november 2024 and Rkenzo gives a fresh new flow aligning with the OS2S theme reuses his famous han solo bar and sees Tkandz deliver a american flow verse. Song was taken down by Tkandz label for unknown reasons',
     rating: '✨',
     filename: '—',
-    link: 'Unavailable due to copyright claims',
+    link: 'https://music.apple.com/us/song/mental-feat-tkandz-rkenzo-remix/1779561820',
   },
   {
     title: 'Too Fast',
     era: 'OS2S: Extended Edition',
     status: 'Vaulted',
-    producer: 'Black Cat',
+    producer: '',
     notes:
       'Collaborative song Rkenzo made with one of his collegues from his university course, Rkenzo experiments with a new sound and reuses some bars but the melodic delivery from both artists in a catchy manner, fans anticipate it to release on Momentary Bliss but doesnt seem likely as the feature was never cleared from the other artist',
     rating: '🏆',
@@ -911,7 +911,7 @@ export const TRACKLISTS: Tracklist[] = [
       {
         position: 3,
         title: 'Milan',
-        confirmed: false,
+        confirmed: true,
         features: 'ft. Tkandz',
         notes: 'Snippeted April 2026 — likely a lead single or album cut given the full verse preview. Rkenzo said if Tkandz label doesnt clear his feature then he will replace this song with another highly anticipated artist feature',
       },
@@ -940,15 +940,90 @@ export const TRACKLISTS: Tracklist[] = [
         notes: 'Released standalone but widely expected to be on the album given the Swiss camp connection',
       },
 
-
       {
         position: 7,
         title: 'Alone',
-        confirmed: false,
+        confirmed: true,
         producer: 'FinniX!Beats',
         notes: 'Instantly hailed as a grail after the instagram live preview. Fans are desperate for this one',
       },
 
+    ],
+  },
+
+  {
+    project: 'OS2S: Extended Edition',
+    era: 'OS2S: Extended Edition',
+    status: 'Confirmed',
+    source: 'Official bundle release via OS2S website',
+    updatedDate: '2024',
+    notes: 'Extended version of One Shot To Shine with 3 bonus tracks, only available if you purchased the bundle.',
+    tracks: [
+      {
+        position: 1,
+        title: 'One Shot To Shine',
+        confirmed: true,
+        notes: 'Carried over from the original EP',
+      },
+
+
+      {
+        position: 2,
+        title: 'CANT WAIT',
+        confirmed: true,
+      },
+
+      {
+        position: 3,
+        title: 'Out Till Late',
+        confirmed: true,
+        features: 'ft. Whizz',
+      },
+
+      {
+        position: 4,
+        title: 'Go With It',
+        confirmed: true,
+        producer: 'YiciBeats',
+      },
+
+
+      {
+        position: 5,
+        title: 'Papercuts',
+        confirmed: true,
+        producer: 'ROB EVN',
+      },
+
+
+
+      {
+        position: 6,
+        title: 'Crossroads',
+        confirmed: true,
+      },
+      {
+        position: 7,
+        title: 'RUSH THIS!',
+        confirmed: true,
+        producer: 'RealRichMoney & Rkenzo',
+        notes: 'Bonus track — production changed from the original coreyblazyy versions',
+      },
+      {
+        position: 8,
+        title: 'Say So',
+        confirmed: true,
+        producer: 'Segway',
+        notes: 'Bonus track — revamped version, no Kadz feature',
+      },
+      {
+        position: 9,
+        title: 'Lifestyle Lately',
+        confirmed: true,
+        features: 'ft. Tkandz',
+        producer: 'Gore Ocean',
+        notes: 'Bonus track — UK reshot version with Tkandz',
+      },
     ],
   },
 
@@ -1071,79 +1146,5 @@ export const TRACKLISTS: Tracklist[] = [
     ],
   },
 
-  {
-    project: 'OS2S: Extended Edition',
-    era: 'OS2S: Extended Edition',
-    status: 'Confirmed',
-    source: 'Official bundle release via OS2S website',
-    updatedDate: '2024',
-    notes: 'Extended version of One Shot To Shine with 3 bonus tracks, only available if you purchased the bundle.',
-    tracks: [
-      {
-        position: 1,
-        title: 'One Shot To Shine',
-        confirmed: true,
-        notes: 'Carried over from the original EP',
-      },
 
-
-      {
-        position: 2,
-        title: 'CANT WAIT',
-        confirmed: true,
-      },
-
-      {
-        position: 3,
-        title: 'Out Till Late',
-        confirmed: true,
-        features: 'ft. Whizz',
-      },
-
-      {
-        position: 4,
-        title: 'Go With It',
-        confirmed: true,
-        producer: 'YiciBeats',
-      },
-
-
-      {
-        position: 5,
-        title: 'Papercuts',
-        confirmed: true,
-        producer: 'ROB EVN',
-      },
-
-
-
-      {
-        position: 6,
-        title: 'Crossroads',
-        confirmed: true,
-      },
-      {
-        position: 7,
-        title: 'RUSH THIS!',
-        confirmed: true,
-        producer: 'RealRichMoney & Rkenzo',
-        notes: 'Bonus track — production changed from the original coreyblazyy versions',
-      },
-      {
-        position: 8,
-        title: 'Say So',
-        confirmed: true,
-        producer: 'Segway',
-        notes: 'Bonus track — revamped version, no Kadz feature',
-      },
-      {
-        position: 9,
-        title: 'Lifestyle Lately',
-        confirmed: true,
-        features: 'ft. Tkandz',
-        producer: 'Gore Ocean',
-        notes: 'Bonus track — UK reshot version with Tkandz',
-      },
-    ],
-  },
 ];

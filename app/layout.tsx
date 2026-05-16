@@ -12,6 +12,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+  title: "Rkenzo Tracker",
+  description: "Tracking Rkenzo music, releases and updates.",
+}
+/*
 export const metadata = {
   title: 'Rkenzo Tracker',
   description: 'Tracking Rkenzo music, releases and updates.',
@@ -28,7 +33,7 @@ export const metadata = {
     ],
   },
 }
-
+*/
 export default function RootLayout({
   children,
 }: Readonly<{

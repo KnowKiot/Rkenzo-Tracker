@@ -131,6 +131,18 @@ export const ERAS: Era[] = [
 
 export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
+
+  {
+    title: 'Unreleased love song',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Unreleased love / girl type song he made 22/05/2026',
+    rating: '',
+    filename: '—',
+    link: 'https://www.instagram.com/reel/DXco17oDKcb/',
+  },
+
   {
     title: 'What Da Fack Freestyle',
     era: 'Momentary Bliss',
@@ -165,12 +177,12 @@ export const SONGS: Song[] = [
   {
     title: 'Rick Owens',
     era: 'Momentary Bliss',
-    status: 'Snippet',
+    status: 'Released',
     producer: 'Sogimura',
-    notes: 'Snippet uploaded to TikTok 9th May 2026. Song samples "prolly my spookiest beat"',
-    rating: '🏆',
+    notes: 'Snippet uploaded to TikTok 9th May 2026. Song samples "prolly my spookiest beat. Released 23rd May 2026 as track 1 for Momentary Bliss"',
+    rating: '✨',
     filename: '—',
-    link: 'https://vt.tiktok.com/ZS97hTvbP/',
+    link: 'https://open.spotify.com/album/4GsqZMSH0Vay1LnL1KmNwt?si=HN3UreP5T5-HMFIh6ETOHQ',
   },
   {
     title: 'WAGWAN Fresstyle',
@@ -283,7 +295,7 @@ export const SONGS: Song[] = [
     status: 'Snippet',
     producer: 'FinniX!Beats',
     notes:
-      'Instagram live preview. Instantly hailed as a grail — part of the collection of songs Rkenzo made with FinniX Switzerland',
+      'Instagram live preview. Instantly hailed as a grail — part of the collection of songs Rkenzo made with FinniX Switzerland. Reportedly this song is on its 5th version and kenz plans to change studio to finish it for a fresher sound and new creative environment',
     rating: '🏆',
     filename: '',
     link: 'https://imgur.gg/f/EgxCX5j',
@@ -406,6 +418,17 @@ export const SONGS: Song[] = [
     link: 'https://www.youtube.com/watch?v=evCgCR9aJsM',
   },
   {
+    title: 'Too Fast V2',
+    era: 'OS2S: Extended Edition',
+    status: 'Vaulted',
+    producer: '',
+    notes:
+      'Version of TOO FAST with a different beat/mix. Not as good as the first version',
+    rating: '',
+    filename: 'TOO FAST mix.m4a',
+    link: '',
+  },
+  {
     title: 'Mr Imagination - Ambrosia Ft Rkenzo',
     era: 'OS2S: Extended Edition',
     status: 'Unreleased',
@@ -499,14 +522,14 @@ export const SONGS: Song[] = [
     link: 'https://music.apple.com/us/song/mental-feat-tkandz-rkenzo-remix/1779561820',
   },
   {
-    title: 'Too Fast',
+    title: 'Too Fast V1',
     era: 'OS2S: Extended Edition',
     status: 'Vaulted',
     producer: '',
     notes:
-      'Collaborative song Rkenzo made with one of his collegues from his university course, Rkenzo experiments with a new sound and reuses some bars but the melodic delivery from both artists in a catchy manner, fans anticipate it to release on Momentary Bliss but doesnt seem likely as the feature was never cleared from the other artist',
+      'Collaborative song Rkenzo made with one of his collegues from his university course, Rkenzo experiments with a new sound and reuses some bars but the melodic delivery from both artists in a catchy manner, fans anticipate it to release on Momentary Bliss but doesnt seem likely as the feature was never cleared from the other artist. Apparently he lost this version of the song but it is recoverable',
     rating: '🏆',
-    filename: 'TOO FAST mix.m4a',
+    filename: 'TOO FAST.wav',
     link: '',
   },
   // ── One Shot To Shine ────────────────────────
@@ -895,19 +918,19 @@ export const TRACKLISTS: Tracklist[] = [
     tracks: [
       {
         position: 1,
+        title: 'Rick Owens',
+        confirmed: true,
+        notes: 'Snippet was first uploaded on TikTok May 2026 — short but sounds like a full track is done',
+      },
+
+      {
+        position: 2,
         title: 'EVISU JEANS',
         confirmed: true,
         producer: 'coreyblazyinc',
         notes: 'Already released as a rollout single — likely the opener or an early track',
       },
       
-      {
-        position: 2,
-        title: 'Rick Owens',
-        confirmed: true,
-        notes: 'Snippet was first uploaded on TikTok May 2026 — short but sounds like a full track is done',
-      },
-
       {
         position: 3,
         title: 'Milan',

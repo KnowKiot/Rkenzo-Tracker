@@ -38,6 +38,7 @@ export interface Song {
   rating: RatingEmoji;
   filename: string;
   link: string;
+  releaseDate?: string;
 }
 
 export interface Era {
@@ -131,6 +132,16 @@ export const ERAS: Era[] = [
 
 export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
+  {
+    title: 'Rick Owens',
+    era: 'Momentary Bliss',
+    status: 'Released',
+    producer: 'Sogimura',
+    notes: 'Snippet uploaded to TikTok 9th May 2026. Song samples "prolly my spookiest beat" and believed to also sample "FIELD TRIP" by Ye but this is all speculation. Released 23rd May 2026 as track 1 for Momentary Bliss"',
+    rating: '🏆',
+    filename: '—',
+    link: 'https://open.spotify.com/album/4GsqZMSH0Vay1LnL1KmNwt?si=HN3UreP5T5-HMFIh6ETOHQ',
+  },
 
   {
     title: 'Unreleased love song',
@@ -174,16 +185,7 @@ export const SONGS: Song[] = [
     filename: '—',
     link: 'https://www.instagram.com/reel/DXR_71rjGq4/',
   },
-  {
-    title: 'Rick Owens',
-    era: 'Momentary Bliss',
-    status: 'Released',
-    producer: 'Sogimura',
-    notes: 'Snippet uploaded to TikTok 9th May 2026. Song samples "prolly my spookiest beat. Released 23rd May 2026 as track 1 for Momentary Bliss"',
-    rating: '✨',
-    filename: '—',
-    link: 'https://open.spotify.com/album/4GsqZMSH0Vay1LnL1KmNwt?si=HN3UreP5T5-HMFIh6ETOHQ',
-  },
+
   {
     title: 'WAGWAN Fresstyle',
     era: 'Momentary Bliss',
@@ -223,6 +225,7 @@ export const SONGS: Song[] = [
     rating: '✨',
     filename: '—',
     link: 'https://www.youtube.com/watch?v=GCz7GZODsv4',
+    releaseDate: '2026-05-01',
   },
   {
     title: 'Show me your love',
@@ -775,7 +778,7 @@ export const MUSIC_VIDEOS: MusicVideo[] = [
     youtubeId: 'HrTWu-lV6DQ',
     status: 'Released',
     rating: '✨',
-    releaseDate: '2026',
+    releaseDate: '2026-05-15',
     notes: 'Live performance of EVISU JEANS and is much better than the actual music video showcasing a more energentic kenz and a better visuals overall',
   },
 
@@ -920,7 +923,7 @@ export const TRACKLISTS: Tracklist[] = [
         position: 1,
         title: 'Rick Owens',
         confirmed: true,
-        notes: 'Snippet was first uploaded on TikTok May 2026 — short but sounds like a full track is done',
+        notes: 'Released 23rd of May 2026 as the lead single for Momentary Bliss confirmed by Rkenzo in multiple snippets he included "TRACK 01" at the top corner implying its the intro to momentary bliss. The song is a fan favourite and is expected to be the opener for the album.',
       },
 
       {

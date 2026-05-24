@@ -26,6 +26,25 @@ const statusColor = (status: string) => {
 const RELEASED_STATUSES = ['Released'];
 const isUnreleased = (status: string) => !RELEASED_STATUSES.includes(status);
 
+const ERA_YEAR: Record<string, number> = {
+  'Momentary Bliss': 2026,
+  'OS2S: Extended Edition': 2025,
+  'One Shot To Shine': 2024,
+  'Young Kenz': 2023,
+  'Rkenzo Foundation': 2022,
+};
+
+const parseReleaseTimestamp = (dateString?: string) => {
+  if (!dateString) return 0;
+  const timestamp = Date.parse(dateString);
+  if (!Number.isNaN(timestamp)) return timestamp;
+  const year = Number(dateString.slice(0, 4));
+  if (!Number.isNaN(year) && year > 0) {
+    return new Date(year, 11, 31).getTime();
+  }
+  return 0;
+};
+
 // ─────────────────────────────────────────────
 //  Animated Era Panel
 // ─────────────────────────────────────────────
@@ -180,16 +199,148 @@ function EraPanel({
 //  Music Videos Section
 // ─────────────────────────────────────────────
 
-function MusicVideosSection({ filterEra }: { filterEra: string }) {
+function RecentSection({ filterStatus, onChangeStatus }: { filterStatus: StatusFilter; onChangeStatus: (status: StatusFilter) => void }) {
+  const recentItems = useMemo(() => {
+    const songIndexByTitle = new Map(SONGS.map((song, index) => [song.title.toLowerCase(), index]));
+    const eraSongIndexes = SONGS.reduce<Record<string, number[]>>((acc, song, index) => {
+      if (!acc[song.era]) acc[song.era] = [];
+      acc[song.era].push(index);
+      return acc;
+    }, {});
+
+    const songs = SONGS.map((song, index) => ({
+      kind: 'song' as const,
+      title: song.title,
+      era: song.era,
+      status: song.status,
+      rating: song.rating || '—',
+      creator: song.producer,
+      link: song.link,
+      sortRank: index,
+    }));
+
+    const videos = MUSIC_VIDEOS.map((mv) => {
+      const lowerTitle = mv.title.toLowerCase();
+      const exactSongIndex = songIndexByTitle.get(lowerTitle);
+      const partialSongIndex = [...songIndexByTitle.entries()].find(([title]) => lowerTitle.includes(title) || title.includes(lowerTitle))?.[1];
+      const sameEraIndexes = eraSongIndexes[mv.era] ?? [];
+      const baseRank = exactSongIndex ?? partialSongIndex ?? (sameEraIndexes.length ? Math.max(...sameEraIndexes) : SONGS.length);
+      return {
+        kind: 'video' as const,
+        title: mv.title,
+        era: mv.era,
+        status: mv.status,
+        rating: mv.rating || '—',
+        creator: mv.director || 'Video',
+        link: mv.youtubeId ? `https://www.youtube.com/watch?v=${mv.youtubeId}` : '',
+        sortRank: baseRank + 0.5,
+      };
+    });
+
+    return [...songs, ...videos]
+      .sort((a, b) => a.sortRank - b.sortRank)
+      .filter((item) => {
+        if (filterStatus === 'All') return true;
+        return filterStatus === 'Released'
+          ? item.status === 'Released'
+          : item.status !== 'Released';
+      });
+  }, [filterStatus]);
+
+  return (
+    <div className="mb-10">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-5">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">🕒</span>
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">Recent</h2>
+            <p className="text-zinc-500 text-sm">— latest songs and music videos in current order</p>
+          </div>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-zinc-500 text-xs uppercase tracking-wider">Status</span>
+          {(['All', 'Released', 'Unreleased'] as StatusFilter[]).map((status) => (
+            <button
+              key={status}
+              onClick={() => onChangeStatus(status)}
+              className={`px-3 py-1 rounded-xl text-sm border transition ${
+                filterStatus === status
+                  ? status === 'Released'
+                    ? 'bg-green-500 text-black border-green-500'
+                    : status === 'Unreleased'
+                    ? 'bg-red-500/80 text-white border-red-500'
+                    : 'bg-white text-black border-white'
+                  : 'bg-zinc-800 border-zinc-700 hover:border-white'
+              }`}
+            >
+              {status === 'Released' ? '✅ Released' : status === 'Unreleased' ? '🔒 Unreleased' : 'All'}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="overflow-x-auto rounded-3xl border border-zinc-800 bg-zinc-950/40">
+        <table className="w-full">
+          <thead>
+            <tr className="text-zinc-500 text-xs uppercase tracking-wider" style={{ borderBottom: '1px solid rgba(148,163,184,0.15)' }}>
+              {['Rating', 'Song', 'Era', 'Status', 'Producer', 'Link'].map((h) => (
+                <th key={h} className="text-left px-5 py-3 font-medium">
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {recentItems.map((item, i) => (
+              <tr key={`${item.kind}-${i}`} className="hover:bg-white/5 transition-colors duration-150" style={{ borderBottom: '1px solid rgba(148,163,184,0.08)' }}>
+                <td className="px-5 py-4 text-lg">{item.rating}</td>
+                <td className="px-5 py-4 font-medium text-white whitespace-nowrap">{item.title}</td>
+                <td className="px-5 py-4 text-zinc-300 text-sm whitespace-nowrap">{item.era}</td>
+                <td className="px-5 py-4 text-zinc-300 text-sm whitespace-nowrap capitalize">{item.kind}</td>
+                <td className="px-5 py-4">
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium border ${statusColor(item.status)}`}>
+                    {item.status}
+                  </span>
+                </td>
+                <td className="px-5 py-4 text-zinc-300 text-sm whitespace-nowrap">{item.creator}</td>
+                <td className="px-5 py-4">
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition text-sm whitespace-nowrap"
+                    >
+                      Open ↗
+                    </a>
+                  ) : (
+                    <span className="text-zinc-600 text-sm">—</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function MusicVideosSection({ filterEra, filterRating }: { filterEra: string; filterRating: string }) {
   const videos = useMemo(
     () =>
-      filterEra === 'All'
-        ? MUSIC_VIDEOS
-        : MUSIC_VIDEOS.filter((v) => v.era === filterEra),
-    [filterEra],
+      MUSIC_VIDEOS.filter((mv) => {
+        const matchesEra = filterEra === 'All' || mv.era === filterEra;
+        const normalizedRating = mv.rating || '—';
+        const matchesRating = filterRating === 'All' || normalizedRating === filterRating;
+        return matchesEra && matchesRating;
+      }),
+    [filterEra, filterRating],
   );
 
-  if (videos.length === 0) return null;
+  if (videos.length === 0) {
+    return <div className="text-center text-zinc-500 py-20">No music videos match your filters.</div>;
+  }
 
   return (
     <div className="mb-10">
@@ -240,8 +391,17 @@ function MusicVideosSection({ filterEra }: { filterEra: string }) {
               </div>
 
               {/* Info */}
-              <div className="p-4 flex flex-col gap-1 flex-1">
-                <p className="font-semibold text-white text-sm leading-tight">{mv.title}</p>
+              <div className="p-4 flex flex-col gap-2 flex-1">
+                <div className="flex items-center justify-between gap-3">
+                  <p className="font-semibold text-white text-sm leading-tight">{mv.title}</p>
+                  <span
+                    className="text-xl font-semibold"
+                    style={{ color: accent }}
+                    title={RATINGS.find((r) => r.emoji === (mv.rating || '—'))?.label ?? 'Unrated'}
+                  >
+                    {mv.rating || '—'}
+                  </span>
+                </div>
                 {mv.releaseDate && (
                   <p className="text-xs" style={{ color: `${accent}99` }}>
                     {mv.releaseDate}
@@ -463,11 +623,13 @@ function TracklistsSection({ filterEra }: { filterEra: string }) {
 type StatusFilter = 'All' | 'Released' | 'Unreleased';
 
 export default function RkenzoTracker() {
-  const [search, setSearch]             = useState('');
-  const [filterRating, setFilterRating] = useState('All');
-  const [filterEra, setFilterEra]       = useState('All');
-  const [filterStatus, setFilterStatus] = useState<StatusFilter>('All');
-  const [activeTab, setActiveTab]       = useState<'songs' | 'videos' | 'tracklists'>('songs');
+  const [search, setSearch]                 = useState('');
+  const [filterRating, setFilterRating]     = useState('All');
+  const [filterVideoRating, setFilterVideoRating] = useState('All');
+  const [filterEra, setFilterEra]           = useState('All');
+  const [filterStatus, setFilterStatus]     = useState<StatusFilter>('All');
+  const [filterRecentStatus, setFilterRecentStatus] = useState<StatusFilter>('All');
+  const [activeTab, setActiveTab]           = useState<'songs' | 'recent' | 'videos' | 'tracklists'>('songs');
 
   // ── Stats ──
   const stats = useMemo(() => ({
@@ -608,6 +770,9 @@ export default function RkenzoTracker() {
           <button className={tabCls(activeTab === 'songs')}      onClick={() => setActiveTab('songs')}>
             🎵 Songs
           </button>
+          <button className={tabCls(activeTab === 'recent')}     onClick={() => setActiveTab('recent')}>
+            🕒 Recent
+          </button>
           <button className={tabCls(activeTab === 'videos')}     onClick={() => setActiveTab('videos')}>
             🎬 Music Videos
           </button>
@@ -615,6 +780,11 @@ export default function RkenzoTracker() {
             📋 Tracklists
           </button>
         </div>
+
+        {/* ── Recent Tab ── */}
+        {activeTab === 'recent' && (
+          <RecentSection filterStatus={filterRecentStatus} onChangeStatus={setFilterRecentStatus} />
+        )}
 
         {/* ── Music Videos Tab ── */}
         {activeTab === 'videos' && (
@@ -647,7 +817,36 @@ export default function RkenzoTracker() {
                 </button>
               ))}
             </div>
-            <MusicVideosSection filterEra={filterEra} />
+
+            {/* Rating filter for videos */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 mb-6 flex flex-wrap items-center gap-3">
+              <span className="text-zinc-500 text-xs uppercase tracking-wider mr-1">Rating</span>
+              <button
+                onClick={() => setFilterVideoRating('All')}
+                className={`px-3 py-1 rounded-xl text-sm border transition ${
+                  filterVideoRating === 'All'
+                    ? 'bg-white text-black border-white'
+                    : 'bg-zinc-800 border-zinc-700 hover:border-white'
+                }`}
+              >
+                All
+              </button>
+              {RATINGS.filter((r) => r.emoji !== '—').map((r) => (
+                <button
+                  key={r.emoji}
+                  onClick={() => setFilterVideoRating(filterVideoRating === r.emoji ? 'All' : r.emoji)}
+                  className={`px-3 py-1 rounded-xl text-sm border transition ${
+                    filterVideoRating === r.emoji
+                      ? 'bg-white text-black border-white'
+                      : 'bg-zinc-800 border-zinc-700 hover:border-white'
+                  }`}
+                >
+                  {r.emoji} {r.label}
+                </button>
+              ))}
+            </div>
+
+            <MusicVideosSection filterEra={filterEra} filterRating={filterVideoRating} />
           </>
         )}
 

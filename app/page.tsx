@@ -505,56 +505,125 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
         }}
       >
         <div style={{ borderTop: `1px solid ${accent}25` }}>
-          {tl.tracks
-            .slice()
-            .sort((a, b) => a.position - b.position)
-            .map((track, i) => (
-            <div
-              key={i}
-              className={`flex items-start gap-4 px-6 py-4 hover:bg-white/5 transition-colors duration-150 ${
-                track.confirmed ? 'text-white' : 'text-zinc-400'
-              }`}
-              style={{ borderBottom: `1px solid ${accent}15` }}
-            >
-              {/* Track number */}
-              <span
-                className="text-sm font-mono w-6 flex-shrink-0 mt-0.5"
-                style={{ color: `${accent}60` }}
-              >
-                {String(track.position).padStart(2, '0')}
-              </span>
+          {(() => {
+            const mainTracks = tl.tracks.filter((t) => !t.isBonusTrack);
+            const bonusTracks = tl.tracks.filter((t) => t.isBonusTrack);
+            const sortedMain = mainTracks.slice().sort((a, b) => a.position - b.position);
+            const sortedBonus = bonusTracks.slice().sort((a, b) => a.position - b.position);
 
-              {/* Title + features */}
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className={`font-medium text-sm ${track.confirmed ? 'text-white' : 'text-zinc-400'}`}>
-                    {track.title}
-                  </span>
-                  {track.features && (
-                    <span className={track.confirmed ? 'text-zinc-400 text-xs' : 'text-zinc-500 text-xs'}>{track.features}</span>
-                  )}
-                  {track.producer && (
-                    <span className={track.confirmed ? 'text-zinc-400 text-xs' : 'text-zinc-500 text-xs'}>prod. {track.producer}</span>
-                  )}
-                </div>
-                {track.notes && (
-                  <p className={track.confirmed ? 'text-zinc-400 text-xs mt-1 leading-relaxed' : 'text-zinc-500 text-xs mt-1 leading-relaxed'}>{track.notes}</p>
+            return (
+              <>
+                {/* Main tracks */}
+                {sortedMain.map((track, i) => (
+                  <div
+                    key={`main-${i}`}
+                    className={`flex items-start gap-4 px-6 py-4 hover:bg-white/5 transition-colors duration-150 ${
+                      track.confirmed ? 'text-white' : 'text-zinc-400'
+                    }`}
+                    style={{ borderBottom: `1px solid ${accent}15` }}
+                  >
+                    {/* Track number */}
+                    <span
+                      className="text-sm font-mono w-6 flex-shrink-0 mt-0.5"
+                      style={{ color: `${accent}60` }}
+                    >
+                      {String(track.position).padStart(2, '0')}
+                    </span>
+
+                    {/* Title + features */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className={`font-medium text-sm ${track.confirmed ? 'text-white' : 'text-zinc-400'}`}>
+                          {track.title}
+                        </span>
+                        {track.features && (
+                          <span className={track.confirmed ? 'text-zinc-400 text-xs' : 'text-zinc-500 text-xs'}>{track.features}</span>
+                        )}
+                        {track.producer && (
+                          <span className={track.confirmed ? 'text-zinc-400 text-xs' : 'text-zinc-500 text-xs'}>prod. {track.producer}</span>
+                        )}
+                      </div>
+                      {track.notes && (
+                        <p className={track.confirmed ? 'text-zinc-400 text-xs mt-1 leading-relaxed' : 'text-zinc-500 text-xs mt-1 leading-relaxed'}>{track.notes}</p>
+                      )}
+                    </div>
+
+                    {/* Confirmed / unconfirmed pill */}
+                    <span
+                      className="text-xs px-2 py-0.5 rounded-full font-medium border flex-shrink-0"
+                      style={
+                        track.confirmed
+                          ? { background: 'rgba(34,197,94,0.12)', color: '#4ade80', borderColor: 'rgba(34,197,94,0.3)' }
+                          : { background: 'rgba(113,113,122,0.15)', color: '#71717a', borderColor: 'rgba(113,113,122,0.3)' }
+                      }
+                    >
+                      {track.confirmed ? 'Confirmed' : 'Unconfirmed'}
+                    </span>
+                  </div>
+                ))}
+
+                {/* Bonus Tracks Header */}
+                {bonusTracks.length > 0 && (
+                  <div
+                    className="px-6 py-3 font-semibold text-sm flex items-center gap-2"
+                    style={{ background: `${accent}08`, color: accent, borderBottom: `1px solid ${accent}25`, borderTop: `1px solid ${accent}15` }}
+                  >
+                    <span>💫</span>
+                    <span>Bonus Tracks</span>
+                  </div>
                 )}
-              </div>
 
-              {/* Confirmed / unconfirmed pill */}
-              <span
-                className="text-xs px-2 py-0.5 rounded-full font-medium border flex-shrink-0"
-                style={
-                  track.confirmed
-                    ? { background: 'rgba(34,197,94,0.12)', color: '#4ade80', borderColor: 'rgba(34,197,94,0.3)' }
-                    : { background: 'rgba(113,113,122,0.15)', color: '#71717a', borderColor: 'rgba(113,113,122,0.3)' }
-                }
-              >
-                {track.confirmed ? 'Confirmed' : 'Unconfirmed'}
-              </span>
-            </div>
-          ))}
+                {/* Bonus tracks */}
+                {sortedBonus.map((track, i) => (
+                  <div
+                    key={`bonus-${i}`}
+                    className={`flex items-start gap-4 px-6 py-4 hover:bg-white/5 transition-colors duration-150 ${
+                      track.confirmed ? 'text-white' : 'text-zinc-400'
+                    }`}
+                    style={{ borderBottom: `1px solid ${accent}15` }}
+                  >
+                    {/* Track number */}
+                    <span
+                      className="text-sm font-mono w-6 flex-shrink-0 mt-0.5"
+                      style={{ color: `${accent}60` }}
+                    >
+                      {String(track.position).padStart(2, '0')}
+                    </span>
+
+                    {/* Title + features */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className={`font-medium text-sm ${track.confirmed ? 'text-white' : 'text-zinc-400'}`}>
+                          {track.title}
+                        </span>
+                        {track.features && (
+                          <span className={track.confirmed ? 'text-zinc-400 text-xs' : 'text-zinc-500 text-xs'}>{track.features}</span>
+                        )}
+                        {track.producer && (
+                          <span className={track.confirmed ? 'text-zinc-400 text-xs' : 'text-zinc-500 text-xs'}>prod. {track.producer}</span>
+                        )}
+                      </div>
+                      {track.notes && (
+                        <p className={track.confirmed ? 'text-zinc-400 text-xs mt-1 leading-relaxed' : 'text-zinc-500 text-xs mt-1 leading-relaxed'}>{track.notes}</p>
+                      )}
+                    </div>
+
+                    {/* Confirmed / unconfirmed pill */}
+                    <span
+                      className="text-xs px-2 py-0.5 rounded-full font-medium border flex-shrink-0"
+                      style={
+                        track.confirmed
+                          ? { background: 'rgba(34,197,94,0.12)', color: '#4ade80', borderColor: 'rgba(34,197,94,0.3)' }
+                          : { background: 'rgba(113,113,122,0.15)', color: '#71717a', borderColor: 'rgba(113,113,122,0.3)' }
+                      }
+                    >
+                      {track.confirmed ? 'Confirmed' : 'Unconfirmed'}
+                    </span>
+                  </div>
+                ))}
+              </>
+            );
+          })()}
         </div>
       </div>
     </div>

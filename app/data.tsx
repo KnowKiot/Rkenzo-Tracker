@@ -71,6 +71,7 @@ export interface TrackEntry {
   features?: string;    // e.g. "ft. Tkandz"
   producer?: string;
   notes?: string;
+  isBonusTrack?: boolean; // marks track as a bonus/deluxe version track
 }
  
 export interface Tracklist {
@@ -90,7 +91,7 @@ export const ERAS: Era[] = [
     name: 'Momentary Bliss',
     image: '/images/MB.jpeg',
     description:
-      'Upcoming Album expected to release 2026, Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Album seems to experiment with different sounds',
+      "Momentary Bliss era marks the start of Kenz' music from 2026 leading up to the release of his upcoming EP expected to release 2026, Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Project seems to experiment with different sounds and has a spacey-like theme. Fans believe this will be his biggest project yet",
     accent: '#60ecff',
     accentBg: 'rgba(96,236,255,0.06)',
   },
@@ -132,26 +133,194 @@ export const ERAS: Era[] = [
 
 export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
+
+  {
+    title: 'Ride With The Crew',
+    era: 'Momentary Bliss',
+    status: 'Snippet',
+    producer: 'Unknown',
+    notes: "Experimental song with a starry like instrumental similar to playboi carti's OMERTA & Pink Diamonds. Song is expected to release on Momentary Bliss",
+    rating: '🏆',
+    filename: 'RWTC.wav',
+    link: '',
+  },
+
+  {
+    title: 'Stretham Hill',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Emotional song similar to crossroads where kenz expresses his life growing up in South London, Stretham and talks about the things he has experiences and witenesses and how it motivates him to do better',
+    rating: '🥈',
+    filename: 'stretham hill where i reside.wav',
+    link: '',
+  },
+
+  {
+    title: 'Realist',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'New flow and new bars on this track, very catch and is currently being considered for Momentary Bliss EP',
+    rating: '🥉',
+    filename: 'REALIST.wav',
+    link: '',
+  },
+
+  {
+    title: 'TOO LATE',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Song created in the MB era and could be on Momentary Bliss',
+    rating: '',
+    filename: 'TOO LATE.wav',
+    link: '',
+  },
+
+  {
+    title: 'FINER THINGS',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'blancomadeit',
+    notes: 'Song blanco and kenz made together which is an upbeat song with some really catchy hooks. This song is good according to the people who have heard it',
+    rating: '🥉',
+    filename: 'SO - FINER THINGS.mp3',
+    link: '',
+  },
+
+  {
+    title: 'BUSY',
+    era: 'Momentary Bliss',
+    status: 'Throwaway',
+    producer: 'Unknown',
+    notes: 'Throwaway song that probably wont make Momentary Bliss',
+    rating: '',
+    filename: 'BUSY! 2.wav',
+    link: '',
+  },
+
+  {
+    title: 'Black Cat - Capital P Ft Rkenzo',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'Black Cat',
+    notes: 'Feature Rkenzo gave to Black Cat for free during the Momentary Bliss era',
+    rating: '',
+    filename: 'PPP.wav',
+    link: '',
+  },
+
+  {
+    title: 'Lane Swtich',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Experimental song intended for Momentary Bliss, kenz is contemplating putting this it onto Momentary Bliss',
+    rating: '',
+    filename: 'Lane Switch.wav',
+    link: '',
+  },
+
+
+  {
+    title: 'WAKE UP',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'Sogimura',
+    notes: 'Unreleased experimental song, same producer as Rick owens kenz tries a new style with some familar flows and delievers a really solid song. This song will probably be considered for Momentary Bliss',
+    rating: '🥉',
+    filename: 'WAKE UP @@@.wav',
+    link: '',
+  },
+
+  {
+    title: 'Moonwalking',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'FinniXBeats',
+    notes: 'Unreleased song created in the Momentary Bliss era, produced by FinniX so could be a banger',
+    rating: '',
+    filename: 'beeet it.wav',
+    link: '',
+  },
+
+  {
+    title: 'Beat It Freestyle',
+    era: 'Momentary Bliss',
+    status: 'Throwaway',
+    producer: 'FinniXBeats',
+    notes: 'Unreleased song created in the Momentary Bliss era, created during the resurgence of Micheal Jackson due to the MICHEAL movie. (He probably watched the movie and was feeling a lil mike)',
+    rating: '',
+    filename: 'winning it now - 17_02_2026, 02.04 2.wav',
+    link: '',
+  },
+  
+  {
+    title: 'GO NOW',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Unreleased song created in the Momentary Bliss era, song could potentially be saved for the EP release',
+    rating: '',
+    filename: 'GO NIW.wav',
+    link: '',
+  },
+
+  {
+    title: 'Popular Artist X Rkenzo',
+    era: 'Momentary Bliss',
+    status: 'Rumoured',
+    producer: 'Unknown',
+    notes: 'Rkenzo claims to have a feature with a big artist but is not revealing who it is. Apparently this artist will make Momentary Bliss if Tkandz does not clear his verse on Milan',
+    rating: '🥉',
+    filename: '?',
+    link: '',
+  },
+
+  {
+    title: 'Accelerate',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Unfinished song created in the Momentary Bliss era, song could potentially be saved for the EP release',
+    rating: '',
+    filename: 'Accelerate.wav',
+    link: '',
+  },
+
+
+  {
+    title: 'Winning It Now',
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Unreleased song created in the Momentary Bliss era, song could potentially be saved for the EP release',
+    rating: '',
+    filename: 'winning it now - 17_02_2026, 02.04 2.wav',
+    link: '',
+  },
+
   {
     title: 'Rick Owens',
     era: 'Momentary Bliss',
     status: 'Released',
     producer: 'Sogimura',
     notes: 'Snippet uploaded to TikTok 9th May 2026. Song samples "prolly my spookiest beat" and believed to also sample "FIELD TRIP" by Ye but this is all speculation. Released 23rd May 2026 as track 1 for Momentary Bliss"',
-    rating: '🏆',
-    filename: '—',
+    rating: '⭐',
+    filename: "Rick Owen’s mix.wav",
     link: 'https://open.spotify.com/album/4GsqZMSH0Vay1LnL1KmNwt?si=HN3UreP5T5-HMFIh6ETOHQ',
   },
 
   {
-    title: 'Unreleased love song',
+    title: 'BABYGIRL',
     era: 'Momentary Bliss',
     status: 'Unreleased',
     producer: 'Unknown',
     notes: 'Unreleased love / girl type song he made 22/05/2026',
     rating: '',
-    filename: '—',
-    link: 'https://www.instagram.com/reel/DXco17oDKcb/',
+    filename: 'BABYGIRL.wav',
+    link: '',
   },
 
   {
@@ -182,7 +351,7 @@ export const SONGS: Song[] = [
     notes:
       'Snippet uploaded to Instagram on April 18th 2026 where both boys are wearing light blue drip and tkandz previews a verse. Probably will drop leading up to the release of Momentary Bliss',
     rating: '🥇',
-    filename: '—',
+    filename: 'Milan [Rkenzo x Tkandz].MPEG',
     link: 'https://www.instagram.com/reel/DXR_71rjGq4/',
   },
 
@@ -223,7 +392,7 @@ export const SONGS: Song[] = [
     producer: 'coreyblazyinc',
     notes: 'Throwaway song to mark the rollout of Momentary Bliss',
     rating: '✨',
-    filename: '—',
+    filename: 'Rkenzo EVISU JEANS FINAL MIX.wav',
     link: 'https://www.youtube.com/watch?v=GCz7GZODsv4',
     releaseDate: '2026-05-01',
   },
@@ -242,30 +411,30 @@ export const SONGS: Song[] = [
     era: 'Momentary Bliss',
     status: 'Unreleased',
     producer: 'Unknown',
-    notes: 'Song considered for Momentary Bliss tracklist',
-    rating: '',
-    filename: '',
+    notes: "Song could be on the Momentary Bliss EP. It is quite experimetnal taking elements from Dave's Raindance Rkenzo collabs with a female artist to deliver power melodies accompanied with hard hitting bars.",
+    rating: '🥉',
+    filename: 'Fallin In Love.wav',
     link: '',
   },
 
   {
-    title: 'Tracy Beaker',
+    title: 'Blancomadeit - In My Feels Ft Rkenzo',
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'blancomadeit',
-    notes: 'Freestyle previewed to tiktok via rkenzo, using a never before seen flow and a catchy hook. Song is speculated to be on Momentary Bliss and is highly anticipated by fans as it would be unfortunate for it to be a throwaway. Apparently, blancomadeit recorded a verse for this song',
+    notes: "Freestyle previewed to tiktok via rkenzo, using a never before seen flow and a catchy hook. Was thought to be a solo Rkenzo song until it was revealed that it was actually Blanco's song and kenz has a verse on it. Song could still release on Momentary Bliss if blanco gives it to kenz or if blanco scraps the release",
     rating: '🥈',
     filename: '',
     link: 'https://www.tiktok.com/@rkenzo.1/video/7609352871368248598?_r=1&_t=ZS-96Ky1x4NLt2',
   },
 
   {
-    title: 'Underground Sound song with FinniX!Beats',
+    title: "Can't Stay The Night",
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'FinniX!Beats',
-    notes: 'Rkenzo would hop on an underground esdeekid type beat produced by FinniX, the original snippet is not found',
-    rating: '',
+    notes: 'Rkenzo would hop on an underground esdeekid type beat produced by FinniX, the original snippet is not found, Rkenzo actually recoreded on this song and the beat sounds like LV Sandalds',
+    rating: '🥉',
     filename: '',
     link: '',
   },
@@ -287,7 +456,7 @@ export const SONGS: Song[] = [
     status: 'Throwaway',
     producer: 'Unknown',
     notes: 'Freestyle rkenzo uploaded via instagram to celebrate getting a million steams on spotify',
-    rating: '🥉',
+    rating: '',
     filename: '—',
     link: 'https://www.instagram.com/reel/DTYS9GKDCzV/',
   },
@@ -298,9 +467,9 @@ export const SONGS: Song[] = [
     status: 'Snippet',
     producer: 'FinniX!Beats',
     notes:
-      'Instagram live preview. Instantly hailed as a grail — part of the collection of songs Rkenzo made with FinniX Switzerland. Reportedly this song is on its 5th version and kenz plans to change studio to finish it for a fresher sound and new creative environment',
+      'Instagram live preview. Instantly hailed as a grail — part of the collection of songs Rkenzo made with FinniX Switzerland. Reportedly this song is on its 5th version and kenz plans to change studio to finish it for a fresher sound and new creative environment. It is highly liked that this grail will drop as the outro for Momentary Bliss',
     rating: '🏆',
-    filename: '',
+    filename: 'ALONE NOW.wav',
     link: 'https://imgur.gg/f/EgxCX5j',
   },
 
@@ -315,28 +484,112 @@ export const SONGS: Song[] = [
     filename: 'MAKE IT COUNT.wav',
     link: 'https://imgur.gg/f/YsaasWo',
   },
+
+  {
+    title: '5AMDiaries - Blank Street V2 Ft Rkenzo',
+    era: 'Momentary Bliss',
+    status: 'Snippet',
+    producer: 'jacksonhormer',
+    notes: '5AMDiares gave Rkenzo the song for him to drop a verse but he never released the song for unknown reasons.',
+    rating: '',
+    filename: 'Blank Street V2!.wav',
+    link: '',
+  },
+
   {
     title: 'Fan Girl Freestyle',
     era: 'Momentary Bliss',
     status: 'Throwaway',
     producer: 'Unknown',
     notes: 'Freestyle rkenzo uploaded via instagram',
-    rating: '🥈',
+    rating: '🥉',
     filename: '—',
     link: 'https://www.instagram.com/p/DQ4tlyXDBo3/',
   },
-  {
-    title: 'On Go',
-    era: 'Momentary Bliss',
-    status: 'Snippet',
-    producer: 'coreyblazyy',
-    notes: 'Freestyle rkenzo uploaded via instagram. Song is reportedly not a throwaway and has a 2nd verse. Rkenzo is contemplating on finishing it and putting it on Momentary Bliss',
-    rating: '🥉',
-    filename: '—',
-    link: 'https://www.instagram.com/reel/DQIIYMojNda/',
-  },
+
 
   // ── OS2S: Extended Edition ───────────────────
+
+  {
+    title: 'Nails & Toes',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: 'ROB EVN',
+    notes:
+      "Uses a similar style flow as Say So and is a very smooth, chill and vibey typa track. Fans hope this song gets leaked one day",
+    rating: '🥉',
+    filename: 'Nails and toes.wav',
+    link: '',
+  },
+
+  {
+    title: 'Run Away',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Song made in OS2S: Extended Edition Era but never saw the light of day',
+    rating: '',
+    filename: '',
+    link: '',
+  },
+
+  {
+    title: 'All In',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Song made during the OS2S: Extended Edition era but never released for unknown reasons. Song is probably made to build more flows',
+    rating: '',
+    filename: 'all in - 14_12_2025, 15.15',
+    link: '',
+  },
+
+  {
+    title: 'You Know',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: 'loopgod',
+    notes:
+      'Melodic song where Rkenzo experiments with new vocals adding punchy flows and a catchy hook. Kenz has said that this song could potentially make the tracklist for Momentary Bliss',
+    rating: '🥇',
+    filename: 'You Know.Wav',
+    link: '',
+  },
+
+  {
+    title: 'Throwback',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Song borrows bars from In My Feels and Say So V1, made in OS2S: Extended Edition Era but never saw the light of day',
+    rating: "",
+    filename: 'Throwback Final.wav',
+    link: '',
+  },
+
+  {
+    title: 'Rkenzo X ManassehWOD X ?',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Cypher is approached with a more grime esc sound, this would show the first time Rkenzo and Manasseh would collaborate and the first time Kenz rapped on a grime beat to public knowledge. All around good bars and intriging lyrics',
+    rating: '',
+    filename: 'ManassehWOD x Rkenzo 1.wav',
+    link: '',
+  },
+
+  {
+    title: 'CANT STOP',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: '',
+    notes:
+      'Song made during the OS2S: Extended Edition era but never released for unknown reasons. Song is speculated to be a throwaway but fans who have heard it consider it as one of his best songs',
+    rating: '🥉',
+    filename: 'CANT STOP.wav',
+    link: '',
+  },
+
   {
     title: 'OS2S Freestyle',
     era: 'OS2S: Extended Edition',
@@ -356,9 +609,10 @@ export const SONGS: Song[] = [
     notes:
       'Revamped version of Say So with a new 2nd verse, no Kadz feature and new bars for the first verse but same flow. Finally released on the OS2S: Extended Edition. Fun fact the song would of never came out if his Kadz didnt convice him to release it',
     rating: '⭐',
-    filename: 'SAY SO.wav',
+    filename: 'Rkenzo - Say So (MSTR 4).wav',
     link: 'https://www.youtube.com/watch?v=w9Y_v96F9ac',
   },
+
   {
     title: 'All Eyes On Me',
     era: 'OS2S: Extended Edition',
@@ -375,7 +629,7 @@ export const SONGS: Song[] = [
     status: 'Released',
     producer: 'RealRichMoney & Rkenzo',
     notes: 'Production of the release song would change from corey and be entirely produced by Rkenzo and RealRichMoney',
-    rating: '⭐',
+    rating: '🌟',
     filename: '—',
     link: 'https://www.youtube.com/watch?v=vPf7hVAEqTw',
   },
@@ -395,7 +649,7 @@ export const SONGS: Song[] = [
     status: 'Snippet',
     producer: 'coreyblazyy',
     notes: 'Version of RUSH THIS with a spacelike beat',
-    rating: '🥈',
+    rating: '⭐',
     filename: 'Rkenzo - RUSH THIS! Remix by @prodbycorey_.m4a',
     link: 'https://imgur.gg/f/Byi92XL',
   },
@@ -409,6 +663,30 @@ export const SONGS: Song[] = [
     filename: 'rush this b4 mix.wav',
     link: '',
   },
+
+  {
+    title: 'No Time/Money Fast',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes:
+      'Song Rkenzo and Whiz made together in the studio. Fans call this song Out Till Late 2. the alternate filename is WasteNoTimefeatRkenzo.AAC',
+    rating: '🥉',
+    filename: 'Whiz x Kenz - 21:04:2025, 03.29.wav',
+    link: '',
+  },
+
+  {
+    title: 'On Go',
+    era: 'OS2S: Extended Edition',
+    status: 'Snippet',
+    producer: 'coreyblazyy',
+    notes: 'Freestyle rkenzo uploaded via instagram. Song is reportedly not a throwaway and has a 2nd verse. Rkenzo is contemplating on finishing it and putting it on Momentary Bliss',
+    rating: '🥉',
+    filename: 'SOUL BEAT FREESTYLE.wav',
+    link: 'https://www.instagram.com/reel/DQIIYMojNda/',
+  },
+
   {
     title: 'Chose 1 Freestyle',
     era: 'OS2S: Extended Edition',
@@ -420,6 +698,19 @@ export const SONGS: Song[] = [
     filename: '—',
     link: 'https://www.youtube.com/watch?v=evCgCR9aJsM',
   },
+  
+  {
+    title: 'Get It V1',
+    era: 'OS2S: Extended Edition',
+    status: 'Vaulted',
+    producer: '',
+    notes:
+      'Great song Rkenzo deliveres a new flow and drops some very hard bars. Fans hope this song gets leaked one day as people who have heard it consider it one of his best songs',
+    rating: '🥉',
+    filename: 'Get it V1.wav',
+    link: '',
+  },
+
   {
     title: 'Too Fast V2',
     era: 'OS2S: Extended Edition',
@@ -431,6 +722,19 @@ export const SONGS: Song[] = [
     filename: 'TOO FAST mix.m4a',
     link: '',
   },
+
+  {
+    title: 'Let it go',
+    era: 'OS2S: Extended Edition',
+    status: 'Vaulted',
+    producer: '',
+    notes:
+      "Recorded with the microphone backwards and probably won’t release",
+    rating: '',
+    filename: 'let ir go.wav',
+    link: '',
+  },
+
   {
     title: 'Mr Imagination - Ambrosia Ft Rkenzo',
     era: 'OS2S: Extended Edition',
@@ -441,16 +745,40 @@ export const SONGS: Song[] = [
     filename: '—',
     link: '',
   },
+
+  {
+    title: 'Mr Imagination - Disassemble Ft Rkenzo',
+    era: 'OS2S: Extended Edition',
+    status: 'Snippet',
+    producer: 'Unknown',
+    notes: 'Part of the collections of songs Rkenzo hopped on whilst in Ghana with Mr Imagination',
+    rating: '',
+    filename: '—',
+    link: '',
+  },
+
+  {
+    title: 'Mr Imagination - Tinkerbell ft Rkenzo',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Speculated to be part of the collections of songs rkenzo hopped on with Mr Imagination in Ghana',
+    rating: '',
+    filename: 'Mr Imagination - Tinkerbell ft Rkenzo - 12_08_2025, 17.55 1.mp3',
+    link: '',
+  },
+
   {
     title: 'Unheard collaborations with Mr Imagination',
     era: 'OS2S: Extended Edition',
     status: 'Rumoured',
     producer: 'Unknown',
     notes: 'Rkenzo and Mr Imagination were recording together in Ghana and have likely made songs after Ambrosia',
-    rating: '🥉',
+    rating: '',
     filename: '—',
     link: '',
   },
+  
   {
     title: 'Peso',
     era: 'OS2S: Extended Edition',
@@ -481,6 +809,19 @@ export const SONGS: Song[] = [
     filename: 'Lifestyle Lately (X).wav',
     link: '',
   },
+
+  {
+    title: 'XYLEM - Waste My Time Ft Rkenzo',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes:
+      'Song made during the OS2S: Extended Edition era but never released for unknown reasons. Song is speculated to be a finished song and was considered to be sent for mixing',
+    rating: '🥈',
+    filename: 'WASTE MY TIME X RKENZO.wav',
+    link: '',
+  },
+
   {
     title: 'Mind On Cake',
     era: 'OS2S: Extended Edition',
@@ -499,10 +840,58 @@ export const SONGS: Song[] = [
     producer: 'Unknown',
     notes:
       'Freestyle rkenzo previewed with south london DJ AG, recorded on ig live',
-    rating: '🥉',
+    rating: '✨',
     filename: '—',
     link: 'https://www.instagram.com/p/DCkD3JFOXxD/',
   },
+  
+  {
+    title: 'On My Mind',
+    era: 'OS2S: Extended Edition',
+    status: 'Throwaway',
+    producer: 'Unknown',
+    notes:
+      'Song made during the OS2S: Extended Edition era but never released for unknown reasons. Song is speculated to be a throwaway',
+    rating: '',
+    filename: 'On My Mind! First Draft.wav',
+    link: '',
+  },
+
+  {
+    title: 'Take A Toke',
+    era: 'OS2S: Extended Edition',
+    status: 'Snippet',
+    producer: 'Unknown',
+    notes:
+      'Song made during the OS2S: Extended Edition era uses a new flow and the snippet of the song sounds pretty good. its a shame this song wont release but could potentially be released on the OS2S anniversay',
+    rating: '🥉',
+    filename: 'take a toke - 13_06_2025, 21.31 1.wav',
+    link: '',
+  },
+
+  {
+    title: 'Get This Paper',
+    era: 'OS2S: Extended Edition',
+    status: 'Throwaway',
+    producer: 'Unknown',
+    notes:
+      'Experimental song with a undertale sounding beat song probably wont see the light of day',
+    rating: '',
+    filename: 'get this paper.wav',
+    link: '',
+  },
+
+  {
+    title: 'Rolling Wid It Up',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Song made in OS2S: Extended Edition Era but never saw the light of day. This song is apparently quite good from those who have heard it',
+    rating: '🥉',
+    filename: 'Rolling wid it Up to.wav',
+    link: '',
+  },
+
   {
     title: 'Go Mode',
     era: 'OS2S: Extended Edition',
@@ -524,6 +913,7 @@ export const SONGS: Song[] = [
     filename: '—',
     link: 'https://music.apple.com/us/song/mental-feat-tkandz-rkenzo-remix/1779561820',
   },
+  
   {
     title: 'Too Fast V1',
     era: 'OS2S: Extended Edition',
@@ -532,9 +922,10 @@ export const SONGS: Song[] = [
     notes:
       'Collaborative song Rkenzo made with one of his collegues from his university course, Rkenzo experiments with a new sound and reuses some bars but the melodic delivery from both artists in a catchy manner, fans anticipate it to release on Momentary Bliss but doesnt seem likely as the feature was never cleared from the other artist. Apparently he lost this version of the song but it is recoverable',
     rating: '🏆',
-    filename: 'TOO FAST.wav',
+    filename: 'TOO FAST.mp3',
     link: '',
   },
+
   // ── One Shot To Shine ────────────────────────
   {
     title: 'Crossroads',
@@ -542,10 +933,11 @@ export const SONGS: Song[] = [
     status: 'Released',
     producer: 'Unknown',
     notes: 'Released on the EP One Shot To Shine. Kenz gives more insight into his personal life and struggle. Crossroads was never entended to be the outro it was actually the 2nd song until Kenz changed it',
-    rating: '',
-    filename: '—',
+    rating: '✨',
+    filename: '_Crossroads (Final Mix).wav',
     link: 'https://www.youtube.com/watch?v=ZPkRZ9VNhho',
   },
+
   {
     title: 'Say So V1',
     era: 'One Shot To Shine',
@@ -567,6 +959,29 @@ export const SONGS: Song[] = [
     filename: 'KY OS.wav',
     link: 'https://imgur.gg/f/vhzirEF',
   },
+
+  {
+    title: 'Foden',
+    era: 'One Shot To Shine',
+    status: 'Throwaway',
+    producer: 'Unknown',
+    notes: "Demo recordee in the OS2S era, this song was meant to be finished and could of potentially been on the EP but Kenz forgot about the song",
+    rating: '',
+    filename: 'foden.wav',
+    link: '',
+  },  
+
+  {
+    title: 'BACK CHAT',
+    era: 'One Shot To Shine',
+    status: 'Throwaway',
+    producer: 'Unknown',
+    notes: "Scrapped and made as a throwaway. The bars were instead used for Say So V1",
+    rating: '',
+    filename: 'BACK CHAT NEW - 05_04_2025, 21.05 6.wav',
+    link: '',
+  },
+
   {
     title: 'Go With It',
     era: 'One Shot To Shine',
@@ -578,24 +993,58 @@ export const SONGS: Song[] = [
     filename: '—',
     link: 'https://www.youtube.com/watch?v=4UatIB9ZjoE',
   },
+
+  {
+    title: 'Mainstream',
+    era: 'One Shot To Shine',
+    status: 'Scrapped',
+    producer: 'Unknown',
+    notes: "Made in the same session as Go With it was considered for OS2S but due to the songs singing nature Kenz deemed it wasn't suitable for the EP and scrapped it",
+    rating: '',
+    filename: '_Crossroads (Final Mix).wav',
+    link: '',
+  },
+
+  {
+    title: 'Succeed',
+    era: 'One Shot To Shine',
+    status: 'Scrapped',
+    producer: 'Unknown',
+    notes: "Kenz called it a skip",
+    rating: '🗑️',
+    filename: 'Succeed - 28_11_2024, 23.12 5',
+    link: '',
+  },
+
+  {
+    title: 'Get it Up',
+    era: 'One Shot To Shine',
+    status: 'Scrapped',
+    producer: 'YiciBeats',
+    notes: "Song made during the OS2S era but never released",
+    rating: '',
+    filename: 'get it up - 26_06_2024, 22.31 1',
+    link: '',
+  }, 
+  
   {
     title: 'One Shot 2 Shine',
     era: 'One Shot To Shine',
     status: 'Released',
     producer: 'Unknown',
     notes: "Intro and namesake of Rkenzo's first studio EP One Shot 2 Shine",
-    rating: '✨',
+    rating: '⭐',
     filename: '—',
     link: 'https://www.youtube.com/watch?v=_gmJXkfc7OY',
   },
 
   {
-    title: "Keep Goin'",
+    title: "RJ - Hyena ft Rkenzo",
     era: 'One Shot To Shine',
-    status: 'Scrapped',
+    status: 'Unreleased',
     producer: 'Unknown',
-    notes: 'Appeared as the intro on the original tracklist for OS2S but was changed for the song One Shot 2 Shine. Song will most likely never release',
-    rating: '',
+    notes: 'Feature Rkenzo did for RJ very good delievery from both artists',
+    rating: '🥉',
     filename: '—',
     link: '',
   },
@@ -612,13 +1061,35 @@ export const SONGS: Song[] = [
   },
 
   {
+    title: '4 DA NIGHT',
+    era: 'One Shot To Shine',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: "Song made during the O2S2 Era but never released for unknown reasons",
+    rating: '',
+    filename: '4 da nite.wav',
+    link: '',
+  },
+
+  {
+    title: "Swervin'",
+    era: 'One Shot To Shine',
+    status: 'Unreleased',
+    producer: 'Spancy Beatz',
+    notes: "Samples some SpongeBob sfx ",
+    rating: '',
+    filename: 'swervin - 28_02_2025, 23.53',
+    link: '',
+  },
+
+  {
     title: 'Out Till Late V2',
     era: 'One Shot To Shine',
     status: 'Released',
     producer: 'Unknown',
     notes: 'Featuring Whizz. Reportedly made in one take and is a fan favourite. One of his biggest songs to date. Rkenzo reportedly changed his verse after whizz left the studio and provided a more lyric 2nd verse probably due to how whizz was flowing on this track 😭',
-    rating: '⭐',
-    filename: '—',
+    rating: '🌟',
+    filename: 'Rkenzo - Urus (Mix & Master)',
     link: 'https://www.youtube.com/watch?v=mAywOdTLQHA',
   },
 
@@ -638,8 +1109,8 @@ export const SONGS: Song[] = [
     era: 'One Shot To Shine',
     status: 'Scrapped',
     producer: 'Unknown',
-    notes: 'Appeared as the intro on the original tracklist for OS2S but was changed for the song One Shot 2 Shine. Song will most likely never release',
-    rating: '',
+    notes: 'Appeared as the intro on the original tracklist for OS2S but was changed for the song One Shot 2 Shine. Song will most likely never release it had crazy potential though hopefully it can me mixed and put on OS2S anniversary',
+    rating: '🥉',
     filename: '—',
     link: '',
   },
@@ -650,10 +1121,21 @@ export const SONGS: Song[] = [
     status: 'Released',
     producer: 'ROB EVN',
     notes:
-      'Made the day after his girlfriend broke up with him. Became an instant success which caught the attention of UK artist Tkandz',
+      'Made the day after he broke up with his girlfriend. Became an instant success which caught the attention of UK artist Tkandz',
     rating: '🌟',
     filename: 'Rkenzo - PaperCuts.wav',
     link: 'https://www.youtube.com/watch?v=zCYRFU6Nwjk',
+  },
+
+  {
+    title: "Mercy'",
+    era: 'One Shot To Shine',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Song was made during the same session as papercuts but sounds entirely different from the song.',
+    rating: '',
+    filename: '—',
+    link: '',
   },
 
   // ── Young Kenz ───────────────────────────────
@@ -676,12 +1158,12 @@ export const SONGS: Song[] = [
     producer: 'Unknown',
     notes: 'Unreleased song made during the Young Kenz era which he shared to Mr Imagination. This song never released but the people who have heard it consider it as the best song from this era',
     rating: '🥇',
-    filename: '',
+    filename: "Let's Get It.mp3",
     link: '',
   },
 
   {
-    title: 'Throwback',
+    title: 'DXNTE X Rkenzo - Throwback',
     era: 'Young Kenz',
     status: 'Released',
     producer: 'Unknown',
@@ -702,15 +1184,49 @@ export const SONGS: Song[] = [
   },
   
   {
+    title: 'Make A Way',
+    era: 'Young Kenz',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Early signs of kenz experimenting with more melodic flows and singing vocals, during the Young Kenz era.',
+    rating: '🥉',
+    filename: 'make a aewq ew.wav',
+    link: '',
+  },
+  
+  {
+    title: 'Racks',
+    era: 'Young Kenz',
+    status: 'Throwaway',
+    producer: 'Unknown',
+    notes: 'Not much is known about this song. It is apparently a throwaway song and the mix for this song came back terrible according to Kenz',
+    rating: '—',
+    filename: 'Racks.mp3',
+    link: '',
+  },
+
+  {
     title: 'Rolling',
     era: 'Young Kenz',
     status: 'Unreleased',
     producer: 'Unknown',
     notes: 'Demo Rkenzo made with Kadz in his room but was never finished into an actual song.',
-    rating: '🥉',
+    rating: '🥈',
     filename: '',
     link: '',
   },
+
+  {
+    title: 'Roll The Dice',
+    era: 'Young Kenz',
+    status: 'Unreleased',
+    producer: 'Unknown',
+    notes: 'Song recoreded during the Young Kenz era was never planned for a release. Kenz used flows from this song / these sessions to develop his sound in the Young Kenz era',
+    rating: '',
+    filename: 'roll the dice.mp3',
+    link: '',
+  },
+
 
   {
     title: 'Racks Up',
@@ -722,6 +1238,7 @@ export const SONGS: Song[] = [
     filename: '—',
     link: 'https://www.youtube.com/watch?v=evCgCR9aJsM',
   },
+
   {
     title: 'ESCOBAR',
     era: 'Young Kenz',
@@ -751,7 +1268,7 @@ export const SONGS: Song[] = [
     producer: 'AriaTheProducer & VVSMelody',
     notes: 'First official release from Rkenzo using his wave rap sound',
     rating: '—',
-    filename: '—',
+    filename: 'Through The Night.m4a',
     link: 'https://www.youtube.com/watch?v=pG9jO_771mA',
   },
   {
@@ -923,6 +1440,7 @@ export const TRACKLISTS: Tracklist[] = [
         position: 1,
         title: 'Rick Owens',
         confirmed: true,
+        producer: 'Sogimura',
         notes: 'Released 23rd of May 2026 as the lead single for Momentary Bliss confirmed by Rkenzo in multiple snippets he included "TRACK 01" at the top corner implying its the intro to momentary bliss. The song is a fan favourite and is expected to be the opener for the album.',
       },
 
@@ -939,39 +1457,68 @@ export const TRACKLISTS: Tracklist[] = [
         title: 'Milan',
         confirmed: true,
         features: 'ft. Tkandz',
+        producer: 'blancomadeit',
         notes: 'Snippeted April 2026 — likely a lead single or album cut given the full verse preview. Rkenzo said if Tkandz label doesnt clear his feature then he will replace this song with another highly anticipated artist feature',
       },
 
-
       {
         position: 4,
-        title: 'On Go',
+        title: 'WAKE UP',
         confirmed: false,
-        notes: 'Freestyle rkenzo uploaded via instagram. Song is reportedly not a throwaway and has a 2nd verse. Rkenzo is contemplating on finishing it and putting it on Momentary Bliss',
+        producer: '?',
+        notes: 'Unreleased experimental song, same producer as Rick owens kenz tries a new style with some familar flows and delievers a really solid song. This song will probably be considered for Momentary Bliss',
+
       },
 
       {
         position: 5,
-        title: 'Tracey Beaker',
-        confirmed: false,
-        producer: 'blancomadeit',
-        notes: 'Freestyle previewed to tiktok via rkenzo, using a never before seen flow and a catchy hook. Song is speculated to be on Momentary Bliss and is highly anticipated by fans as it would be unfortunate for it to be a throwaway. Apparently, blancomadeit recorded a verse for this song',
+        title: 'Ride With The Crew',
+        confirmed: true,
+        producer: '?',
+        notes: 'Spacey-like beat fans speculate this to be another grail',
       },
-
+      
       {
         position: 6,
-        title: 'MAKE IT COUNT!',
-        confirmed: true,
-        producer: 'FinniX!Beats',
-        notes: 'Released standalone but widely expected to be on the album given the Swiss camp connection',
+        title: 'Fallin In',
+        confirmed: false,
+        producer: '?',
+        notes: "Song could be on the Momentary Bliss EP. It is quite experimetnal taking elements from Dave's Raindance Rkenzo collabs with a female artist to deliver power melodies accompanied with hard hitting bars.",
       },
 
       {
         position: 7,
+        title: 'Streatham Hill',
+        confirmed: true,
+        producer: '?',
+        notes: 'Emotional song similar to crossroads where kenz expresses his life growing up in South London, Stretham and talks about the things he has experiences and witenesses and how it motivates him to do better',
+
+      },
+
+      {
+        position: 8,
         title: 'Alone',
         confirmed: true,
         producer: 'FinniX!Beats',
         notes: 'Instantly hailed as a grail after the instagram live preview. Fans are desperate for this one',
+      },
+      
+      {
+        position: 9,
+        title: 'You Know',
+        confirmed: true,
+        producer: 'ROB EVN',
+        notes: 'Made during the OS2S: Extended Edition but could be considered as a bonus track for Momentary Bliss',
+        isBonusTrack: true,
+      },
+
+      {
+        position: 9,
+        title: 'Realist',
+        confirmed: false,
+        producer: 'ROB EVN',
+        notes: 'Potential bonus track for Momentary Bliss if it doesnt make the cut',
+        isBonusTrack: true,
       },
 
     ],
@@ -1033,14 +1580,16 @@ export const TRACKLISTS: Tracklist[] = [
         title: 'RUSH THIS!',
         confirmed: true,
         producer: 'RealRichMoney & Rkenzo',
-        notes: 'Bonus track — production changed from the original coreyblazyy versions',
+        notes: 'Production changed from the original coreyblazyy versions',
+        isBonusTrack: true,
       },
       {
         position: 8,
         title: 'Say So',
         confirmed: true,
         producer: 'Segway',
-        notes: 'Bonus track — revamped version, no Kadz feature',
+        notes: 'Revamped version, no Kadz feature',
+        isBonusTrack: true,
       },
       {
         position: 9,
@@ -1048,7 +1597,8 @@ export const TRACKLISTS: Tracklist[] = [
         confirmed: true,
         features: 'ft. Tkandz',
         producer: 'Gore Ocean',
-        notes: 'Bonus track — UK reshot version with Tkandz',
+        notes: 'UK reshot version with Tkandz',
+        isBonusTrack: true,
       },
     ],
   },

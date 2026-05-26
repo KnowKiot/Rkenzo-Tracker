@@ -142,7 +142,7 @@ export const SONGS: Song[] = [
     notes: "Experimental song with a starry like instrumental similar to playboi carti's OMERTA & Pink Diamonds. Song is expected to release on Momentary Bliss",
     rating: '🏆',
     filename: 'RWTC.wav',
-    link: '',
+    link: 'https://imgur.gg/f/HxxKboZ',
   },
 
   {
@@ -436,7 +436,7 @@ export const SONGS: Song[] = [
     notes: 'Rkenzo would hop on an underground esdeekid type beat produced by FinniX, the original snippet is not found, Rkenzo actually recoreded on this song and the beat sounds like LV Sandalds',
     rating: '🥉',
     filename: '',
-    link: '',
+    link: 'https://imgur.gg/f/9JqJJJR',
   },
   
   {
@@ -493,7 +493,7 @@ export const SONGS: Song[] = [
     notes: '5AMDiares gave Rkenzo the song for him to drop a verse but he never released the song for unknown reasons.',
     rating: '',
     filename: 'Blank Street V2!.wav',
-    link: '',
+    link: 'https://imgur.gg/f/hgyaGfH',
   },
 
   {
@@ -754,7 +754,7 @@ export const SONGS: Song[] = [
     notes: 'Part of the collections of songs Rkenzo hopped on whilst in Ghana with Mr Imagination',
     rating: '',
     filename: '—',
-    link: '',
+    link: 'https://imgur.gg/f/QqUgXW3',
   },
 
   {
@@ -866,7 +866,7 @@ export const SONGS: Song[] = [
       'Song made during the OS2S: Extended Edition era uses a new flow and the snippet of the song sounds pretty good. its a shame this song wont release but could potentially be released on the OS2S anniversay',
     rating: '🥉',
     filename: 'take a toke - 13_06_2025, 21.31 1.wav',
-    link: '',
+    link: 'https://imgur.gg/f/ZVPzejr',
   },
 
   {

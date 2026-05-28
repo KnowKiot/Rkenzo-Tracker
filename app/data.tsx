@@ -594,7 +594,7 @@ export const SONGS: Song[] = [
     title: 'OS2S Freestyle',
     era: 'OS2S: Extended Edition',
     status: 'Released',
-    producer: 'Unknown',
+    producer: 'GLIDEZ',
     notes:
       'Promotional song marking the release of his clothing brand OS2S. Music video features cameos from blancomadeit and FinniX!Beats',
     rating: '✨',
@@ -1128,7 +1128,7 @@ export const SONGS: Song[] = [
   },
 
   {
-    title: "Mercy'",
+    title: "Mercy",
     era: 'One Shot To Shine',
     status: 'Unreleased',
     producer: 'Unknown',

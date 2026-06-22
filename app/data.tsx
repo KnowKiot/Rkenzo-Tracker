@@ -174,7 +174,7 @@ export const SONGS: Song[] = [
   {
     title: 'Stretham Hill',
     era: 'Momentary Bliss',
-    status: 'Snippet',
+    status: 'Unreleased',
     producer: 'Unknown',
     notes: 'Emotional song similar to crossroads where kenz expresses his life growing up in South London, Stretham and talks about the things he has experiences and witenesses and how it motivates him to do better',
     rating: '🥈',
@@ -222,7 +222,7 @@ export const SONGS: Song[] = [
   {
     title: 'FINER THINGS',
     era: 'Momentary Bliss',
-    status: 'Snippet',
+    status: 'Unreleased',
     producer: 'blancomadeit & Segway',
     notes: 'Song blanco and kenz made together which is an upbeat song with some really catchy hooks. This song is good according to the people who have heard it',
     rating: '🥉',

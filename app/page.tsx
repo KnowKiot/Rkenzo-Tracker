@@ -24,7 +24,8 @@ const statusColor = (status: string) => {
 };
 
 const RELEASED_STATUSES = ['Released'];
-const isUnreleased = (status: string) => !RELEASED_STATUSES.includes(status);
+const PREVIEWED_STATUSES = ['Snippet', 'Leaked'];
+const isUnreleased = (status: string) => !RELEASED_STATUSES.includes(status) && !PREVIEWED_STATUSES.includes(status);
 
 const ERA_YEAR: Record<string, number> = {
   'Momentary Bliss': 2026,
@@ -159,7 +160,14 @@ function EraPanel({
                       {song.rating || '—'}
                     </span>
                   </td>
-                  <td className="px-5 py-4 font-medium text-white whitespace-nowrap">{song.title}</td>
+                  <td className="px-5 py-4">
+                    <span className="font-medium text-white">{song.title}</span>
+                    {song.altNames && song.altNames.length > 0 && (
+                      <p className="text-zinc-500 text-xs mt-1">
+                        {song.altNames.join(', ')}
+                      </p>
+                    )}
+                  </td>
                   <td className="px-5 py-4">
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-medium border ${statusColor(song.status)}`}
@@ -171,16 +179,21 @@ function EraPanel({
                   <td className="px-5 py-4 text-zinc-400 font-mono text-xs">{song.filename || '—'}</td>
                   <td className="px-5 py-4 text-zinc-400 text-sm max-w-xs">{song.notes}</td>
                   <td className="px-5 py-4">
-                    {song.link ? (
-                      <a
-                        href={song.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition text-sm whitespace-nowrap"
-                      >
-                        Open ↗
-                      </a>
+                    {song.links && song.links.length > 0 ? (
+                      <div className="flex flex-col gap-1">
+                        {song.links.map((link, linkIndex) => (
+                          <a
+                            key={linkIndex}
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition text-sm whitespace-nowrap block"
+                          >
+                            Link {linkIndex + 1} ↗
+                          </a>
+                        ))}
+                      </div>
                     ) : (
                       <span className="text-zinc-600 text-sm">—</span>
                     )}
@@ -215,7 +228,7 @@ function RecentSection({ filterStatus, onChangeStatus }: { filterStatus: StatusF
       status: song.status,
       rating: song.rating || '—',
       creator: song.producer,
-      link: song.link,
+      links: song.links,
       sortRank: index,
     }));
 
@@ -232,7 +245,7 @@ function RecentSection({ filterStatus, onChangeStatus }: { filterStatus: StatusF
         status: mv.status,
         rating: mv.rating || '—',
         creator: mv.director || 'Video',
-        link: mv.youtubeId ? `https://www.youtube.com/watch?v=${mv.youtubeId}` : '',
+        links: mv.youtubeId ? [`https://www.youtube.com/watch?v=${mv.youtubeId}`] : [],
         sortRank: baseRank + 0.5,
       };
     });
@@ -304,15 +317,20 @@ function RecentSection({ filterStatus, onChangeStatus }: { filterStatus: StatusF
                 </td>
                 <td className="px-5 py-4 text-zinc-300 text-sm whitespace-nowrap">{item.creator}</td>
                 <td className="px-5 py-4">
-                  {item.link ? (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition text-sm whitespace-nowrap"
-                    >
-                      Open ↗
-                    </a>
+                  {item.links && item.links.length > 0 ? (
+                    <div className="flex flex-col gap-1">
+                      {item.links.map((link, linkIndex) => (
+                        <a
+                          key={linkIndex}
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition text-sm whitespace-nowrap block"
+                        >
+                          Link {linkIndex + 1} ↗
+                        </a>
+                      ))}
+                    </div>
                   ) : (
                     <span className="text-zinc-600 text-sm">—</span>
                   )}
@@ -689,7 +707,7 @@ function TracklistsSection({ filterEra }: { filterEra: string }) {
 //  Root Component
 // ─────────────────────────────────────────────
 
-type StatusFilter = 'All' | 'Released' | 'Unreleased';
+type StatusFilter = 'All' | 'Released' | 'Previewed' | 'Unreleased';
 
 export default function RkenzoTracker() {
   const [search, setSearch]                 = useState('');
@@ -727,7 +745,9 @@ export default function RkenzoTracker() {
           ? true
           : filterStatus === 'Released'
           ? song.status === 'Released'
-          : isUnreleased(song.status);
+          : filterStatus === 'Previewed'
+          ? PREVIEWED_STATUSES.includes(song.status)
+          : song.status !== 'Released';
       return matchesSearch && matchesRating && matchesEra && matchesStatus;
     });
   }, [search, filterRating, filterEra, filterStatus]);
@@ -816,18 +836,34 @@ export default function RkenzoTracker() {
                     {song.status}
                   </span>
                   <p className="text-zinc-400 text-xs leading-relaxed">{song.notes}</p>
-                  {song.link ? (
-                    <a
-                      href={song.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-400 hover:text-blue-300 text-xs underline underline-offset-2 mt-auto"
-                    >
-                      Open ↗
-                    </a>
-                  ) : (
-                    <span className="text-zinc-600 text-xs mt-auto">No link available</span>
-                  )}
+                  <div className="mt-auto flex flex-col gap-2">
+                    {song.altNames && song.altNames.length > 0 ? (
+                      <div className="text-zinc-400 text-[11px] uppercase tracking-[0.14em] leading-snug">
+                        {song.altNames.map((name, nameIndex) => (
+                          <span key={nameIndex} className="block">
+                            {name}
+                          </span>
+                        ))}
+                      </div>
+                    ) : null}
+                    {song.links && song.links.length > 0 ? (
+                      <div className="flex flex-col gap-1">
+                        {song.links.map((link, linkIndex) => (
+                          <a
+                            key={linkIndex}
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-400 hover:text-blue-300 text-xs underline underline-offset-2"
+                          >
+                            Link {linkIndex + 1} ↗
+                          </a>
+                        ))}
+                      </div>
+                    ) : (
+                      <span className="text-zinc-600 text-xs">No link available</span>
+                    )}
+                  </div>
                 </div>
               );
             })}
@@ -996,7 +1032,7 @@ export default function RkenzoTracker() {
               {/* Status */}
               <div className="flex items-center gap-2">
                 <span className="text-zinc-500 text-xs uppercase tracking-wider mr-1">Status</span>
-                {(['All', 'Released', 'Unreleased'] as StatusFilter[]).map((s) => (
+                {(['All', 'Released', 'Previewed', 'Unreleased'] as StatusFilter[]).map((s) => (
                   <button
                     key={s}
                     onClick={() => setFilterStatus(s)}
@@ -1006,11 +1042,13 @@ export default function RkenzoTracker() {
                           ? 'bg-green-500 text-black border-green-500'
                           : s === 'Unreleased'
                           ? 'bg-red-500/80 text-white border-red-500'
+                          : s === 'Previewed'
+                          ? 'bg-yellow-400 text-black border-yellow-400'
                           : 'bg-white text-black border-white'
                         : 'bg-zinc-800 border-zinc-700 hover:border-white'
                     }`}
                   >
-                    {s === 'Released' ? '✅ Released' : s === 'Unreleased' ? '🔒 Unreleased' : 'All'}
+                    {s === 'Released' ? '✅ Released' : s === 'Unreleased' ? '🔒 Unreleased' : s === 'Previewed' ? '👀 Previewed' : 'All'}
                   </button>
                 ))}
               </div>

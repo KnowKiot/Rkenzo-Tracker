@@ -517,6 +517,7 @@ export const SONGS: Song[] = [
     rating: '🥉',
     filename: '',
     links: ['https://imgur.gg/f/9JqJJJR'],
+    altNames: ['HISTORY', 'CSTN'],
   },
   
   {

@@ -966,6 +966,17 @@ export const SONGS: Song[] = [
   },
 
   {
+    title: 'STYLE',
+    era: 'OS2S: Extended Edition',
+    status: 'Leaked',
+    producer: 'Ethereal',
+    notes: "Studio session made with Kadz using the beat of Carti's Goin Outta Style. Song was never finished",
+    rating: '🥉',
+    filename: 'KY OS.wav',
+    links: ['https://imgur.gg/f/vhzirEF'],
+  },
+
+  {
     title: 'Go Mode',
     era: 'OS2S: Extended Edition',
     status: 'Unreleased',
@@ -1022,16 +1033,6 @@ export const SONGS: Song[] = [
     rating: '⭐',
     filename: 'Say so with Kadz.wav',
     links: ['https://imgur.gg/f/bgZEljF'],
-  },
-  {
-    title: 'STYLE',
-    era: 'One Shot To Shine',
-    status: 'Leaked',
-    producer: 'Pierre Bourne',
-    notes: "Studio session made with Kadz using the beat of Carti's Goin Outta Style. Song was never finished",
-    rating: '🥉',
-    filename: 'KY OS.wav',
-    links: ['https://imgur.gg/f/vhzirEF'],
   },
 
   {

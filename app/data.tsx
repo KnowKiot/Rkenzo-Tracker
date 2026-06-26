@@ -282,7 +282,7 @@ export const SONGS: Song[] = [
     notes: 'Made during momentary bliss song has a NBA Youngboy type boy song is a demo isn’t finished but sounds pretty decent uses bars from Flexin too',
     rating: '',
     filename: 'vvdddyyy.wav',
-    links: [],
+    links: ['https://imgur.gg/f/Fb5qVdr'],
     altNames: ['FaceTime', 'WID ME'],
   },
 

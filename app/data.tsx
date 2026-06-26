@@ -277,7 +277,7 @@ export const SONGS: Song[] = [
   {
     title: 'V Day',
     era: 'Momentary Bliss',
-    status: 'Throwaway',
+    status: 'Snippet',
     producer: '',
     notes: 'Made during momentary bliss song has a NBA Youngboy type boy song is a demo isn’t finished but sounds pretty decent uses bars from Flexin too',
     rating: '',

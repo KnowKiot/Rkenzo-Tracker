@@ -222,12 +222,13 @@ export const SONGS: Song[] = [
   {
     title: 'FINER THINGS',
     era: 'Momentary Bliss',
-    status: 'Unreleased',
+    status: 'Snippet',
     producer: 'blancomadeit & Segway',
     notes: 'Song blanco and kenz made together which is an upbeat song with some really catchy hooks. This song is good according to the people who have heard it',
     rating: '🥉',
     filename: 'SO - FINER THINGS.mp3',
-    links: [],
+    links: ['https://imgur.gg/f/wWOuQTh'],
+    releaseDate: '2026-06-28',
   },
 
   {

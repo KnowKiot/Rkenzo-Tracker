@@ -283,7 +283,7 @@ export const SONGS: Song[] = [
     rating: '',
     filename: 'vvdddyyy.wav',
     links: ['https://imgur.gg/f/Fb5qVdr'],
-    altNames: ['FaceTime', 'WID ME'],
+    altNames: ['FaceTime', 'WID ME', "Leave me alone now", "She wont leave"],
   },
 
   {

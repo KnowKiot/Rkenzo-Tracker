@@ -145,7 +145,7 @@ export const SONGS: Song[] = [
     notes: 'Seen on momentary bliss tracklist. Not much is known about this song but since it hasnt appeared elsewhere it is likely scrapped',
     rating: '',
     filename: '',
-    links: [''],
+    links: [],
   },
 
   {
@@ -156,7 +156,7 @@ export const SONGS: Song[] = [
     notes: 'Calm song where Kenz uses a talking? Flow. In this track he uses bars that can be seen on No Time/Money Fast and he also raps about tracks he’s made such as Papercuts, DND and Out Till Late ',
     rating: '',
     filename: '',
-    links: [''],
+    links: [],
   },
 
   {

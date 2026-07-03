@@ -1542,7 +1542,96 @@ export const MUSIC_VIDEOS: MusicVideo[] = [
 // ─── TRACKLISTS ──────────────────────────────
 export const TRACKLISTS: Tracklist[] = [
 
-    {
+  {
+    project: 'Momentary Bliss (Speculated)',
+    era: 'Momentary Bliss',
+    status: 'Rumoured',
+    source: "Screenshot found on Kenz' phone",
+    updatedDate: 'June 2026',
+    notes: 'An estimate of the songs that may come up using some snippeted songs and some confirmed songs.',
+    tracks: [
+      {
+        position: 1,
+        title: 'Lane Switch',
+        confirmed: false,
+        producer: 'Sogimura',
+        notes: 'Spotted on the momentary tracklist as the intro so the song will probably make the album. Rkenzo experiments with a different sound and delivers a very good flow. Song has a 8-BIT vibe to it ',
+
+      },
+
+      {
+        position: 2,
+        title: 'RICK OWENS',
+        confirmed: true,
+        producer: 'Sogimura',
+        notes: 'This song is 100% making the cut confirmed by Rkenzo himself',
+      },
+      
+      {
+        position: 3,
+        title: 'MILAN',
+        confirmed: true,
+        features: 'ft. Tkandz',
+        producer: 'blancomadeit',
+        notes: 'Snippeted April 2026 — likely a lead single or album cut given the full verse preview. Rkenzo said if Tkandz label doesnt clear his feature then he will replace this song with another highly anticipated artist feature',
+      },
+
+      {
+        position: 8,
+        title: 'WAKE UP',
+        confirmed: false,
+        producer: 'Sogimura',
+        notes: 'Unreleased experimental song, same producer as Rick owens kenz tries a new style with some familar flows and delievers a really solid song. This song will probably be considered for Momentary Bliss',
+        isBonusTrack: true
+      },
+
+      {
+        position: 5,
+        title: 'NO TIME = MONEY FAST',
+        confirmed: false,
+        features: 'ft. Whizz',
+        producer: '?',
+        notes: 'Song is seen on the tracklist as "WHIZ SONG" but it is probably this song as they do not have any other songs recorded close to 2026',
+      },
+      
+      {
+        position: 4,
+        title: 'MINE!',
+        confirmed: false,
+        producer: 'FinniX!Beats',
+        notes: "New sounding beat by FinniX, snippet posted to instagram July 1st",
+      },
+
+      {
+        position: 6,
+        title: 'ALONE NOW',
+        confirmed: true,
+        producer: 'FinniX!Beats',
+        notes: 'Instantly hailed as a grail after the instagram live preview. Fans are desperate for this one',
+      },
+      
+      {
+        position: 7,
+        title: 'RIDE WITH THE CREW',
+        confirmed: false,
+        producer: 'Sagemon',
+        notes: 'After kadz reminded him that this song exists Kenz would reconsider adding RWTC to the EP but as a bonus track as he felt like it didnt fit the main sound of the EP',
+        isBonusTrack: true,
+      },
+
+      {
+        position: 9,
+        title: 'EVISU JEANS',
+        confirmed: true,
+        producer: 'Sogimura',
+        notes: 'After kadz convinced him he reconsidered putting this song on the EP in some form so is likely the reason to why its a bonus track and not on the main tracklist',
+        isBonusTrack: true,
+      },
+
+    ],
+  },  
+
+  {
     project: 'Momentary Bliss V4',
     era: 'Momentary Bliss',
     status: 'Confirmed',

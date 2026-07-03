@@ -136,6 +136,18 @@ export const ERAS: Era[] = [
 
 export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
+  {
+    title: "MINE!",
+    era: 'Momentary Bliss',
+    status: 'Snippet',
+    producer: 'FinniX!Beats',
+    notes: 'Beat was made by FinniX!Beats on facetime. It is speculated that this song was meant for rapper LJ so he may have a feature on this',
+    rating: '🥉',
+    filename: '',
+    links: ['https://www.instagram.com/p/DaSvRt4sMbY/'],
+    altNames: ["1 + 9", "Make Her Mine", 'MINE! (feat. LJ)'],
+  },
+
 
   {
     title: "Spanish Guitar",
@@ -270,7 +282,7 @@ export const SONGS: Song[] = [
     status: 'Snippet',
     producer: 'Sogimura',
     notes: 'Spotted on the momentary tracklist as the intro so the song will probably make the album. Rkenzo experiments with a different sound and delivers a very good flow. Song has a 8-BIT vibe to it ',
-    rating: '🥈',
+    rating: '🥇',
     filename: 'Lane Switch.wav',
     links: ['https://imgur.gg/f/uXp1sCx'],
   },

@@ -137,15 +137,15 @@ export const ERAS: Era[] = [
 export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
   {
-    title: "MINE!",
+    title: "1+9",
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'FinniX!Beats',
-    notes: 'Beat was made by FinniX!Beats on facetime. It is speculated that this song was meant for rapper LJ so he may have a feature on this',
+    notes: 'Beat was made by FinniX!Beats on facetime. Was later confirmed that LJ would not be on this track and it would be a solo record',
     rating: '🥉',
-    filename: '',
+    filename: 'kenz - 1+9 MIX 4.Wav',
     links: ['https://www.instagram.com/p/DaSvRt4sMbY/'],
-    altNames: ["1 + 9", "Make Her Mine", 'MINE! (feat. LJ)'],
+    altNames: ["MINE!", "Make Her Mine", 'MINE! (feat. LJ)'],
   },
 
 
@@ -1596,7 +1596,7 @@ export const TRACKLISTS: Tracklist[] = [
       
       {
         position: 4,
-        title: 'MINE!',
+        title: '1+9',
         confirmed: false,
         producer: 'FinniX!Beats',
         notes: "New sounding beat by FinniX, snippet posted to instagram July 1st",

@@ -136,6 +136,18 @@ export const ERAS: Era[] = [
 
 export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
+
+  {
+    title: "Blancomadeit - Matcha ft Rkenzo",
+    era: 'Momentary Bliss',
+    status: 'Snippet',
+    producer: 'blancomadeit',
+    notes: 'Snippet first seen on 9th july 2026 posted by @blancomadeit. Song has an rkenzo feature and is apparently blancos song expected to release after momentery bliss',
+    rating: '',
+    filename: '?',
+    links: ['https://imgur.gg/f/XSv6odV'],
+  },
+
   {
     title: "1+9",
     era: 'Momentary Bliss',
@@ -731,7 +743,7 @@ export const SONGS: Song[] = [
   {
     title: 'RUSH THIS! V2',
     era: 'OS2S: Extended Edition',
-    status: 'Snippet',
+    status: 'Leaked',
     producer: 'coreyblazyy',
     notes: 'Version of RUSH THIS with a spacelike beat',
     rating: '⭐',
@@ -782,7 +794,7 @@ export const SONGS: Song[] = [
       'Rkenzo reuses some bars from Out Till Late, One Shot To Shine and Say So V1. Debuts a new sound experimenting with club sounds',
     rating: '—',
     filename: '—',
-    links: ['https://www.youtube.com/watch?v=evCgCR9aJsM'],
+    links: ['https://www.youtube.com/watch?v=daj5fDWyyso'],
   },
   
   {

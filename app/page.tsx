@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState, type MouseEvent as ReactMouseEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent } from 'react';
 import { ERAS, MUSIC_VIDEOS, RATINGS, SONGS, TRACKLISTS, TRACKER_UPDATES } from './data';
 import type { TrackEntry, Tracklist, TrackerUpdateItem } from './data';
 
@@ -445,8 +445,9 @@ function MusicVideosSection({ filterEra, filterRating }: { filterEra: string; fi
 //  Tracklists Tab
 // ─────────────────────────────────────────────
 
-function TracklistCard({ tl }: { tl: Tracklist }) {
-  const [open, setOpen] = useState(true);
+function TracklistCard({ tl, expandedTracklist }: { tl: Tracklist; expandedTracklist?: string | null }) {
+  const [open, setOpen] = useState(() => !expandedTracklist || expandedTracklist === tl.project);
+  const [previewOpen, setPreviewOpen] = useState(false);
   const accent = eraAccent(tl.era);
   const isConfirmed = tl.status === 'Confirmed';
   const statusLabel =
@@ -462,6 +463,12 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
       ? { background: 'rgba(234,179,8,0.15)', color: '#fde047', borderColor: 'rgba(234,179,8,0.35)' }
       : { background: 'rgba(248,113,113,0.15)', color: '#f87171', borderColor: 'rgba(248,113,113,0.35)' };
   const confirmedCount = tl.tracks.filter((t) => t.confirmed).length;
+
+  useEffect(() => {
+    if (expandedTracklist) {
+      setOpen(expandedTracklist === tl.project);
+    }
+  }, [expandedTracklist, tl.project]);
 
   return (
     <div
@@ -500,7 +507,16 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
 
           <div className="flex items-start gap-4">
             {tl.image && (
-              <div className="mt-1 flex-shrink-0 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/70 p-2">
+              <div
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setPreviewOpen(true);
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`Open ${tl.project} cover art preview`}
+                className="mt-1 flex-shrink-0 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/70 p-2 cursor-pointer transition hover:border-white"
+              >
                 <img src={tl.image} alt={`${tl.project} cover`} className="h-24 w-24 rounded-xl object-cover" />
               </div>
             )}
@@ -519,6 +535,31 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
           </div>
         </div>
       </button>
+
+      {previewOpen && tl.image && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
+          onClick={() => setPreviewOpen(false)}
+        >
+          <div
+            className="relative max-w-[90vw] max-h-[90vh] overflow-hidden rounded-3xl bg-zinc-950"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <img
+              src={tl.image}
+              alt={`${tl.project} cover art enlarged`}
+              className="h-full w-full max-h-[90vh] max-w-[90vw] object-contain"
+            />
+            <button
+              type="button"
+              onClick={() => setPreviewOpen(false)}
+              className="absolute top-3 right-3 rounded-full bg-black/70 px-3 py-2 text-sm text-white transition hover:bg-black"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Animated track list */}
       <div
@@ -659,7 +700,7 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
   );
 }
 
-function TracklistsSection({ filterEra }: { filterEra: string }) {
+function TracklistsSection({ filterEra, selectedTracklist }: { filterEra: string; selectedTracklist: string | null }) {
   const [filterStatus, setFilterStatus] = useState<StatusFilter>('All');
 
   const filtered = useMemo(
@@ -706,7 +747,7 @@ function TracklistsSection({ filterEra }: { filterEra: string }) {
       ) : (
         <div className="space-y-6">
           {filtered.map((tl, i) => (
-            <TracklistCard key={i} tl={tl} />
+            <TracklistCard key={i} tl={tl} expandedTracklist={selectedTracklist} />
           ))}
         </div>
       )}
@@ -722,6 +763,7 @@ type StatusFilter = 'All' | 'Released' | 'Previewed' | 'Unreleased';
 
 type TrackerUpdate = TrackerUpdateItem & {
   accent: string;
+  tracklistProject?: string;
 };
 
 const formatUpdateDate = (value: string) => {
@@ -758,6 +800,7 @@ const buildTrackerUpdates = (): TrackerUpdate[] => {
       detail: tracklist.notes ?? `Updated with ${tracklist.tracks.length} tracked entries.`,
       date: tracklist.updatedDate as string,
       accent: eraAccent(tracklist.era),
+      tracklistProject: tracklist.project,
     })),
   ];
 
@@ -774,6 +817,7 @@ export default function RkenzoTracker() {
   const [filterRecentStatus, setFilterRecentStatus] = useState<StatusFilter>('All');
   const [activeTab, setActiveTab]           = useState<'songs' | 'recent' | 'videos' | 'tracklists'>('songs');
   const [showUpdates, setShowUpdates]       = useState(true);
+  const [selectedTracklist, setSelectedTracklist] = useState<string | null>(null);
 
   // ── Stats ──
   const stats = useMemo(() => ({
@@ -827,20 +871,10 @@ export default function RkenzoTracker() {
         : 'bg-zinc-900 text-zinc-400 border-zinc-700 hover:border-zinc-400'
     }`;
 
-  const handlePageClick = (event: ReactMouseEvent<HTMLDivElement>) => {
-    if (showUpdates) return;
-
-    const target = event.target as HTMLElement;
-    if (target.closest('button, a, input, select, textarea, [role="button"]')) return;
-
-    setShowUpdates(true);
-  };
-
   return (
     <div
       className="min-h-screen text-white p-8 font-sans"
       style={{ background: 'linear-gradient(to bottom, #0a0a0a, #0c0c0c)' }}
-      onClick={handlePageClick}
     >
       <div className="max-w-7xl mx-auto">
 
@@ -1169,7 +1203,7 @@ export default function RkenzoTracker() {
                 </button>
               ))}
             </div>
-            <TracklistsSection filterEra={filterEra} />
+            <TracklistsSection filterEra={filterEra} selectedTracklist={selectedTracklist} />
           </>
         )}
         <div className="mt-10 bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
@@ -1259,7 +1293,7 @@ export default function RkenzoTracker() {
                       <span className="text-xs text-zinc-400">{formatUpdateDate(item.date)}</span>
                     </div>
                     <p className="mt-3 text-sm leading-relaxed text-zinc-400">{item.detail}</p>
-                    {(item.type === 'Song update' || item.type === 'Video update') && item.link ? (
+                            {(item.type === 'Song update' || item.type === 'Video update') && item.link ? (
                       <a
                         href={item.link}
                         target="_blank"
@@ -1268,6 +1302,19 @@ export default function RkenzoTracker() {
                       >
                         Open source ↗
                       </a>
+                    ) : null}
+                    {item.type === 'Tracklist update' && item.tracklistProject ? (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setShowUpdates(false);
+                          setActiveTab('tracklists');
+                          setSelectedTracklist(item.tracklistProject ?? null);
+                        }}
+                        className="mt-3 inline-flex text-sm font-medium text-emerald-300 underline underline-offset-2 transition hover:text-emerald-200"
+                      >
+                        GO TO PAGE ↗
+                      </button>
                     ) : null}
                   </div>
                 ))

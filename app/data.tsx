@@ -166,6 +166,7 @@ export const SONGS: Song[] = [
     rating: '',
     filename: '?',
     links: ['https://imgur.gg/f/XSv6odV'],
+    releaseDate: '2026-07-09',
   },
 
   {
@@ -173,11 +174,12 @@ export const SONGS: Song[] = [
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'FinniX!Beats',
-    notes: 'Beat was made by FinniX!Beats on facetime. Was later confirmed that LJ would not be on this track and it would be a solo record',
+    notes: 'Spotted as track 2 on the momentary bliss cover, song has been getting popular on tiktok and instagram. Beat was made by FinniX!Beats on facetime. Was later confirmed that LJ would not be on this track and it would be a solo record',
     rating: '🥉',
     filename: 'kenz - 1+9 MIX 4.Wav',
     links: ['https://www.instagram.com/p/DaSvRt4sMbY/'],
     altNames: ["MINE!", "Make Her Mine", 'MINE! (feat. LJ)'],
+    releaseDate: '2026-07-02',
   },
 
 
@@ -368,7 +370,7 @@ export const SONGS: Song[] = [
     title: 'GO NOW',
     era: 'Momentary Bliss',
     status: 'Snippet',
-    producer: 'Unknown',
+    producer: 'Sogimura',
     notes: 'Unreleased song created in the Momentary Bliss era, song could potentially be saved for the EP release. Seen on old Momentary Bliss as "I WANNA ROCK"',
     rating: '🥉',
     filename: 'GO NIW.wav',
@@ -530,7 +532,7 @@ export const SONGS: Song[] = [
     releaseDate: '2026-05-01',
   },
   {
-    title: 'Never',
+    title: 'NEVER (FALLING IN LOVE)',
     era: 'Momentary Bliss',
     status: 'Unreleased',
     producer: 'OB',
@@ -907,6 +909,7 @@ export const SONGS: Song[] = [
     filename: 'sexy drill 3.wav',
     links: ['https://vt.tiktok.com/ZSxJRKWEw/'],
     altNames: ['Feugo', 'Sexy Drill 3', "Say So 2"],
+    releaseDate: '2024-11-01',
   },
   {
     title: 'Lifestyle Lately V2 Feat. Tkandz',
@@ -1017,7 +1020,7 @@ export const SONGS: Song[] = [
     status: 'Leaked',
     producer: 'Ethereal',
     notes: "Studio session made with Kadz using the beat of Carti's Goin Outta Style. Song was never finished",
-    rating: '🥉',
+    rating: '✨',
     filename: 'KY OS.wav',
     links: ['https://imgur.gg/f/vhzirEF'],
   },
@@ -1575,28 +1578,29 @@ export const MUSIC_VIDEOS: MusicVideo[] = [
 export const TRACKLISTS: Tracklist[] = [
 
   {
-    project: 'Momentary Bliss (Speculated)',
+    project: 'Momentary Bliss V5',
     era: 'Momentary Bliss',
-    status: 'Rumoured',
-    source: "Screenshot found on Kenz' phone",
-    updatedDate: 'June 2026',
-    notes: 'An estimate of the songs that may come up using some snippeted songs and some confirmed songs.',
+    status: 'Confirmed',
+    image: '/images/MB FINAL.png',
+    source: "Official cover art posted by Rkenzo for the Momentary Bliss rollout. Link: https://www.instagram.com/p/DanXbEXDNuL/?img_index=1",
+    updatedDate: '11 July 2026',
+    notes: 'Does not show any bonus tracks so all are up to speculation. Kenz did announce the EP would drop August 22nd when he posted this cover art so this is likely the final tracklist for Momentary Bliss. Should be noted that kenz is still deciding on the bonus tracks and is unsure whether to include "WAKE UP" as a bonus track. Its also been speculated that the EP will have 4 bonus tracks potentially.',
     tracks: [
       {
-        position: 1,
-        title: 'Lane Switch',
-        confirmed: false,
-        producer: 'Sogimura',
-        notes: 'Spotted on the momentary tracklist as the intro so the song will probably make the album. Rkenzo experiments with a different sound and delivers a very good flow. Song has a 8-BIT vibe to it ',
+        position: 2,
+        title: '1+9',
+        confirmed: true,
+        producer: 'FinniX!Beats',
+        notes: 'Spotted as track 2 in the momentary bliss cover art. Song is gaining traction online which probably lead to it making the potential final cut',
 
       },
 
       {
-        position: 2,
+        position: 1,
         title: 'RICK OWENS',
         confirmed: true,
         producer: 'Sogimura',
-        notes: 'This song is 100% making the cut confirmed by Rkenzo himself',
+        notes: 'Spotted on the tiktok snippet as "TRACK 01" so that basically confirms its the first track, additionally cover art shows its track 1.',
       },
       
       {
@@ -1613,25 +1617,26 @@ export const TRACKLISTS: Tracklist[] = [
         title: 'WAKE UP',
         confirmed: false,
         producer: 'Sogimura',
-        notes: 'Unreleased experimental song, same producer as Rick owens kenz tries a new style with some familar flows and delievers a really solid song. This song will probably be considered for Momentary Bliss',
+        notes: 'Unreleased experimental song, same producer as Rick owens kenz tries a new style with some familar flows and delievers a really solid song. Song was taken off the final tracklist so it is speculated that it will make it as a bonus track since it was on previous tracklists however kenz is not sure',
         isBonusTrack: true
       },
 
       {
         position: 5,
         title: 'NO TIME = MONEY FAST',
-        confirmed: false,
+        confirmed: true,
         features: 'ft. Whizz',
         producer: '?',
-        notes: 'Song is seen on the tracklist as "WHIZ SONG" but it is probably this song as they do not have any other songs recorded close to 2026',
+        notes: 'Song is spotted as track 5 on the cover art posted by Rkenzo. Song was reportedly made during the OS2S: Extended Edition era but was never released potentially meaning we may get more 2025 grails on this tape',
       },
       
       {
         position: 4,
-        title: '1+9',
-        confirmed: false,
-        producer: 'FinniX!Beats',
-        notes: "New sounding beat by FinniX, snippet posted to instagram July 1st",
+        title: 'NEVER (FALLIN IN LOVE)',
+        confirmed: true,
+        features: '?',
+        producer: '?',
+        notes: "Kenz returns back to his melodic drill roots for this song, kenz was strong about putting this song out when deciding tracklsits as he feels it gives the EP more depth with emotional releases. Song has a strong vocalist on a modern drill beat",
       },
 
       {
@@ -1656,12 +1661,21 @@ export const TRACKLISTS: Tracklist[] = [
         title: 'EVISU JEANS',
         confirmed: true,
         producer: 'Sogimura',
-        notes: 'After kadz convinced him he reconsidered putting this song on the EP in some form so is likely the reason to why its a bonus track and not on the main tracklist',
+        notes: 'After kadz convinced him he reconsidered putting this song on the EP in some form so is likely the reason to why its a bonus track and not on the main tracklist. There no way this song does not get included as a bonus track',
         isBonusTrack: true,
       },
 
+      {
+        position: 10,
+        title: 'I WANNA ROCK',
+        confirmed: false,
+        producer: 'Sogimura',
+        notes: 'Song that was believed to be called "GO NOW" but was later confirmed to be called "I WANNA ROCK" by Rkenzo himself. Song has been spotted on older track lists so could be a bonus track for Momentary Bliss',
+        isBonusTrack: true
+      },
+
     ],
-  },  
+  },
 
   {
     project: 'Momentary Bliss V4',
@@ -1980,6 +1994,112 @@ export const TRACKLISTS: Tracklist[] = [
 
     ],
   },
+
+  {
+    project: 'Momentary Bliss (FAN MADE)',
+    era: 'Momentary Bliss',
+    status: 'Rumoured',
+    source: "Screenshot found on Kenz' phone",
+    updatedDate: 'July 2026',
+    notes: 'An estimate of the songs that may come up using some snippeted songs and some confirmed songs.',
+    tracks: [
+      {
+        position: 1,
+        title: 'Lane Switch',
+        confirmed: true,
+        producer: 'Sogimura',
+        notes: 'Spotted on the momentary tracklist as the intro so the song will probably make the album. Rkenzo experiments with a different sound and delivers a very good flow. Song has a 8-BIT vibe to it ',
+
+      },
+
+      {
+        position: 2,
+        title: 'RICK OWENS',
+        confirmed: true,
+        producer: 'Sogimura',
+        notes: 'This song is 100% making the cut confirmed by Rkenzo himself',
+      },
+      
+      {
+        position: 3,
+        title: 'MILAN',
+        confirmed: true,
+        features: 'ft. Tkandz',
+        producer: 'blancomadeit',
+        notes: 'Snippeted April 2026 — likely a lead single or album cut given the full verse preview. Rkenzo said if Tkandz label doesnt clear his feature then he will replace this song with another highly anticipated artist feature',
+      },
+
+      {
+        position: 9,
+        title: 'GO NOW',
+        confirmed: true,
+        producer: 'Sogimura',
+        notes: 'Unreleased experimental song, same producer as Rick owens kenz tries a new style with some familar flows and delievers a really solid song. This song will probably be considered for Momentary Bliss',
+        isBonusTrack: true
+      },
+
+      {
+        position: 5,
+        title: 'In My Feels',
+        confirmed: false,
+        producer: 'blancomadeit',
+        notes: 'Solo version or even just blanco allowing kenz to put his song "In My Feels" on MB would fit perfectly before alone now. The verse Kenz delivers in the snippet is probably one of his best features to date so fans would love to have this on the project or to even see the light of day',
+      },
+
+      {
+        position: 5,
+        title: 'Nails & Toes',
+        confirmed: false,
+        producer: 'ROB EVN',
+        notes: 'Unreleased song from the OS2S: Extended Edition era. Song is one of the best of that era and is a shame it didnt get released and its spacey beat and slow paced would be a perfect fit before ALONE NOW',
+      },
+      
+      {
+        position: 8,
+        title: '1+9',
+        confirmed: true,
+        producer: 'FinniX!Beats',
+        isBonusTrack: true,
+        notes: "New sounding beat by FinniX, snippet posted to instagram July 1st",
+      },
+
+      {
+        position: 6,
+        title: 'ALONE NOW',
+        confirmed: true,
+        producer: 'FinniX!Beats',
+        notes: 'Instantly hailed as a grail after the instagram live preview. Fans are desperate for this one',
+      },
+      
+      {
+        position: 4,
+        title: 'RIDE WITH THE CREW',
+        confirmed: true,
+        producer: 'Sagemon',
+        notes: 'After kadz reminded him that this song exists Kenz would reconsider adding RWTC to the EP but as a bonus track as he felt like it didnt fit the main sound of the EP',
+
+      },
+
+      {
+        position: 7,
+        title: 'EVISU JEANS',
+        confirmed: true,
+        producer: 'Sogimura',
+        notes: 'After kadz convinced him he reconsidered putting this song on the EP in some form so is likely the reason to why its a bonus track and not on the main tracklist',
+        isBonusTrack: true,
+      },
+
+      {
+        position: 10,
+        title: 'You Know',
+        confirmed: true,
+        producer: 'loopgod',
+        notes: 'Melodic song where Rkenzo experiments with new vocals adding punchy flows and a catchy hook. This song is a favourite of the OS2S: Extended Edition era and would be a great finish to MB',
+        isBonusTrack: true,
+      },
+
+    ],
+  }, 
 
   {
     project: 'OS2S: Extended Edition',

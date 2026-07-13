@@ -112,7 +112,7 @@ export interface Tracklist {
 export const ERAS: Era[] = [
   {
     name: 'Momentary Bliss',
-    image: '/images/MB.jpeg',
+    image: '/images/MB FINAL.png',
     description:
       "Momentary Bliss era marks the start of Kenz' music from 2026 leading up to the release of his upcoming EP expected to release August 22nd 2026, Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Project seems to experiment with different sounds and has a spacey-like theme. Fans believe this will be his biggest project yet",
     accent: '#60ecff',

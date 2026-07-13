@@ -1976,7 +1976,7 @@ export const TRACKLISTS: Tracklist[] = [
       },
       
       {
-        position: 4,
+        position: 3,
         title: 'Milan',
         confirmed: true,
         features: 'ft. Tkandz',
@@ -1994,7 +1994,7 @@ export const TRACKLISTS: Tracklist[] = [
       },
 
       {
-        position: 4,
+        position: 5,
         title: 'FINER THINGS',
         confirmed: true,
         features: '',
@@ -2003,7 +2003,7 @@ export const TRACKLISTS: Tracklist[] = [
       },
       
       {
-        position: 5,
+        position: 6,
         title: 'Streatham Hill',
         confirmed: true,
         producer: '? X Yoni',
@@ -2011,7 +2011,7 @@ export const TRACKLISTS: Tracklist[] = [
       },
 
       {
-        position: 3,
+        position: 4,
         title: 'Alone',
         confirmed: true,
         producer: 'FinniX!Beats',

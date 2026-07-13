@@ -1610,7 +1610,7 @@ export const TRACKLISTS: Tracklist[] = [
     project: 'Momentary Bliss V5',
     era: 'Momentary Bliss',
     status: 'Confirmed',
-    image: '/images/MB FINAL.png',
+    image: '/images/MB BACK.png',
     source: "Official cover art posted by Rkenzo for the Momentary Bliss rollout. Link: https://www.instagram.com/p/DanXbEXDNuL/?img_index=1",
     updatedDate: '11 July 2026',
     notes: 'Does not show any bonus tracks so all are up to speculation. Kenz did announce the EP would drop August 22nd when he posted this cover art so this is likely the final tracklist for Momentary Bliss. Should be noted that kenz is still deciding on the bonus tracks and is unsure whether to include "WAKE UP" as a bonus track. Its also been speculated that the EP will have 4 bonus tracks potentially.',

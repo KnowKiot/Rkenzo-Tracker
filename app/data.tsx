@@ -42,8 +42,6 @@ export interface Song {
   releaseDate?: string;
 }
 
-
-
 export interface Era {
   name: string;
   image: string;
@@ -65,6 +63,26 @@ export interface MusicVideo {
   notes?: string;
 }
 
+export interface TrackerUpdateItem {
+  title: string;
+  type: string;
+  detail: string;
+  date: string;
+  era?: string;
+  link?: string;
+}
+
+export const TRACKER_UPDATES: TrackerUpdateItem[] = [
+  {
+    title: 'Milan',
+    type: 'Song update',
+    detail: 'A new snippet surfaced in CDQ July 11th 2026 previewing a full verse from Rkenzo. Tkandz adlibs can be heard in the back too',
+    date: '2026-07-11',
+    era: 'Momentary Bliss',
+    link: 'https://www.tiktok.com/@rkenzo.1/photo/7660925042200562966',
+  },
+];
+
 export type TracklistStatus = 'Confirmed' | 'Rumoured' | 'Scrapped' | 'Unreleased' | 'Released';
  
 export interface TrackEntry {
@@ -75,6 +93,7 @@ export interface TrackEntry {
   producer?: string;
   notes?: string;
   isBonusTrack?: boolean; // marks track as a bonus/deluxe version track
+  image?: string;        // image URL or path for cover art / version history
 }
  
 export interface Tracklist {
@@ -84,6 +103,7 @@ export interface Tracklist {
   source?: string;      // where the tracklist came from, e.g. "rkenzo instagram live"
   updatedDate?: string; // when this tracklist was last updated
   notes?: string;       // general notes about the project
+  image?: string;       // optional image for the tracklist, e.g. cover art / version image
   tracks: TrackEntry[];
 }
 
@@ -94,7 +114,7 @@ export const ERAS: Era[] = [
     name: 'Momentary Bliss',
     image: '/images/MB.jpeg',
     description:
-      "Momentary Bliss era marks the start of Kenz' music from 2026 leading up to the release of his upcoming EP expected to release 2026, Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Project seems to experiment with different sounds and has a spacey-like theme. Fans believe this will be his biggest project yet",
+      "Momentary Bliss era marks the start of Kenz' music from 2026 leading up to the release of his upcoming EP expected to release August 22nd 2026, Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Project seems to experiment with different sounds and has a spacey-like theme. Fans believe this will be his biggest project yet",
     accent: '#60ecff',
     accentBg: 'rgba(96,236,255,0.06)',
   },
@@ -441,7 +461,7 @@ export const SONGS: Song[] = [
       'Snippet uploaded to Instagram on April 18th 2026 where both boys are wearing light blue drip and tkandz previews a verse. Probably will drop leading up to the release of Momentary Bliss',
     rating: '🥇',
     filename: 'Milan [Rkenzo x Tkandz].MPEG',
-    links: ['https://www.instagram.com/reel/DXR_71rjGq4/'],
+    links: ['https://www.tiktok.com/@rkenzo.1/photo/7660925042200562966','https://www.instagram.com/reel/DXR_71rjGq4/'],
     altNames: ["RECIPE", "BLUE BOYS"]
   },
 
@@ -1647,6 +1667,7 @@ export const TRACKLISTS: Tracklist[] = [
     project: 'Momentary Bliss V4',
     era: 'Momentary Bliss',
     status: 'Confirmed',
+    image: '/images/MB FINAL.png',
     source: "Screenshot found on Kenz' phone",
     updatedDate: 'June 2026',
     notes: 'Shows a more complete tracklist of 9 songs so could potentially be the final tracklist for Momentary Bliss',
@@ -1736,6 +1757,7 @@ export const TRACKLISTS: Tracklist[] = [
     project: 'Momentary Bliss V3',
     era: 'Momentary Bliss',
     status: 'Rumoured',
+    image: '/images/MB V3.png',
     source: "Seen in Kenz' room on a sheet of paper he wrote down 8 tracks for the first installment of Momentary Bliss",
     updatedDate: 'June 2026',
     notes: 'This tracklist is just a first draft some of the songs are vaguly named so some of the songs are a guesses based of snippets we already have',
@@ -1814,7 +1836,8 @@ export const TRACKLISTS: Tracklist[] = [
   {
     project: 'Momentary Bliss V2',
     era: 'Momentary Bliss',
-    status: 'Confirmed',
+    status: 'Scrapped',
+    image: '/images/MB V2.png',
     source: "Seen as a screenshot on Rkenzo's phone on notes app ",
     updatedDate: 'May 2026',
     notes: 'This tracklist is a second draft of momentary bliss. This version would be very different from V1 as it doesnt feature evisu jeans, is a longer tracklist and has a bonus track',
@@ -1895,7 +1918,8 @@ export const TRACKLISTS: Tracklist[] = [
   {
     project: 'Momentary Bliss V1',
     era: 'Momentary Bliss',
-    status: 'Rumoured',
+    image: '/images/MB.jpeg',
+    status: 'Scrapped',
     source: "Screenshot on Rkenzo's phone on notes app ",
     updatedDate: 'May 2026',
     notes: "track 1 can't be seen on the screenshot for this TL but from a tiktok it was revealed that RICK OWENS was originally intended to be track 1 for Momentary Bliss. No bonus tracks are seen on this version",
@@ -1960,6 +1984,7 @@ export const TRACKLISTS: Tracklist[] = [
   {
     project: 'OS2S: Extended Edition',
     era: 'OS2S: Extended Edition',
+    image: '/images/OS2S_Deluxe.webp',
     status: 'Confirmed',
     source: 'Official bundle release via OS2S website',
     updatedDate: '2024',
@@ -2040,6 +2065,7 @@ export const TRACKLISTS: Tracklist[] = [
     project: 'One Shot To Shine V2',
     era: 'One Shot To Shine',
     status: 'Confirmed',
+    image: '/images/OS2S.png',
     source: 'Official EP release — August 23rd 2024',
     updatedDate: 'August 2024',
     notes: 'Debut EP. Officially released tracklist.',
@@ -2096,6 +2122,7 @@ export const TRACKLISTS: Tracklist[] = [
     project: 'One Shot To Shine V1',
     era: 'One Shot To Shine',
     status: 'Scrapped',
+    image: '/images/OS2S ALT.jpeg',
     source: 'Original tracklist before the EP release, shared by Rkenzo',
     updatedDate: 'August 2024',
     notes: 'Rearranged order of the tracks on OS2S with some new changes like Fuck the world and Keep Goin and an addition 7th song',

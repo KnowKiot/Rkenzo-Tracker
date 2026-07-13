@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useRef, useState } from 'react';
-import { ERAS, MUSIC_VIDEOS, RATINGS, SONGS, TRACKLISTS } from './data';
-import type { Tracklist } from './data';
+import { useMemo, useRef, useState, type MouseEvent as ReactMouseEvent } from 'react';
+import { ERAS, MUSIC_VIDEOS, RATINGS, SONGS, TRACKLISTS, TRACKER_UPDATES } from './data';
+import type { TrackEntry, Tracklist, TrackerUpdateItem } from './data';
 
 // ─────────────────────────────────────────────
 //  Helpers
@@ -498,16 +498,25 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-4 text-xs" style={{ color: `${accent}99` }}>
-            <span>{tl.tracks.length} tracks</span>
-            <span>{confirmedCount} confirmed · {tl.tracks.length - confirmedCount} unconfirmed</span>
-            {tl.updatedDate && <span>Updated {tl.updatedDate}</span>}
-            {tl.source && <span>Source: {tl.source}</span>}
-          </div>
+          <div className="flex items-start gap-4">
+            {tl.image && (
+              <div className="mt-1 flex-shrink-0 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/70 p-2">
+                <img src={tl.image} alt={`${tl.project} cover`} className="h-24 w-24 rounded-xl object-cover" />
+              </div>
+            )}
+            <div className="flex-1">
+              <div className="flex flex-wrap gap-4 text-xs" style={{ color: `${accent}99` }}>
+                <span>{tl.tracks.length} tracks</span>
+                <span>{confirmedCount} confirmed · {tl.tracks.length - confirmedCount} unconfirmed</span>
+                {tl.updatedDate && <span>Updated {tl.updatedDate}</span>}
+                {tl.source && <span>Source: {tl.source}</span>}
+              </div>
 
-          {tl.notes && (
-            <p className="text-zinc-500 text-xs leading-relaxed mt-1">{tl.notes}</p>
-          )}
+              {tl.notes && (
+                <p className="text-zinc-500 text-xs leading-relaxed mt-1">{tl.notes}</p>
+              )}
+            </div>
+          </div>
         </div>
       </button>
 
@@ -533,13 +542,13 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
               <>
                 {/* Main tracks */}
                 {sortedMain.map((track, i) => (
-                  <div
-                    key={`main-${i}`}
-                    className={`flex items-start gap-4 px-6 py-4 hover:bg-white/5 transition-colors duration-150 ${
-                      track.confirmed ? 'text-white' : 'text-zinc-400'
-                    }`}
-                    style={{ borderBottom: `1px solid ${accent}15` }}
-                  >
+                  <div key={`main-${i}`}>
+                    <div
+                      className={`flex items-start gap-4 px-6 py-4 hover:bg-white/5 transition-colors duration-150 ${
+                        track.confirmed ? 'text-white' : 'text-zinc-400'
+                      }`}
+                      style={{ borderBottom: `1px solid ${accent}15` }}
+                    >
                     {/* Track number */}
                     <span
                       className="text-sm font-mono w-6 flex-shrink-0 mt-0.5"
@@ -578,6 +587,8 @@ function TracklistCard({ tl }: { tl: Tracklist }) {
                       {track.confirmed ? 'Confirmed' : 'Unconfirmed'}
                     </span>
                   </div>
+
+                </div>
                 ))}
 
                 {/* Bonus Tracks Header */}
@@ -709,6 +720,51 @@ function TracklistsSection({ filterEra }: { filterEra: string }) {
 
 type StatusFilter = 'All' | 'Released' | 'Previewed' | 'Unreleased';
 
+type TrackerUpdate = TrackerUpdateItem & {
+  accent: string;
+};
+
+const formatUpdateDate = (value: string) => {
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return 'Recently updated';
+  return parsed.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+};
+
+const buildTrackerUpdates = (): TrackerUpdate[] => {
+  const updates: TrackerUpdate[] = [
+    ...TRACKER_UPDATES.map((item) => ({
+      ...item,
+      accent: eraAccent(item.era ?? ''),
+    })),
+    ...SONGS.filter((song) => song.releaseDate).map((song) => ({
+      title: song.title,
+      type: 'Song update',
+      detail: song.notes,
+      date: song.releaseDate as string,
+      accent: eraAccent(song.era),
+      link: song.links?.[0],
+    })),
+    ...MUSIC_VIDEOS.filter((video) => video.releaseDate).map((video) => ({
+      title: video.title,
+      type: 'Video update',
+      detail: video.notes ?? `Added to the archive for ${video.era}.`,
+      date: video.releaseDate as string,
+      accent: eraAccent(video.era),
+      link: `https://www.youtube.com/watch?v=${video.youtubeId}`,
+    })),
+    ...TRACKLISTS.filter((tracklist) => tracklist.updatedDate).map((tracklist) => ({
+      title: tracklist.project,
+      type: 'Tracklist update',
+      detail: tracklist.notes ?? `Updated with ${tracklist.tracks.length} tracked entries.`,
+      date: tracklist.updatedDate as string,
+      accent: eraAccent(tracklist.era),
+    })),
+  ];
+
+  updates.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return updates.slice(0, 6);
+};
+
 export default function RkenzoTracker() {
   const [search, setSearch]                 = useState('');
   const [filterRating, setFilterRating]     = useState('All');
@@ -717,6 +773,7 @@ export default function RkenzoTracker() {
   const [filterStatus, setFilterStatus]     = useState<StatusFilter>('All');
   const [filterRecentStatus, setFilterRecentStatus] = useState<StatusFilter>('All');
   const [activeTab, setActiveTab]           = useState<'songs' | 'recent' | 'videos' | 'tracklists'>('songs');
+  const [showUpdates, setShowUpdates]       = useState(true);
 
   // ── Stats ──
   const stats = useMemo(() => ({
@@ -727,6 +784,7 @@ export default function RkenzoTracker() {
   }), []);
 
   const grails = useMemo(() => SONGS.filter((s) => s.rating === '🏆'), []);
+  const trackerUpdates = useMemo(() => buildTrackerUpdates(), []);
   const lastUpdated = new Date().toLocaleDateString('en-GB', {
     month: 'short',
     day: 'numeric',
@@ -769,8 +827,21 @@ export default function RkenzoTracker() {
         : 'bg-zinc-900 text-zinc-400 border-zinc-700 hover:border-zinc-400'
     }`;
 
+  const handlePageClick = (event: ReactMouseEvent<HTMLDivElement>) => {
+    if (showUpdates) return;
+
+    const target = event.target as HTMLElement;
+    if (target.closest('button, a, input, select, textarea, [role="button"]')) return;
+
+    setShowUpdates(true);
+  };
+
   return (
-    <div className="min-h-screen text-white p-8 font-sans" style={{ background: 'linear-gradient(to bottom, #0a0a0a, #0c0c0c)' }}>
+    <div
+      className="min-h-screen text-white p-8 font-sans"
+      style={{ background: 'linear-gradient(to bottom, #0a0a0a, #0c0c0c)' }}
+      onClick={handlePageClick}
+    >
       <div className="max-w-7xl mx-auto">
 
         {/* ── Header ── */}
@@ -1137,6 +1208,78 @@ export default function RkenzoTracker() {
           Last updated: {lastUpdated}
         </div>
       </div>
+
+      <button
+        type="button"
+        onClick={(event) => {
+          event.stopPropagation();
+          setShowUpdates((value) => !value);
+        }}
+        className="fixed bottom-5 right-5 z-40 rounded-full border border-cyan-400/40 bg-zinc-900/95 px-4 py-3 text-sm font-semibold text-cyan-200 shadow-2xl backdrop-blur transition hover:scale-105"
+      >
+        🆕 Updates
+      </button>
+
+      {showUpdates && (
+        <div
+          className="update-modal-backdrop fixed inset-0 z-50 flex items-center justify-center bg-black/75 px-4 py-8 backdrop-blur-sm"
+          onClick={() => setShowUpdates(false)}
+        >
+          <div
+            className="update-modal-card w-full max-w-2xl max-h-[85vh] overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 p-6 shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Latest tracker updates</p>
+                <h3 className="mt-2 text-2xl font-bold text-white">What’s new</h3>
+                <p className="mt-2 text-sm text-zinc-400">Recent songs, videos, and tracklist changes from the archive.</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowUpdates(false)}
+                className="rounded-full border border-zinc-700 bg-zinc-900 px-3 py-2 text-sm text-zinc-300 transition hover:border-zinc-400 hover:text-white"
+                aria-label="Close updates"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="mt-5 max-h-[55vh] space-y-3 overflow-y-auto pr-2">
+              {trackerUpdates.length > 0 ? (
+                trackerUpdates.map((item, index) => (
+                  <div key={`${item.title}-${index}`} className="rounded-2xl border border-zinc-800 bg-zinc-900/80 p-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <div>
+                        <p className="font-semibold text-white">{item.title}</p>
+                        <p className="mt-1 text-xs font-medium uppercase tracking-[0.24em]" style={{ color: item.accent }}>
+                          {item.type}
+                        </p>
+                      </div>
+                      <span className="text-xs text-zinc-400">{formatUpdateDate(item.date)}</span>
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-zinc-400">{item.detail}</p>
+                    {(item.type === 'Song update' || item.type === 'Video update') && item.link ? (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex text-sm font-medium text-cyan-300 underline underline-offset-2 transition hover:text-cyan-200"
+                      >
+                        Open source ↗
+                      </a>
+                    ) : null}
+                  </div>
+                ))
+              ) : (
+                <div className="rounded-2xl border border-zinc-800 bg-zinc-900/80 p-4 text-sm text-zinc-400">
+                  No updates available right now.
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

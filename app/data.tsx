@@ -421,6 +421,7 @@ export const SONGS: Song[] = [
     rating: '⭐',
     filename: "Rick Owen’s mix.wav",
     links: ['https://open.spotify.com/album/4GsqZMSH0Vay1LnL1KmNwt?si=HN3UreP5T5-HMFIh6ETOHQ'],
+    releaseDate: '2026-05-23',
   },
 
   {
@@ -499,16 +500,19 @@ export const SONGS: Song[] = [
     filename: '—',
     links: ['https://www.instagram.com/p/DXKu1-7jBx4/'],
   },
+
   {
-    title: 'Chasing Paper',
+    title: 'Alayo. - finally in love (feat. Rkenzo)',
     era: 'Momentary Bliss',
     status: 'Released',
-    producer: 'Unknown',
-    notes: 'Second song released in the Momentary Bliss rollout likely another throwaway song. Kenz also claimed he made this song in under 10 seconds',
-    rating: '🗑️',
-    filename: '—',
-    links: ['https://www.youtube.com/watch?v=MFjM_NQvPC0'],
+    producer: '?',
+    notes: 'Feature rkenzo gave to Alayo for her song "finally in love" which was released on 26th May 2026. Kenz doesnt reuse any bars on this feature and comes with a solid slow delivery to match the mood of the beat',
+    rating: '',
+    filename: '?',
+    links: ['https://open.spotify.com/album/7bZhtvRuMB9AI9OKoIuDzZ'],
+    releaseDate: '2026-05-26',
   },
+
   {
     title: 'EVISU JEANS',
     era: 'Momentary Bliss',
@@ -518,8 +522,9 @@ export const SONGS: Song[] = [
     rating: '✨',
     filename: 'Rkenzo EVISU JEANS FINAL MIX.wav',
     links: ['https://www.youtube.com/watch?v=GCz7GZODsv4'],
-    releaseDate: '2026-05-01',
+    releaseDate: '2026-05-20',
   },
+
   {
     title: 'Young Slash - SHOW ME U LOVE Ft Rkenzo',
     era: 'Momentary Bliss',
@@ -531,6 +536,19 @@ export const SONGS: Song[] = [
     links: ['https://open.spotify.com/track/3IltiEP4f9xZrjlfFJPGEH'],
     releaseDate: '2026-05-01',
   },
+
+  {
+    title: 'Chasing Paper',
+    era: 'Momentary Bliss',
+    status: 'Released',
+    producer: 'Unknown',
+    notes: 'Second song released in the Momentary Bliss rollout likely another throwaway song. Kenz also claimed he made this song in under 10 seconds',
+    rating: '🗑️',
+    filename: '—',
+    links: ['https://www.youtube.com/watch?v=MFjM_NQvPC0'],
+    releaseDate: '2026-04-3',
+  },
+
   {
     title: 'NEVER (FALLING IN LOVE)',
     era: 'Momentary Bliss',
@@ -708,6 +726,17 @@ export const SONGS: Song[] = [
     filename: 'CANT STOP.wav',
     links: [],
   },
+
+  {
+    title: 'Often - Waste No Time Ft Rkenzo',
+    era: 'OS2S: Extended Edition',
+    status: 'Released',
+    producer: 'Gore Ocean',
+    notes: 'Kenz reuses bars from On Go and Charlie feature and delievers an average verse for Often',
+    rating: '',
+    filename: '?',
+    links: ['https://open.spotify.com/track/1rWRSIcuyhzECBsCky9iKI'],
+  },  
 
   {
     title: 'OS2S Freestyle',
@@ -1291,7 +1320,7 @@ export const SONGS: Song[] = [
     era: 'Young Kenz',
     status: 'Snippet',
     producer: 'ZEL',
-    notes: 'Unreleased song made during the Young Kenz era which he shared to Mr Imagination. This song never released but the people who have heard it consider it as the best song from this era',
+    notes: 'Unreleased song made during the Young Kenz era which he shared to Mr Imagination. This song never released but the people who have heard it consider it as the best song from this era. Apparently Kenz snipped this song during this era but no media footage can be found of it. This song should of released during this era but didnt for unknown reasons.',
     rating: '🥇',
     filename: "Let's Get It.mp3",
     links: ['https://imgur.gg/f/e1zbCzl'],
@@ -1392,7 +1421,7 @@ export const SONGS: Song[] = [
     title: 'Never Giving Up',
     era: 'Rkenzo Foundation',
     status: 'Released',
-    producer: 'Unknown',
+    producer: 'JpBeatz',
     notes: "Rkenzo's first music video. He seemed to scrap this wave rap sound, marking the end of the Rkenzo Foundation Era",
     rating: '✨',
     filename: '—',

@@ -526,6 +526,18 @@ export const SONGS: Song[] = [
   },
 
   {
+    title: 'XYLEM - Waste My Time Ft Rkenzo',
+    era: 'Momentary Bliss',
+    status: 'Snippet',
+    producer: 'Unknown',
+    notes:
+      'Xylem recorded the song in 2025 which is why the song was believed to be made during the OS2S: Extended Edition era. But Rkenzo didnt actually lay down a verse till 2026. Kenz would snippet a part of his verse at the end of the EVISU JEANS music video but the song still hasnt released for unknown reasons. Song is speculated to be a finished song and was considered to be sent for mixing',
+    rating: '🥈',
+    filename: 'WASTE MY TIME X RKENZO.wav',
+    links: ['https://youtu.be/GCz7GZODsv4?si=gEuhEfucQar2SyLu&t=112'],
+  },
+
+  {
     title: 'Young Slash - SHOW ME U LOVE Ft Rkenzo',
     era: 'Momentary Bliss',
     status: 'Released',
@@ -663,7 +675,7 @@ export const SONGS: Song[] = [
     status: 'Snippet',
     producer: 'ROB EVN',
     notes:
-      "Uses a similar style flow as Say So and is a very smooth, chill and vibey typa track. Fans hope this song gets leaked one day",
+      "Uses a similar style flow as Say So and is a very smooth, chill and vibey typa track. Apparently the song was made close to his time in Ghana and the song was meant to be released but kenz didnt get round to it, probably because kadz encouraged him to release Say So so he was more focused on that and forgot about this track. Fans hope this leaks one day",
     rating: '🥈',
     filename: 'Nails and toes.wav',
     links: ['https://imgur.gg/f/6Bxc5XG'],
@@ -698,9 +710,20 @@ export const SONGS: Song[] = [
     status: 'Unreleased',
     producer: 'loopgod',
     notes:
-      'Melodic song where Rkenzo experiments with new vocals adding punchy flows and a catchy hook. Kenz has said that this song could potentially make the tracklist for Momentary Bliss',
+      'Melodic song where Rkenzo experiments with new vocals adding punchy flows and a catchy hook. This song sees kenz reminiscing about the same girl in "Jada" and apparently this song was made to capture the moments he spent with her.Kenz has said that this song could potentially make the tracklist for Momentary Bliss',
     rating: '🥇',
     filename: 'You Know.Wav',
+    links: [],
+  },
+
+  {
+    title: 'Jada',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: '?',
+    notes:'Song was made after Kenz went on holiday and met a girl named Jada who he said was so leng he had to make a song about it. Not much is known about this song but this same girl would be the reason why kenz made "You Know" so could be another banger',
+    rating: '',
+    filename: '?',
     links: [],
   },
 
@@ -866,7 +889,7 @@ export const SONGS: Song[] = [
     status: 'Vaulted',
     producer: '',
     notes:
-      'Version of TOO FAST with a different beat/mix. Not as good as the first version',
+      'Version of TOO FAST with a different beat/mix. Not as good as the first version as it has different drums and remvoes the authentic instruments that was made in the V1',
     rating: '',
     filename: 'TOO FAST mix.m4a',
     links: [],
@@ -958,18 +981,6 @@ export const SONGS: Song[] = [
     notes: 'Version of Lifestyle Lately without Tkandz verse and alternate music video shot in Spain',
     rating: '—',
     filename: 'Lifestyle Lately (X).wav',
-    links: [],
-  },
-
-  {
-    title: 'XYLEM - Waste My Time Ft Rkenzo',
-    era: 'OS2S: Extended Edition',
-    status: 'Unreleased',
-    producer: 'Unknown',
-    notes:
-      'Song made during the OS2S: Extended Edition era but never released for unknown reasons. Song is speculated to be a finished song and was considered to be sent for mixing',
-    rating: '🥈',
-    filename: 'WASTE MY TIME X RKENZO.wav',
     links: [],
   },
 
@@ -1083,7 +1094,7 @@ export const SONGS: Song[] = [
     status: 'Vaulted',
     producer: '',
     notes:
-      'Collaborative song Rkenzo made with one of his collegues from his university course, Rkenzo experiments with a new sound and reuses some bars but the melodic delivery from both artists in a catchy manner, fans anticipate it to release on Momentary Bliss but doesnt seem likely as the feature was never cleared from the other artist. Apparently he lost this version of the song but it is recoverable',
+      'Collaborative song Rkenzo made with one of his collegues from his university course. Song was apparently made live, all the instruments were recorded in real-time which is why it sounds so cinematic. Rkenzo experiments with a new sound and reuses some bars but the melodic delivery from both artists in a catchy manner, fans anticipate it to release on Momentary Bliss but doesnt seem likely as the feature was never cleared from the other artist. Apparently he lost this version of the song but it is recoverable',
     rating: '🏆',
     filename: 'TOO FAST.mp3',
     links: [],
@@ -1678,25 +1689,25 @@ export const TRACKLISTS: Tracklist[] = [
       {
         position: 7,
         title: 'RIDE WITH THE CREW',
-        confirmed: false,
+        confirmed: true,
         producer: 'Sagemon',
-        notes: 'After kadz reminded him that this song exists Kenz would reconsider adding RWTC to the EP but as a bonus track as he felt like it didnt fit the main sound of the EP',
+        notes: 'After kadz reminded him that this song exists Kenz would reconsider adding RWTC to the EP but as a bonus track as he felt like it didnt fit the main sound of the EP. Kenz stated that he really wants this song to release tho and it along with "GO NOW / I WANNA ROCK" are the strongest contenders for a bonus track',
         isBonusTrack: true,
       },
 
       {
         position: 9,
         title: 'EVISU JEANS',
-        confirmed: true,
+        confirmed: false,
         producer: 'Sogimura',
-        notes: 'After kadz convinced him he reconsidered putting this song on the EP in some form so is likely the reason to why its a bonus track and not on the main tracklist. There no way this song does not get included as a bonus track',
+        notes: 'Kenz would later state that this song was made so long ago he doesnt feel like its strong enough to take the space of a bonus track since the song only did 20k streams and he feels like its a throwaway so probably will not make the final cut',
         isBonusTrack: true,
       },
 
       {
         position: 10,
         title: 'I WANNA ROCK',
-        confirmed: false,
+        confirmed: true,
         producer: 'Sogimura',
         notes: 'Song that was believed to be called "GO NOW" but was later confirmed to be called "I WANNA ROCK" by Rkenzo himself. Song has been spotted on older track lists so could be a bonus track for Momentary Bliss',
         isBonusTrack: true
@@ -1708,7 +1719,7 @@ export const TRACKLISTS: Tracklist[] = [
   {
     project: 'Momentary Bliss V4',
     era: 'Momentary Bliss',
-    status: 'Confirmed',
+    status: 'Scrapped',
     image: '/images/MB FINAL.png',
     source: "Screenshot found on Kenz' phone",
     updatedDate: 'June 2026',
@@ -1762,7 +1773,7 @@ export const TRACKLISTS: Tracklist[] = [
         position: 4,
         title: 'FALLING',
         confirmed: true,
-        producer: '?',
+        producer: 'OB',
         notes: "This song is Never / Fallin In / Fallin In Love ",
       },
 
@@ -1787,7 +1798,7 @@ export const TRACKLISTS: Tracklist[] = [
         position: 9,
         title: 'EVISU JEANS',
         confirmed: true,
-        producer: 'Sogimura',
+        producer: 'coreyblazy',
         notes: 'After kadz convinced him he reconsidered putting this song on the EP in some form so is likely the reason to why its a bonus track and not on the main tracklist',
         isBonusTrack: true,
       },
@@ -1988,8 +1999,8 @@ export const TRACKLISTS: Tracklist[] = [
         position: 2,
         title: 'EVISU JEANS',
         confirmed: true,
-        producer: 'Sogimura',
-        notes: 'Unreleased experimental song, same producer as Rick owens kenz tries a new style with some familar flows and delievers a really solid song. This song will probably be considered for Momentary Bliss',
+        producer: 'coreyblazy',
+        notes: 'Throwaway song which started the rollout of Momentary Bliss',
 
       },
 
@@ -2024,12 +2035,13 @@ export const TRACKLISTS: Tracklist[] = [
   },
 
   {
-    project: 'Momentary Bliss (FAN MADE)',
+    project: 'Momentary Bliss [FAN MADE]',
     era: 'Momentary Bliss',
+    image: '/images/Momentary.jpg',
     status: 'Rumoured',
     source: "Screenshot found on Kenz' phone",
     updatedDate: 'July 2026',
-    notes: 'An estimate of the songs that may come up using some snippeted songs and some confirmed songs.',
+    notes: 'Fan made tracklist filled with grails and heavily sort after songs that would still fit the theme of Momentary Bliss. if a track is has the same position as another it means either song could be in that position and it would fit very well.',
     tracks: [
       {
         position: 1,
@@ -2112,7 +2124,7 @@ export const TRACKLISTS: Tracklist[] = [
         position: 7,
         title: 'EVISU JEANS',
         confirmed: true,
-        producer: 'Sogimura',
+        producer: 'coreyblazy',
         notes: 'After kadz convinced him he reconsidered putting this song on the EP in some form so is likely the reason to why its a bonus track and not on the main tracklist',
         isBonusTrack: true,
       },

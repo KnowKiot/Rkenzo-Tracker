@@ -68,7 +68,7 @@ function EraPanel({
       {/* ── Banner ── */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="w-full text-left flex items-stretch min-h-[120px] transition-all duration-200 hover:brightness-110 focus:outline-none"
+        className="w-full text-left flex items-stretch min-h-[96px] sm:min-h-[120px] transition-all duration-200 hover:brightness-110 focus:outline-none"
         style={{ background: era.accentBg }}
         aria-expanded={open}
       >
@@ -79,7 +79,7 @@ function EraPanel({
         />
 
         {/* Era image */}
-        <div className="w-40 flex-shrink-0 flex items-center justify-center overflow-hidden bg-zinc-800">
+        <div className="w-24 sm:w-40 flex-shrink-0 flex items-center justify-center overflow-hidden bg-zinc-800">
           {era.image ? (
             <img src={era.image} alt={era.name} className="w-full h-full object-cover" />
           ) : (
@@ -92,11 +92,11 @@ function EraPanel({
 
         {/* Era info */}
         <div
-          className="flex-1 p-6 flex flex-col justify-center border-l"
+          className="flex-1 p-4 sm:p-6 flex flex-col justify-center border-l"
           style={{ borderColor: `${era.accent}30` }}
         >
-          <div className="flex items-center justify-between gap-4">
-            <h2 className="text-2xl font-bold tracking-tight" style={{ color: era.accent }}>
+          <div className="flex items-start justify-between gap-4">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight" style={{ color: era.accent }}>
               {era.name}
             </h2>
             <span
@@ -106,8 +106,8 @@ function EraPanel({
               ▾
             </span>
           </div>
-          <p className="text-zinc-400 text-sm mt-1">{era.description}</p>
-          <div className="flex flex-wrap gap-4 mt-3 text-sm" style={{ color: `${era.accent}99` }}>
+          <p className="text-zinc-400 text-xs sm:text-sm mt-1 leading-relaxed break-words">{era.description}</p>
+          <div className="flex flex-wrap gap-2 sm:gap-4 mt-3 text-xs sm:text-sm" style={{ color: `${era.accent}99` }}>
             <span>{songs.length} song{songs.length !== 1 ? 's' : ''}</span>
             <span>{songs.filter((s) => s.status === 'Released').length} released</span>
             <span>{songs.filter((s) => s.status === 'Snippet').length} snippets</span>
@@ -131,77 +131,122 @@ function EraPanel({
             : 'max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.2s ease',
         }}
       >
-        <div
-          className="overflow-x-auto"
-          style={{ borderTop: `1px solid ${era.accent}25` }}
-        >
-          <table className="w-full">
-            <thead>
-              <tr
-                className="text-zinc-500 text-xs uppercase tracking-wider"
-                style={{ borderBottom: `1px solid ${era.accent}20` }}
-              >
-                {['Rating', 'Song', 'Status', 'Producer', 'Filename', 'Notes', 'Link'].map((h) => (
-                  <th key={h} className="text-left px-5 py-3 font-medium">
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {songs.map((song, i) => (
+        <div style={{ borderTop: `1px solid ${era.accent}25` }}>
+          <div className="hidden sm:block overflow-x-auto">
+            <table className="w-full">
+              <thead>
                 <tr
-                  key={i}
-                  className="hover:bg-white/5 transition-colors duration-150"
-                  style={{ borderBottom: `1px solid ${era.accent}15` }}
+                  className="text-zinc-500 text-xs uppercase tracking-wider"
+                  style={{ borderBottom: `1px solid ${era.accent}20` }}
                 >
-                  <td className="px-5 py-4 text-xl">
-                    <span title={RATINGS.find((r) => r.emoji === song.rating)?.label ?? 'Unrated'}>
-                      {song.rating || '—'}
-                    </span>
-                  </td>
-                  <td className="px-5 py-4">
-                    <span className="font-medium text-white">{song.title}</span>
-                    {song.altNames && song.altNames.length > 0 && (
-                      <p className="text-zinc-500 text-xs mt-1">
-                        {song.altNames.join(', ')}
-                      </p>
-                    )}
-                  </td>
-                  <td className="px-5 py-4">
-                    <span
-                      className={`px-3 py-1 rounded-full text-xs font-medium border ${statusColor(song.status)}`}
-                    >
-                      {song.status}
-                    </span>
-                  </td>
-                  <td className="px-5 py-4 text-zinc-300 text-sm whitespace-nowrap">{song.producer}</td>
-                  <td className="px-5 py-4 text-zinc-400 font-mono text-xs">{song.filename || '—'}</td>
-                  <td className="px-5 py-4 text-zinc-400 text-sm max-w-xs">{song.notes}</td>
-                  <td className="px-5 py-4">
-                    {song.links && song.links.length > 0 ? (
-                      <div className="flex flex-col gap-1">
-                        {song.links.map((link, linkIndex) => (
-                          <a
-                            key={linkIndex}
-                            href={link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition text-sm whitespace-nowrap block"
-                          >
-                            Link {linkIndex + 1} ↗
-                          </a>
-                        ))}
-                      </div>
-                    ) : (
-                      <span className="text-zinc-600 text-sm">—</span>
-                    )}
-                  </td>
+                  {['Rating', 'Song', 'Status', 'Producer', 'Filename', 'Notes', 'Link'].map((h) => (
+                    <th key={h} className="text-left px-5 py-3 font-medium">
+                      {h}
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {songs.map((song, i) => (
+                  <tr
+                    key={i}
+                    className="hover:bg-white/5 transition-colors duration-150"
+                    style={{ borderBottom: `1px solid ${era.accent}15` }}
+                  >
+                    <td className="px-5 py-4 text-xl">
+                      <span title={RATINGS.find((r) => r.emoji === song.rating)?.label ?? 'Unrated'}>
+                        {song.rating || '—'}
+                      </span>
+                    </td>
+                    <td className="px-5 py-4">
+                      <span className="font-medium text-white">{song.title}</span>
+                      {song.altNames && song.altNames.length > 0 && (
+                        <p className="text-zinc-500 text-xs mt-1">
+                          {song.altNames.join(', ')}
+                        </p>
+                      )}
+                    </td>
+                    <td className="px-5 py-4">
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-medium border ${statusColor(song.status)}`}
+                      >
+                        {song.status}
+                      </span>
+                    </td>
+                    <td className="px-5 py-4 text-zinc-300 text-sm whitespace-nowrap">{song.producer}</td>
+                    <td className="px-5 py-4 text-zinc-400 font-mono text-xs break-all">{song.filename || '—'}</td>
+                    <td className="px-5 py-4 text-zinc-400 text-sm max-w-xs break-words">{song.notes}</td>
+                    <td className="px-5 py-4">
+                      {song.links && song.links.length > 0 ? (
+                        <div className="flex flex-col gap-1">
+                          {song.links.map((link, linkIndex) => (
+                            <a
+                              key={linkIndex}
+                              href={link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition text-sm whitespace-nowrap block"
+                            >
+                              Link {linkIndex + 1} ↗
+                            </a>
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="text-zinc-600 text-sm">—</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="sm:hidden divide-y divide-zinc-800/70">
+            {songs.map((song, i) => (
+              <div key={i} className="px-4 py-4">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-lg">{song.rating || '—'}</span>
+                      <span className="font-medium text-white break-words">{song.title}</span>
+                    </div>
+                    {song.altNames && song.altNames.length > 0 && (
+                      <p className="text-zinc-500 text-xs mt-1 break-words">{song.altNames.join(', ')}</p>
+                    )}
+                    <div className="mt-2 flex flex-wrap items-center gap-2">
+                      <span className={`px-2.5 py-1 rounded-full text-xs font-medium border ${statusColor(song.status)}`}>
+                        {song.status}
+                      </span>
+                      {song.producer ? <span className="text-zinc-400 text-xs">by {song.producer}</span> : null}
+                    </div>
+                    {song.filename ? (
+                      <p className="mt-2 text-[11px] font-mono text-zinc-500 break-all">{song.filename}</p>
+                    ) : null}
+                    {song.notes ? (
+                      <p className="mt-2 text-sm text-zinc-400 leading-relaxed break-words">{song.notes}</p>
+                    ) : null}
+                  </div>
+                </div>
+                {song.links && song.links.length > 0 ? (
+                  <div className="mt-3 flex flex-col gap-1">
+                    {song.links.map((link, linkIndex) => (
+                      <a
+                        key={linkIndex}
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition text-sm"
+                      >
+                        Link {linkIndex + 1} ↗
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -484,14 +529,14 @@ function TracklistCard({ tl, expandedTracklist }: { tl: Tracklist; expandedTrack
         {/* Accent bar */}
         <div className="w-1.5 flex-shrink-0" style={{ background: accent }} />
 
-        <div className="flex-1 p-6 flex flex-col justify-center gap-2">
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex items-center gap-3 flex-wrap">
-              <h3 className="text-xl font-bold tracking-tight" style={{ color: accent }}>
+        <div className="flex-1 p-4 sm:p-6 flex flex-col justify-center gap-2">
+          <div className="flex items-start justify-between gap-3 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+              <h3 className="text-lg sm:text-xl font-bold tracking-tight" style={{ color: accent }}>
                 {tl.project}
               </h3>
               <span
-                className="text-xs px-3 py-1 rounded-full font-semibold border flex-shrink-0"
+                className="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full font-semibold border flex-shrink-0"
                 style={statusStyle}
               >
                 {statusLabel}
@@ -505,7 +550,7 @@ function TracklistCard({ tl, expandedTracklist }: { tl: Tracklist; expandedTrack
             </span>
           </div>
 
-          <div className="flex items-start gap-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-4">
             {tl.image && (
               <div
                 onClick={(event) => {
@@ -517,11 +562,11 @@ function TracklistCard({ tl, expandedTracklist }: { tl: Tracklist; expandedTrack
                 aria-label={`Open ${tl.project} cover art preview`}
                 className="mt-1 flex-shrink-0 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/70 p-2 cursor-pointer transition hover:border-white"
               >
-                <img src={tl.image} alt={`${tl.project} cover`} className="h-24 w-24 rounded-xl object-cover" />
+                <img src={tl.image} alt={`${tl.project} cover`} className="h-20 w-20 sm:h-24 sm:w-24 rounded-xl object-cover" />
               </div>
             )}
-            <div className="flex-1">
-              <div className="flex flex-wrap gap-4 text-xs" style={{ color: `${accent}99` }}>
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap gap-2 sm:gap-4 text-[11px] sm:text-xs" style={{ color: `${accent}99` }}>
                 <span>{tl.tracks.length} tracks</span>
                 <span>{confirmedCount} confirmed · {tl.tracks.length - confirmedCount} unconfirmed</span>
                 {tl.updatedDate && <span>Updated {tl.updatedDate}</span>}
@@ -529,7 +574,7 @@ function TracklistCard({ tl, expandedTracklist }: { tl: Tracklist; expandedTrack
               </div>
 
               {tl.notes && (
-                <p className="text-zinc-500 text-xs leading-relaxed mt-1">{tl.notes}</p>
+                <p className="text-zinc-500 text-xs leading-relaxed mt-1 break-words">{tl.notes}</p>
               )}
             </div>
           </div>
@@ -585,7 +630,7 @@ function TracklistCard({ tl, expandedTracklist }: { tl: Tracklist; expandedTrack
                 {sortedMain.map((track, i) => (
                   <div key={`main-${i}`}>
                     <div
-                      className={`flex items-start gap-4 px-6 py-4 hover:bg-white/5 transition-colors duration-150 ${
+                      className={`flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-4 px-4 py-3 sm:px-6 sm:py-4 hover:bg-white/5 transition-colors duration-150 ${
                         track.confirmed ? 'text-white' : 'text-zinc-400'
                       }`}
                       style={{ borderBottom: `1px solid ${accent}15` }}
@@ -601,7 +646,7 @@ function TracklistCard({ tl, expandedTracklist }: { tl: Tracklist; expandedTrack
                     {/* Title + features */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className={`font-medium text-sm ${track.confirmed ? 'text-white' : 'text-zinc-400'}`}>
+                        <span className={`font-medium text-sm break-words ${track.confirmed ? 'text-white' : 'text-zinc-400'}`}>
                           {track.title}
                         </span>
                         {track.features && (
@@ -612,13 +657,13 @@ function TracklistCard({ tl, expandedTracklist }: { tl: Tracklist; expandedTrack
                         )}
                       </div>
                       {track.notes && (
-                        <p className={track.confirmed ? 'text-zinc-400 text-xs mt-1 leading-relaxed' : 'text-zinc-500 text-xs mt-1 leading-relaxed'}>{track.notes}</p>
+                        <p className={track.confirmed ? 'text-zinc-400 text-xs mt-1 leading-relaxed break-words' : 'text-zinc-500 text-xs mt-1 leading-relaxed break-words'}>{track.notes}</p>
                       )}
                     </div>
 
                     {/* Confirmed / unconfirmed pill */}
                     <span
-                      className="text-xs px-2 py-0.5 rounded-full font-medium border flex-shrink-0"
+                      className="text-[11px] sm:text-xs px-2 py-0.5 rounded-full font-medium border flex-shrink-0 self-start"
                       style={
                         track.confirmed
                           ? { background: 'rgba(34,197,94,0.12)', color: '#4ade80', borderColor: 'rgba(34,197,94,0.3)' }
@@ -647,7 +692,7 @@ function TracklistCard({ tl, expandedTracklist }: { tl: Tracklist; expandedTrack
                 {sortedBonus.map((track, i) => (
                   <div
                     key={`bonus-${i}`}
-                    className={`flex items-start gap-4 px-6 py-4 hover:bg-white/5 transition-colors duration-150 ${
+                    className={`flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-4 px-4 py-3 sm:px-6 sm:py-4 hover:bg-white/5 transition-colors duration-150 ${
                       track.confirmed ? 'text-white' : 'text-zinc-400'
                     }`}
                     style={{ borderBottom: `1px solid ${accent}15` }}
@@ -663,7 +708,7 @@ function TracklistCard({ tl, expandedTracklist }: { tl: Tracklist; expandedTrack
                     {/* Title + features */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className={`font-medium text-sm ${track.confirmed ? 'text-white' : 'text-zinc-400'}`}>
+                        <span className={`font-medium text-sm break-words ${track.confirmed ? 'text-white' : 'text-zinc-400'}`}>
                           {track.title}
                         </span>
                         {track.features && (
@@ -674,13 +719,13 @@ function TracklistCard({ tl, expandedTracklist }: { tl: Tracklist; expandedTrack
                         )}
                       </div>
                       {track.notes && (
-                        <p className={track.confirmed ? 'text-zinc-400 text-xs mt-1 leading-relaxed' : 'text-zinc-500 text-xs mt-1 leading-relaxed'}>{track.notes}</p>
+                        <p className={track.confirmed ? 'text-zinc-400 text-xs mt-1 leading-relaxed break-words' : 'text-zinc-500 text-xs mt-1 leading-relaxed break-words'}>{track.notes}</p>
                       )}
                     </div>
 
                     {/* Confirmed / unconfirmed pill */}
                     <span
-                      className="text-xs px-2 py-0.5 rounded-full font-medium border flex-shrink-0"
+                      className="text-[11px] sm:text-xs px-2 py-0.5 rounded-full font-medium border flex-shrink-0 self-start"
                       style={
                         track.confirmed
                           ? { background: 'rgba(34,197,94,0.12)', color: '#4ade80', borderColor: 'rgba(34,197,94,0.3)' }
@@ -838,8 +883,18 @@ export default function RkenzoTracker() {
   // ── Filtered songs ──
   const filteredSongs = useMemo(() => {
     return SONGS.filter((song) => {
-      const matchesSearch = [song.title, song.era, song.status, song.notes, song.filename]
-        .join(' ').toLowerCase().includes(search.toLowerCase());
+      const searchText = [
+        song.title,
+        song.era,
+        song.status,
+        song.producer,
+        song.notes,
+        song.filename,
+        ...(song.altNames ?? []),
+      ]
+        .join(' ')
+        .toLowerCase();
+      const matchesSearch = searchText.includes(search.toLowerCase());
       const matchesRating = filterRating === 'All' || song.rating === filterRating;
       const matchesEra    = filterEra === 'All' || song.era === filterEra;
       const matchesStatus =
@@ -873,15 +928,15 @@ export default function RkenzoTracker() {
 
   return (
     <div
-      className="min-h-screen text-white p-8 font-sans"
+      className="min-h-screen text-white p-4 sm:p-8 font-sans"
       style={{ background: 'linear-gradient(to bottom, #0a0a0a, #0c0c0c)' }}
     >
       <div className="max-w-7xl mx-auto">
 
         {/* ── Header ── */}
         <div className="mb-10">
-          <h1 className="text-5xl font-bold tracking-tight mb-2">RKENZO TRACKER</h1>
-          <p className="text-zinc-400 text-lg">
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mb-2">RKENZO TRACKER</h1>
+          <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
             Community archive for songs, snippets, leaks and unreleased material. Powered by Kiot
           </p>
         </div>
@@ -976,7 +1031,7 @@ export default function RkenzoTracker() {
         </div>
 
         {/* ── Tab switcher ── */}
-        <div className="flex gap-3 mb-6">
+        <div className="flex flex-wrap gap-2 sm:gap-3 mb-6">
           <button className={tabCls(activeTab === 'songs')}      onClick={() => setActiveTab('songs')}>
             🎵 Songs
           </button>
@@ -1096,7 +1151,7 @@ export default function RkenzoTracker() {
                 placeholder="Search songs..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-2 outline-none focus:border-white transition w-52"
+                className="bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-2 outline-none focus:border-white transition w-full sm:w-52"
               />
             </div>
 

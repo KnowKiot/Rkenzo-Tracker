@@ -73,13 +73,23 @@ export interface TrackerUpdateItem {
 }
 
 export const TRACKER_UPDATES: TrackerUpdateItem[] = [
+
+  {
+    title: 'FINER THINGS',
+    type: 'Song update',
+    detail: 'New snippet of Rkenzo making FINER THINGS surfaced on 22nd July 2026 via his instragram story. Was also revealed 23rd April 2026',
+    date: '2026-07-22',
+    era: 'Momentary Bliss',
+    link: 'https://imgur.gg/f/SaO9vim',
+  },
+
   {
     title: 'Milan',
     type: 'Song update',
-    detail: 'A new snippet surfaced in CDQ July 11th 2026 previewing a full verse from Rkenzo. Tkandz adlibs can be heard in the back too',
-    date: '2026-07-11',
+    detail: 'Another snippet of Milan where more of Tkandz is verse can be heard was seen in a instragram story in the car with Tkandz and Blanco, most likely recorded just after they had made the song. Rkenzo also previewed some of his verse during the instragram live freestyle this day can be found in the links',
+    date: '2026-07-22',
     era: 'Momentary Bliss',
-    link: 'https://www.tiktok.com/@rkenzo.1/photo/7660925042200562966',
+    link: 'https://imgur.gg/f/BT96XzG',
   },
 ];
 
@@ -158,6 +168,18 @@ export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
 
   {
+    title: "IG Live Freestyle",
+    era: 'Momentary Bliss',
+    status: 'Snippet',
+    producer: 'blancomadeit',
+    notes: 'Previewed on 22nd July 2026 on instagram live where kenz was freestyling over beats sent by blanco, during this freestyle he would rap over rounds, drill beat, spanish guitar and another unheard beat by blanco. Kenz uses some bars from his unreleased songs during this freestyle. All freestyle links can be found below',
+    rating: '',
+    filename: '?',
+    links: ['https://imgur.gg/f/ovEyL4N','https://imgur.gg/f/IBP7d1t','https://imgur.gg/f/AKXEP8f'],
+    releaseDate: '2026-07-22',
+  },
+
+  {
     title: "Blancomadeit - Matcha ft Rkenzo",
     era: 'Momentary Bliss',
     status: 'Snippet',
@@ -174,12 +196,12 @@ export const SONGS: Song[] = [
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'FinniX!Beats',
-    notes: 'Spotted as track 2 on the momentary bliss cover, song has been getting popular on tiktok and instagram. Beat was made by FinniX!Beats on facetime. Was later confirmed that LJ would not be on this track and it would be a solo record',
+    notes: 'Spotted as track 2 on the momentary bliss cover, song has been confirmed to drop Friday 25th July 2026. Beat was made by FinniX!Beats on facetime. Was later confirmed that LJ would not be on this track and it would be a solo record',
     rating: '🥉',
     filename: 'kenz - 1+9 MIX 4.Wav',
     links: ['https://www.instagram.com/p/DaSvRt4sMbY/'],
     altNames: ["MINE!", "Make Her Mine", 'MINE! (feat. LJ)'],
-    releaseDate: '2026-07-02',
+    releaseDate: '2026-07-25',
   },
 
 
@@ -187,11 +209,11 @@ export const SONGS: Song[] = [
     title: "Spanish Guitar",
     era: 'Momentary Bliss',
     status: 'Scrapped',
-    producer: 'Unknown',
-    notes: 'Seen on momentary bliss tracklist. Not much is known about this song but since it hasnt appeared elsewhere it is likely scrapped',
+    producer: 'blancomadeit',
+    notes: 'Seen on momentary bliss tracklist. Kenz would rap over the spanish guitar beat in instagram live freestyle. This is not the song spanish guitar song in the snippet hes just freestyling over it with bars from other songs',
     rating: '',
     filename: '',
-    links: [],
+    links: ['https://imgur.gg/f/1n9iLjI'],
   },
 
   {
@@ -270,10 +292,10 @@ export const SONGS: Song[] = [
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'blancomadeit & Segway',
-    notes: 'Song blanco and kenz made together which is an upbeat song with some really catchy hooks. This song is good according to the people who have heard it',
+    notes: 'Song blanco and kenz made together which is an upbeat song with some really catchy hooks, Kenz has been teasing this song a lot which makes fan speculate it to release on Momentary Bliss. This song is good according to the people who have heard it',
     rating: '🥉',
     filename: 'SO - FINER THINGS.mp3',
-    links: ['https://imgur.gg/f/wWOuQTh'],
+    links: ['https://imgur.gg/f/SaO9vim','https://imgur.gg/f/wWOuQTh'],
     releaseDate: '2026-06-28',
   },
 
@@ -464,7 +486,7 @@ export const SONGS: Song[] = [
       'Snippet uploaded to Instagram on April 18th 2026 where both boys are wearing light blue drip and tkandz previews a verse. Probably will drop leading up to the release of Momentary Bliss',
     rating: '🥇',
     filename: 'Milan [Rkenzo x Tkandz].MPEG',
-    links: ['https://www.tiktok.com/@rkenzo.1/photo/7660925042200562966','https://www.instagram.com/reel/DXR_71rjGq4/'],
+    links: ['https://imgur.gg/f/BT96XzG','https://www.tiktok.com/@rkenzo.1/photo/7660925042200562966','https://www.instagram.com/reel/DXR_71rjGq4/'],
     altNames: ["RECIPE", "BLUE BOYS"]
   },
 
@@ -582,7 +604,7 @@ export const SONGS: Song[] = [
     rating: '🥈',
     filename: '',
     links: ['https://www.tiktok.com/@rkenzo.1/video/7609352871368248598?_r=1&_t=ZS-96Ky1x4NLt2'],
-    altNames: ['Tracey Beaker', 'Kelhani'],
+    altNames: ['Tracey Beaker', 'Kelhani', 'Dumping Ground'],
   },
 
   {
@@ -1206,7 +1228,7 @@ export const SONGS: Song[] = [
     title: 'One Shot 2 Shine',
     era: 'One Shot To Shine',
     status: 'Released',
-    producer: 'Unknown',
+    producer: 'Spancy Beatz',
     notes: "Intro and namesake of Rkenzo's first studio EP One Shot 2 Shine",
     rating: '⭐',
     filename: '—',
@@ -1266,6 +1288,7 @@ export const SONGS: Song[] = [
     rating: '🌟',
     filename: 'Rkenzo - Urus (Mix & Master)',
     links: ['https://www.youtube.com/watch?v=mAywOdTLQHA'],
+    altNames: ['Urus']
   },
 
   {

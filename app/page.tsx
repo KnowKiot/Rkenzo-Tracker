@@ -46,6 +46,14 @@ const parseReleaseTimestamp = (dateString?: string) => {
   return 0;
 };
 
+const getRatingLabel = (emoji: string) => RATINGS.find((r) => r.emoji === emoji)?.label ?? 'Unrated';
+const getRatingDescription = (emoji: string) => RATINGS.find((r) => r.emoji === emoji)?.description ?? 'No description available.';
+const getRatingTooltip = (emoji: string) => {
+  const label = getRatingLabel(emoji);
+  const description = getRatingDescription(emoji);
+  return `${label} — ${description}`;
+};
+
 // ─────────────────────────────────────────────
 //  Animated Era Panel
 // ─────────────────────────────────────────────
@@ -154,9 +162,7 @@ function EraPanel({
                     style={{ borderBottom: `1px solid ${era.accent}15` }}
                   >
                     <td className="px-5 py-4 text-xl">
-                      <span title={RATINGS.find((r) => r.emoji === song.rating)?.label ?? 'Unrated'}>
-                        {song.rating || '—'}
-                      </span>
+                      <span title={getRatingTooltip(song.rating || '—')}>{song.rating || '—'}</span>
                     </td>
                     <td className="px-5 py-4">
                       <span className="font-medium text-white">{song.title}</span>
@@ -351,7 +357,9 @@ function RecentSection({ filterStatus, onChangeStatus }: { filterStatus: StatusF
           <tbody>
             {recentItems.map((item, i) => (
               <tr key={`${item.kind}-${i}`} className="hover:bg-white/5 transition-colors duration-150" style={{ borderBottom: '1px solid rgba(148,163,184,0.08)' }}>
-                <td className="px-5 py-4 text-lg">{item.rating}</td>
+                <td className="px-5 py-4 text-lg">
+                  <span title={getRatingTooltip(item.rating)}>{item.rating}</span>
+                </td>
                 <td className="px-5 py-4 font-medium text-white whitespace-nowrap">{item.title}</td>
                 <td className="px-5 py-4 text-zinc-300 text-sm whitespace-nowrap">{item.era}</td>
                 <td className="px-5 py-4 text-zinc-300 text-sm whitespace-nowrap capitalize">{item.kind}</td>
@@ -745,6 +753,71 @@ function TracklistCard({ tl, expandedTracklist }: { tl: Tracklist; expandedTrack
   );
 }
 
+function InfoDumpSection() {
+  const entries = useMemo(
+    () =>
+      SONGS.flatMap((song) =>
+        (song.infoDump ?? []).map((entry, index) => ({
+          era: song.era,
+          title: song.title,
+          status: song.status,
+          entry,
+          index,
+        })),
+      ),
+    [],
+  );
+
+  return (
+    <div className="space-y-4">
+      {entries.length === 0 ? (
+        <div className="text-center text-zinc-500 py-20">No song info dumps yet.</div>
+      ) : (
+        entries.map(({ era, title, status, entry, index }) => {
+          const accent = eraAccent(era);
+          return (
+            <div
+              key={`${title}-${index}`}
+              className="rounded-3xl overflow-hidden border"
+              style={{ borderColor: `${accent}40`, background: '#18181b' }}
+            >
+              <div className="p-5 sm:p-6 border-b" style={{ borderColor: `${accent}25`, background: `${accent}0d` }}>
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-2xl">🧠</span>
+                  <h2 className="text-2xl font-bold tracking-tight" style={{ color: accent }}>
+                    {title}
+                  </h2>
+                  <span className="text-xs px-2.5 py-1 rounded-full border" style={{ color: accent, borderColor: `${accent}60`, background: `${accent}18` }}>
+                    {era}
+                  </span>
+                  <span className={`px-2.5 py-1 rounded-full text-xs font-medium border ${statusColor(status)}`}>
+                    {status}
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-5 sm:p-6">
+                <p className="text-xs uppercase tracking-[0.24em] text-zinc-500 mb-2">{entry.title}</p>
+                <p className="text-sm text-zinc-300 leading-relaxed">{entry.detail}</p>
+                {entry.link ? (
+                  <a
+                    href={entry.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-1 text-sm text-blue-400 hover:text-blue-300 underline underline-offset-2"
+                  >
+                    Open link ↗
+                  </a>
+                ) : null}
+              </div>
+            </div>
+          );
+        })
+      )}
+    </div>
+  );
+}
+
 function TracklistsSection({ filterEra, selectedTracklist }: { filterEra: string; selectedTracklist: string | null }) {
   const [filterStatus, setFilterStatus] = useState<StatusFilter>('All');
 
@@ -860,9 +933,10 @@ export default function RkenzoTracker() {
   const [filterEra, setFilterEra]           = useState('All');
   const [filterStatus, setFilterStatus]     = useState<StatusFilter>('All');
   const [filterRecentStatus, setFilterRecentStatus] = useState<StatusFilter>('All');
-  const [activeTab, setActiveTab]           = useState<'songs' | 'recent' | 'videos' | 'tracklists'>('songs');
+  const [activeTab, setActiveTab]           = useState<'songs' | 'recent' | 'videos' | 'tracklists' | 'info'>('songs');
   const [showUpdates, setShowUpdates]       = useState(true);
   const [selectedTracklist, setSelectedTracklist] = useState<string | null>(null);
+  const [activeRatingKeyTooltip, setActiveRatingKeyTooltip] = useState<string | null>(null);
 
   // ── Stats ──
   const stats = useMemo(() => ({
@@ -1044,6 +1118,9 @@ export default function RkenzoTracker() {
           <button className={tabCls(activeTab === 'tracklists')} onClick={() => setActiveTab('tracklists')}>
             📋 Tracklists
           </button>
+          <button className={tabCls(activeTab === 'info')} onClick={() => setActiveTab('info')}>
+            🎞️ Extras
+          </button>
         </div>
 
         {/* ── Recent Tab ── */}
@@ -1100,13 +1177,17 @@ export default function RkenzoTracker() {
                 <button
                   key={r.emoji}
                   onClick={() => setFilterVideoRating(filterVideoRating === r.emoji ? 'All' : r.emoji)}
-                  className={`px-3 py-1 rounded-xl text-sm border transition ${
+                  title={r.label}
+                  className={`group relative px-3 py-1 rounded-xl text-sm border transition ${
                     filterVideoRating === r.emoji
                       ? 'bg-white text-black border-white'
                       : 'bg-zinc-800 border-zinc-700 hover:border-white'
                   }`}
                 >
-                  {r.emoji} {r.label}
+                  <span>{r.emoji} {r.label}</span>
+                  <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2 hidden group-hover:block whitespace-nowrap rounded-lg bg-zinc-950 border border-zinc-700 px-2.5 py-1 text-[11px] text-zinc-100 shadow-2xl z-20">
+                    {r.label}
+                  </span>
                 </button>
               ))}
             </div>
@@ -1136,13 +1217,17 @@ export default function RkenzoTracker() {
                   <button
                     key={r.emoji}
                     onClick={() => setFilterRating(filterRating === r.emoji ? 'All' : r.emoji)}
-                    className={`px-3 py-1 rounded-xl text-sm border transition ${
+                    title={r.label}
+                    className={`group relative px-3 py-1 rounded-xl text-sm border transition ${
                       filterRating === r.emoji
                         ? 'bg-white text-black border-white'
                         : 'bg-zinc-800 border-zinc-700 hover:border-white'
                     }`}
                   >
-                    {r.emoji} {r.label}
+                    <span>{r.emoji} {r.label}</span>
+                    <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2 hidden group-hover:block whitespace-nowrap rounded-lg bg-zinc-950 border border-zinc-700 px-2.5 py-1 text-[11px] text-zinc-100 shadow-2xl z-20">
+                      {r.label}
+                    </span>
                   </button>
                 ))}
               </div>
@@ -1227,6 +1312,9 @@ export default function RkenzoTracker() {
           </>
         )}
 
+        {/* ── Info Dump Tab ── */}
+        {activeTab === 'info' && <InfoDumpSection />}
+
         {/* ── Tracklists Tab ── */}
         {activeTab === 'tracklists' && (
           <>
@@ -1264,12 +1352,27 @@ export default function RkenzoTracker() {
         <div className="mt-10 bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
           <h3 className="text-xl font-semibold mb-4">Rating Key</h3>
           <div className="flex flex-wrap gap-4">
-            {RATINGS.map((r) => (
-              <div key={r.emoji} className="flex items-center gap-2 bg-zinc-800 px-4 py-2 rounded-xl">
-                <span className="text-xl">{r.emoji}</span>
-                <span className="text-sm text-zinc-300">{r.label}</span>
-              </div>
-            ))}
+            {RATINGS.map((r) => {
+              const tooltipVisible = activeRatingKeyTooltip === r.emoji;
+              return (
+                <button
+                  key={r.emoji}
+                  type="button"
+                  onMouseEnter={() => setActiveRatingKeyTooltip(r.emoji)}
+                  onMouseLeave={() => setActiveRatingKeyTooltip(null)}
+                  onClick={() => setActiveRatingKeyTooltip((current) => (current === r.emoji ? null : r.emoji))}
+                  className="relative flex items-center gap-2 bg-zinc-800 px-4 py-2 rounded-xl border border-zinc-700 hover:border-white transition"
+                >
+                  <span className="text-xl">{r.emoji}</span>
+                  <span className="text-sm text-zinc-300">{r.label}</span>
+                  {tooltipVisible ? (
+                    <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2 whitespace-nowrap rounded-lg bg-zinc-950 border border-zinc-700 px-3 py-2 text-[11px] text-zinc-100 shadow-2xl z-20">
+                      {r.label} — {r.description}
+                    </span>
+                  ) : null}
+                </button>
+              );
+            })}
           </div>
         </div>
 

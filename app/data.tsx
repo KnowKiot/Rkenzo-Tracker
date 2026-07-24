@@ -5,15 +5,15 @@
 // ─────────────────────────────────────────────
 
 export const RATINGS = [
-  { emoji: '🏆', label: 'Grail' },
-  { emoji: '🌟', label: 'Classic' },
-  { emoji: '⭐', label: 'Best Of' },
-  { emoji: '✨', label: 'Special' },
-  { emoji: '🥇', label: 'Most Wanted' },
-  { emoji: '🥈', label: '2nd Best' },
-  { emoji: '🥉', label: 'Wanted' },
-  { emoji: '🗑️', label: 'Worst Of' },
-  { emoji: '—', label: 'Unrated' },
+  { emoji: '🏆', label: 'Grail', description: 'A top-tier song that feels like a complete standout and a true fan favourite.' },
+  { emoji: '🌟', label: 'Classic', description: 'A strong, iconic song that has aged well and still gets talked about.' },
+  { emoji: '⭐', label: 'Best Of', description: 'One of the best songs in the archive — very high quality and highly regarded.' },
+  { emoji: '✨', label: 'Special', description: 'A memorable track with a unique vibe, energy, or hook that stands out.' },
+  { emoji: '🥇', label: 'Most Wanted', description: 'A highly anticipated song that fans really want to hear or keep an eye on.' },
+  { emoji: '🥈', label: '2nd Best', description: 'Still a very strong song, just behind the top-tier picks in fan opinion.' },
+  { emoji: '🥉', label: 'Wanted', description: 'A song people are interested in, but not quite at the same level as the absolute biggest ones.' },
+  { emoji: '🗑️', label: 'Worst Of', description: 'A song that is considered rough, weak, or the least impressive of the bunch.' },
+  { emoji: '—', label: 'Unrated', description: 'A song that has no formal rating yet — basically a decent 5/10 type vibe, nothing special.' },
 ] as const;
 
 export type RatingEmoji = (typeof RATINGS)[number]['emoji'] | '';
@@ -40,6 +40,13 @@ export interface Song {
   links?: string[];
   altNames?: string[];
   releaseDate?: string;
+  infoDump?: EraInfoDumpEntry[];
+}
+
+export interface EraInfoDumpEntry {
+  title: string;
+  detail: string;
+  link?: string;
 }
 
 export interface Era {
@@ -48,6 +55,7 @@ export interface Era {
   description: string;
   accent: string;
   accentBg: string;
+  infoDump?: EraInfoDumpEntry[];
 }
 
 export type VideoStatus = 'Released' | 'Unreleased' | 'Scrapped';
@@ -73,6 +81,15 @@ export interface TrackerUpdateItem {
 }
 
 export const TRACKER_UPDATES: TrackerUpdateItem[] = [
+
+  {
+    title: 'Out N About',
+    type: 'Song update',
+    detail: 'Speculated to be made during his time in Ghana. Freestyle can see Rkenzo using new flows and referencing bars from Say So and other songs. Not much is known about this song and looks to be recorded for an instagram / titkok clip but never released',
+    date: '2026-07-24',
+    era: 'OS2S: Extended Edition',
+    link: 'https://imgur.gg/f/Ffzl2z7',
+  }, 
 
   {
     title: 'FINER THINGS',
@@ -127,6 +144,20 @@ export const ERAS: Era[] = [
       "Momentary Bliss era marks the start of Kenz' music from 2026 leading up to the release of his upcoming EP expected to release August 22nd 2026, Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Project seems to experiment with different sounds and has a spacey-like theme. Fans believe this will be his biggest project yet",
     accent: '#60ecff',
     accentBg: 'rgba(96,236,255,0.06)',
+    infoDump: [
+      {
+        title: 'BTS / vibe',
+        detail: 'This project is the most current era and leans into a spacey, experimental sound with fans expecting a big leap in production and songwriting.',
+      },
+      {
+        title: 'Fan lore',
+        detail: 'A lot of the hype comes from tracks like Alone Now, FINER THINGS, and the wider circle of people involved in the sessions and snippets.',
+      },
+      {
+        title: 'What to watch',
+        detail: 'The era has a mix of confirmed snippets, throwaways, and unreleased ideas that could still make the final cut or surface later.',
+      },
+    ],
   },
   {
     name: 'OS2S: Extended Edition',
@@ -135,6 +166,16 @@ export const ERAS: Era[] = [
       'Extended edition of One Shot To Shine featuring 3 more songs (RUSH THIS!, Say So and Lifestyle Lately ft Tkandz) if you purchased the bundle from the OS2S website. This era mainly consist of songs made after OS2S and before Momentary Bliss. 2024 - 2025',
     accent: '#ff9129',
     accentBg: 'rgba(255,145,41,0.06)',
+    infoDump: [
+      {
+        title: 'Expanded version',
+        detail: 'The deluxe cut is basically the bridge between the original debut and the newer style that started taking shape in the next era.',
+      },
+      {
+        title: 'Why it matters',
+        detail: 'It helps explain how the older EP sound evolved into a more modern, more melodic and experimental run of projects.',
+      },
+    ],
   },
   {
     name: 'One Shot To Shine',
@@ -143,6 +184,16 @@ export const ERAS: Era[] = [
       'Rkenzos debut EP which put him on the map. One Shot To Shine released 23 August 2024 contains multiple fan favourites such as Papercuts, Out Til late, One Shot To Shine and many more',
     accent: '#ffd900',
     accentBg: 'rgba(255,217,0,0.06)',
+    infoDump: [
+      {
+        title: 'Debut era',
+        detail: 'This is the project that put Rkenzo on the map and established the core songs people still hold up as fan favourites today.',
+      },
+      {
+        title: 'Legacy',
+        detail: 'A lot of the era’s memory comes from the songs that became instant classics in the community archive and live replay culture.',
+      },
+    ],
   },
   {
     name: 'Young Kenz',
@@ -151,6 +202,21 @@ export const ERAS: Era[] = [
       'From 2023 Rkenzo would switch his style completely and transition into the "Young Kenz" era. Early releases under Young Kenz consisnt of experiments with drill, tapping into melodic and other styles of drill marking his end of wave rap',
     accent: '#a78bfa',
     accentBg: 'rgba(167,139,250,0.06)',
+    infoDump: [
+      {
+        title: 'Style shift',
+        detail: 'This era marks the moment where he fully moved away from the earlier wave sound and began experimenting with drill and melodic hybrid styles.',
+      },
+      {
+        title: 'Behind the scenes',
+        detail: 'This is some behind-the-scene footage of the DND video shot during the Young Kenz era — a good place to dump the actual BTS clip, shoot context, and any lore around the session.',
+        link: 'https://imgur.gg/f/MyRoNsC',
+      },
+      {
+        title: 'Why fans talk about it',
+        detail: 'It represents the period where his sound became more aggressive, more confident, and more clearly shaped into his recognizable lane.',
+      },
+    ],
   },
   {
     name: 'Rkenzo Foundation',
@@ -159,6 +225,16 @@ export const ERAS: Era[] = [
       'Kick started in 2022 this era holds the first releases of his songs under the name "Rkenzo". During this era he focused more on the wave rap sound and only released 3 songs before he transitioned his sound into drill',
     accent: '#f87171',
     accentBg: 'rgba(248,113,113,0.06)',
+    infoDump: [
+      {
+        title: 'Origin point',
+        detail: 'This is the foundation era: the first wave of music under the name Rkenzo before the sound changed and matured into the drill-led period.',
+      },
+      {
+        title: 'Archive value',
+        detail: 'Only a few songs are documented here, which makes the era feel like the start of the whole story and a key piece of the timeline.',
+      },
+    ],
   },
 ];
 
@@ -194,14 +270,14 @@ export const SONGS: Song[] = [
   {
     title: "1+9",
     era: 'Momentary Bliss',
-    status: 'Snippet',
+    status: 'Released',
     producer: 'FinniX!Beats',
-    notes: 'Spotted as track 2 on the momentary bliss cover, song has been confirmed to drop Friday 25th July 2026. Beat was made by FinniX!Beats on facetime. Was later confirmed that LJ would not be on this track and it would be a solo record',
-    rating: '🥉',
+    notes: 'Spotted as track 2 on the momentary bliss cover. Released on the 24th July 2026 as the 3rd single for Momentary Bliss. Kenz hosted an open verse challenge and said that the best verse will be featured on the Deluxe version of his EP Momentary Bliss. Beat was made by FinniX!Beats on facetime and it was later confirmed that LJ would not be on this track and it would be a solo record',
+    rating: '',
     filename: 'kenz - 1+9 MIX 4.Wav',
-    links: ['https://www.instagram.com/p/DaSvRt4sMbY/'],
-    altNames: ["MINE!", "Make Her Mine", 'MINE! (feat. LJ)'],
-    releaseDate: '2026-07-25',
+    links: ['https://open.spotify.com/track/7LyI2AMFDDm2vmZ88xVXd5'],
+    altNames: ["MINE", "Make Her Mine", 'MINE! (feat. LJ)'],
+    releaseDate: '2026-07-24',
   },
 
 
@@ -794,6 +870,7 @@ export const SONGS: Song[] = [
     filename: '—',
     links: ['https://www.youtube.com/watch?v=8FcIn74uNzk'],
   },
+
   {
     title: 'Say So V2',
     era: 'OS2S: Extended Edition',
@@ -929,26 +1006,40 @@ export const SONGS: Song[] = [
     links: [],
   },
 
+   {
+    title: 'Out N About',
+    era: 'OS2S: Extended Edition',
+    status: 'Unreleased',
+    producer: '?',
+    notes:
+      "Song Rkenzo made in Ghana potentially? Previewed in Ghana song name is unknown and song hasn't been released or teased anywhere else",
+    rating: '',
+    filename: '',
+    links: ['https://imgur.gg/f/Ffzl2z7'],
+    releaseDate: '2025-08-01'
+  }, 
+
   {
     title: 'Mr Imagination - Ambrosia Ft Rkenzo',
     era: 'OS2S: Extended Edition',
     status: 'Unreleased',
     producer: 'Unknown',
-    notes: 'Rkenzo recorded on Mr Imaginations "Ambrosia" during his time in Ghana',
+    notes: 'Song is seen as track 11 on Mr Imaginations "War Of Reflections" expected to release as part of his mixtape. Rkenzo recorded on Mr Imaginations "Ambrosia" during his time in Ghana',
     rating: '🥉',
     filename: '—',
     links: [],
   },
 
   {
-    title: 'Mr Imagination - Disassemble Ft Rkenzo',
+    title: 'Mr Imagination - ACUTE LOOPS Ft Rkenzo',
     era: 'OS2S: Extended Edition',
     status: 'Snippet',
     producer: 'Unknown',
-    notes: 'Part of the collections of songs Rkenzo hopped on whilst in Ghana with Mr Imagination',
+    notes: 'Song is seen as track 08 on Mr Imaginations "War Of Reflections" expected to release as part of his mixtape. Part of the collections of songs Rkenzo hopped on whilst in Ghana with Mr Imagination',
     rating: '',
     filename: '—',
     links: ['https://imgur.gg/f/QqUgXW3'],
+    altNames: ['acute loops','Disassemble']
   },
 
   {
@@ -956,7 +1047,7 @@ export const SONGS: Song[] = [
     era: 'OS2S: Extended Edition',
     status: 'Unreleased',
     producer: 'Unknown',
-    notes: 'Speculated to be part of the collections of songs rkenzo hopped on with Mr Imagination in Ghana',
+    notes: 'Song is seen as track 09 on Mr Imaginations "War Of Reflections" mixtape but without Rkenzo song is held but wont see an official release. Speculated to be part of the collections of songs rkenzo hopped on with Mr Imagination in Ghana',
     rating: '',
     filename: 'Mr Imagination - Tinkerbell ft Rkenzo - 12_08_2025, 17.55 1.mp3',
     links: [],
@@ -1380,6 +1471,13 @@ export const SONGS: Song[] = [
     rating: '⭐',
     filename: '—',
     links: ['https://www.youtube.com/watch?v=jHh38yfr5T0'],
+    infoDump: [
+      {
+        title: 'Behind the scenes',
+        detail: 'This is some behind-the-scene footage of the DND video shot during the Young Kenz era — use this spot for the shoot context, the actual BTS clip, and any extra lore that belongs to the song itself.',
+        link: 'https://imgur.gg/f/MyRoNsC',
+      },
+    ],
   },
   
   {

@@ -83,15 +83,6 @@ export interface TrackerUpdateItem {
 export const TRACKER_UPDATES: TrackerUpdateItem[] = [
 
   {
-    title: 'Out N About',
-    type: 'Song update',
-    detail: 'Video was made 1st August 2025, speculated to be made during his time in Ghana. Freestyle can see Rkenzo using new flows and referencing bars from Say So and other songs. Not much is known about this song and looks to be recorded for an instagram / titkok clip but never released',
-    date: '2026-07-24',
-    era: 'OS2S: Extended Edition',
-    link: 'https://imgur.gg/f/Ffzl2z7',
-  }, 
-
-  {
     title: 'FINER THINGS',
     type: 'Song update',
     detail: 'New snippet of Rkenzo making FINER THINGS surfaced on 22nd July 2026 via his instragram story. Was also revealed 23rd April 2026',
@@ -1012,11 +1003,11 @@ export const SONGS: Song[] = [
     status: 'Unreleased',
     producer: '?',
     notes:
-      "Song Rkenzo made in Ghana potentially? Previewed in Ghana song name is unknown and song hasn't been released or teased anywhere else",
+      "Video was made 1st August 2025, speculated to be made during his time in Ghana. Freestyle can see Rkenzo using new flows and referencing bars from Say So and other songs. Not much is known about this song and looks to be recorded for an instagram / titkok clip but never released",
     rating: '',
     filename: '',
     links: ['https://imgur.gg/f/Ffzl2z7'],
-    releaseDate: '2026-07-24'
+    releaseDate: '2026-07-25'
   }, 
 
   {

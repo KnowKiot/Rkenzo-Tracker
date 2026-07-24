@@ -997,20 +997,6 @@ export const SONGS: Song[] = [
     links: [],
   },
 
-   {
-    title: 'Out N About',
-    era: 'OS2S: Extended Edition',
-    status: 'Unreleased',
-    producer: '?',
-    notes:
-      "Video was made 1st August 2025, speculated to be made during his time in Ghana. Fans think this could be song BACK CHAT but it is unknown. Freestyle can see Rkenzo using new flows and referencing bars from Say So and other songs. Not much is known about this song and looks to be recorded for an instagram / titkok clip but never released",
-    rating: '',
-    filename: '',
-    links: ['https://imgur.gg/f/Ffzl2z7'],
-    releaseDate: '2026-07-25',
-    altNames: ['No Talking', 'Back Chat?']
-  }, 
-
   {
     title: 'Mr Imagination - Ambrosia Ft Rkenzo',
     era: 'OS2S: Extended Edition',
@@ -1153,12 +1139,12 @@ export const SONGS: Song[] = [
     era: 'OS2S: Extended Edition',
     status: 'Snippet',
     producer: 'Unknown',
-    notes: 'Video was made 1st August 2025, speculated to be made during his time in Ghana. Fans think this could be song BACK CHAT but it is unknown. Freestyle can see Rkenzo using new flows and referencing bars from Say So and other songs. Not much is known about this song and looks to be recorded for an instagram / titkok clip but never released',
+    notes: 'Video was made 1st August 2025, speculated to be made during his time in Ghana. Fans think this could be song BACK CHAT but it is false. Freestyle can see Rkenzo using new flows and referencing bars from Say So and other songs. Not much is known about this song and looks to be recorded for an instagram / titkok clip but never released',
     rating: '🥉',
     filename: 'Rolling wid it Up to.wav',
     links: ['https://imgur.gg/f/Ffzl2z7'],
     releaseDate: '2026-07-25',
-    altNames: ['No Talking', 'Back Chat?']
+    altNames: ['No Talking', 'Out N About' ,'Back Chat?']
   },
 
   {

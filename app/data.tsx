@@ -85,7 +85,7 @@ export const TRACKER_UPDATES: TrackerUpdateItem[] = [
   {
     title: 'Out N About',
     type: 'Song update',
-    detail: 'Speculated to be made during his time in Ghana. Freestyle can see Rkenzo using new flows and referencing bars from Say So and other songs. Not much is known about this song and looks to be recorded for an instagram / titkok clip but never released',
+    detail: 'Video was made 1st August 2025, speculated to be made during his time in Ghana. Freestyle can see Rkenzo using new flows and referencing bars from Say So and other songs. Not much is known about this song and looks to be recorded for an instagram / titkok clip but never released',
     date: '2026-07-24',
     era: 'OS2S: Extended Edition',
     link: 'https://imgur.gg/f/Ffzl2z7',
@@ -273,7 +273,7 @@ export const SONGS: Song[] = [
     status: 'Released',
     producer: 'FinniX!Beats',
     notes: 'Spotted as track 2 on the momentary bliss cover. Released on the 24th July 2026 as the 3rd single for Momentary Bliss. Kenz hosted an open verse challenge and said that the best verse will be featured on the Deluxe version of his EP Momentary Bliss. Beat was made by FinniX!Beats on facetime and it was later confirmed that LJ would not be on this track and it would be a solo record',
-    rating: '',
+    rating: '✨',
     filename: 'kenz - 1+9 MIX 4.Wav',
     links: ['https://open.spotify.com/track/7LyI2AMFDDm2vmZ88xVXd5'],
     altNames: ["MINE", "Make Her Mine", 'MINE! (feat. LJ)'],

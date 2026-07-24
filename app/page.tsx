@@ -280,6 +280,8 @@ function RecentSection({ filterStatus, onChangeStatus }: { filterStatus: StatusF
       rating: song.rating || '—',
       creator: song.producer,
       links: song.links,
+      releaseDate: song.releaseDate,
+      releaseTimestamp: parseReleaseTimestamp(song.releaseDate),
       sortRank: index,
     }));
 
@@ -297,12 +299,25 @@ function RecentSection({ filterStatus, onChangeStatus }: { filterStatus: StatusF
         rating: mv.rating || '—',
         creator: mv.director || 'Video',
         links: mv.youtubeId ? [`https://www.youtube.com/watch?v=${mv.youtubeId}`] : [],
+        releaseDate: mv.releaseDate,
+        releaseTimestamp: parseReleaseTimestamp(mv.releaseDate),
         sortRank: baseRank + 0.5,
       };
     });
 
     return [...songs, ...videos]
-      .sort((a, b) => a.sortRank - b.sortRank)
+      .sort((a, b) => {
+        const aHasDate = Boolean(a.releaseTimestamp);
+        const bHasDate = Boolean(b.releaseTimestamp);
+
+        if (aHasDate && !bHasDate) return -1;
+        if (!aHasDate && bHasDate) return 1;
+        if (aHasDate && bHasDate) {
+          return b.releaseTimestamp - a.releaseTimestamp;
+        }
+
+        return a.sortRank - b.sortRank;
+      })
       .filter((item) => {
         if (filterStatus === 'All') return true;
         return filterStatus === 'Released'

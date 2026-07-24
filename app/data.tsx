@@ -1016,7 +1016,7 @@ export const SONGS: Song[] = [
     rating: '',
     filename: '',
     links: ['https://imgur.gg/f/Ffzl2z7'],
-    releaseDate: '2025-08-01'
+    releaseDate: '2026-07-24'
   }, 
 
   {

@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent } from 'react';
-import { ERAS, MUSIC_VIDEOS, RATINGS, SONGS, TRACKLISTS, TRACKER_UPDATES } from './data';
+import { ERAS, MUSIC_VIDEOS, RATINGS, SONGS, TRACKLISTS, TRACKER_UPDATES} from './data';
+import {getMusicVideoThumbnail} from './data'
 import type { TrackEntry, Tracklist, TrackerUpdateItem } from './data';
 
 // ─────────────────────────────────────────────
 //  Helpers
 // ─────────────────────────────────────────────
+
+
 
 const eraAccent = (eraName: string) =>
   ERAS.find((e) => e.name === eraName)?.accent ?? '#71717a';
@@ -57,6 +60,9 @@ const getRatingTooltip = (emoji: string) => {
 // ─────────────────────────────────────────────
 //  Animated Era Panel
 // ─────────────────────────────────────────────
+
+
+
 
 function EraPanel({
   era,
@@ -285,6 +291,8 @@ function RecentSection({ filterStatus, onChangeStatus }: { filterStatus: StatusF
       sortRank: index,
     }));
 
+
+    
     const videos = MUSIC_VIDEOS.map((mv) => {
       const lowerTitle = mv.title.toLowerCase();
       const exactSongIndex = songIndexByTitle.get(lowerTitle);
@@ -439,13 +447,16 @@ function MusicVideosSection({ filterEra, filterRating }: { filterEra: string; fi
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {videos.map((mv, i) => {
           const accent = eraAccent(mv.era);
-          const thumb = `https://img.youtube.com/vi/${mv.youtubeId}/hqdefault.jpg`;
-          const ytUrl = `https://www.youtube.com/watch?v=${mv.youtubeId}`;
+          const thumb = getMusicVideoThumbnail(mv);
+          const hasYoutubeVideo = Boolean(mv.youtubeId);
+          const targetHref = hasYoutubeVideo
+            ? `https://www.youtube.com/watch?v=${mv.youtubeId}`
+            : (mv.link ?? '#');
 
           return (
             <a
               key={i}
-              href={ytUrl}
+              href={targetHref}
               target="_blank"
               rel="noopener noreferrer"
               className="group rounded-2xl overflow-hidden border transition-all duration-200 hover:scale-[1.02] hover:shadow-xl flex flex-col"
@@ -453,20 +464,28 @@ function MusicVideosSection({ filterEra, filterRating }: { filterEra: string; fi
             >
               {/* Thumbnail */}
               <div className="relative overflow-hidden aspect-video bg-zinc-800">
-                <img
-                  src={thumb}
-                  alt={mv.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                {/* Play overlay */}
+                {thumb ? (
+                  <img
+                    src={thumb}
+                    alt={mv.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center text-sm text-zinc-400">
+                    No preview available
+                  </div>
+                )}
+
+                {/* Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center text-black text-xl font-bold"
                     style={{ background: accent }}
                   >
-                    ▶
+                    {hasYoutubeVideo ? '▶' : '↗'}
                   </div>
                 </div>
+
                 {/* Era pill */}
                 <div
                   className="absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full font-medium"
@@ -488,12 +507,14 @@ function MusicVideosSection({ filterEra, filterRating }: { filterEra: string; fi
                     {mv.rating || '—'}
                   </span>
                 </div>
+
                 {mv.releaseDate && (
                   <p className="text-xs" style={{ color: `${accent}99` }}>
                     {mv.releaseDate}
                     {mv.director ? ` · Dir. ${mv.director}` : ''}
                   </p>
                 )}
+
                 {mv.notes && (
                   <p className="text-zinc-500 text-xs leading-relaxed mt-1">{mv.notes}</p>
                 )}
@@ -1503,3 +1524,4 @@ export default function RkenzoTracker() {
     </div>
   );
 }
+

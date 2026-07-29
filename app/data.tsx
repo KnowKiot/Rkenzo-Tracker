@@ -69,6 +69,14 @@ export interface MusicVideo {
   director?: string;
   releaseDate?: string;
   notes?: string;
+  link?: string;
+  thumbnail?: string;
+}
+
+export function getMusicVideoThumbnail(video: MusicVideo) {
+  if (video.thumbnail) return video.thumbnail;
+  if (video.youtubeId) return `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
+  return '';
 }
 
 export interface TrackerUpdateItem {
@@ -81,6 +89,15 @@ export interface TrackerUpdateItem {
 }
 
 export const TRACKER_UPDATES: TrackerUpdateItem[] = [
+
+  {
+    title: 'For You',
+    type: 'Song update',
+    detail: 'Earliest song recorded by Rkenzo was recently found on his soundcloud burner account "OS2S Vault"',
+    date: '2026-07-29',
+    era: 'BLACK.XS',
+    link: 'https://soundcloud.com/rkenzo-769027022/for-you?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+  },  
 
   {
     title: 'FINER THINGS',
@@ -137,7 +154,7 @@ export const ERAS: Era[] = [
     accentBg: 'rgba(96,236,255,0.06)',
     infoDump: [
       {
-        title: 'BTS / vibe',
+        title: 'Behind the Scenes',
         detail: 'This project is the most current era and leans into a spacey, experimental sound with fans expecting a big leap in production and songwriting.',
       },
       {
@@ -227,12 +244,62 @@ export const ERAS: Era[] = [
       },
     ],
   },
+
+  {
+    name: 'BLACK.XS',
+    image: '/images/BLACKS.webp',
+    description:
+      'The earliest appearance of Rkenzos music that is available, he went by the name BLACK.XS (BLAXKZ). Era took place around 2020, during this time he experimented with different music styles from RnB to Rap trying to find his footing in music.',
+    accent: '#faf7f7',
+    accentBg: 'rgba(0, 0, 0, 0.32)',
+    infoDump: [
+      {
+        title: 'Origin point',
+        detail: 'This is the foundation era: the first wave of music under the name Rkenzo before the sound changed and matured into the drill-led period.',
+      },
+      {
+        title: 'Archive value',
+        detail: 'Only a few songs are documented here, which makes the era feel like the start of the whole story and a key piece of the timeline.',
+      },
+    ],
+  },
 ];
 
 // ─── SONGS ───────────────────────────────────
 
 export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
+  {
+    title: "Untilted Song",
+    era: 'Momentary Bliss',
+    status: 'Snippet',
+    producer: '?',
+    notes: 'Kenz spotted shooting a music video for a song that is unknown right now. Believed to be finer things music video but the music in the back suggests it another song',
+    rating: '',
+    filename: '',
+    links: ['https://imgur.gg/f/YAGbfFS'],
+    releaseDate: '2026-07-29',
+    altNames: ['G-Wagon'],
+    infoDump: [
+      {
+        title: 'Behind the scenes',
+        detail: 'Another angle of the shoot can be seen here. Kenz was spotted recording somewhere in London on the 29th July 2026. Song does not seem to be previewed before hand and was thought to be the FINER THINGS music video but this is false. This could potentially be the video for the momentary bliss trailer or an entirely different song',
+        link: 'https://imgur.gg/f/MyRoNsC',
+      },
+    ],
+  },  
+
+  {
+    title: "RICK OWENS (SPED UP!!)",
+    era: 'Momentary Bliss',
+    status: 'Released',
+    producer: 'Sogimura',
+    notes: 'Speed up version of Rick Owens uploaded by Kenz on his soundcloud burner due to popular demand',
+    rating: '',
+    filename: '',
+    links: ['https://soundcloud.com/one-shot-2-shine-vault/rick-owens-sped-up?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'],
+    releaseDate: '2026-07-27',
+  },  
 
   {
     title: "IG Live Freestyle",
@@ -755,6 +822,18 @@ export const SONGS: Song[] = [
     links: ['https://www.instagram.com/p/DQ4tlyXDBo3/'],
   },
 
+  {
+    title: 'RUSH THIS! (Crazy version)',
+    era: 'Momentary Bliss',
+    status: 'Released',
+    producer: 'RealRichMoney & Rkenzo',
+    notes: 'Speed up version of RUSH THIS!. Uploaded by Rkenzo on his soundcloud burner account',
+    rating: '',
+    filename: '—',
+    links: ['https://soundcloud.com/one-shot-2-shine-vault/rush-this-crazy-version?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'],
+  },
+
+
 
   // ── OS2S: Extended Edition ───────────────────
 
@@ -1135,7 +1214,7 @@ export const SONGS: Song[] = [
   },
 
   {
-    title: 'Rolling Wid It Up',
+    title: 'Rolling Wid It',
     era: 'OS2S: Extended Edition',
     status: 'Snippet',
     producer: 'Unknown',
@@ -1144,7 +1223,7 @@ export const SONGS: Song[] = [
     filename: 'Rolling wid it Up to.wav',
     links: ['https://imgur.gg/f/Ffzl2z7'],
     releaseDate: '2026-07-25',
-    altNames: ['No Talking', 'Out N About' ,'Back Chat?']
+    altNames: ['Rolling Wid It Up','No Talking', 'Out N About' ,'Back Chat?']
   },
 
   {
@@ -1559,6 +1638,19 @@ export const SONGS: Song[] = [
     filename: '—',
     links: ['https://www.youtube.com/watch?v=rcRGjfP1Mp8'],
   },
+
+  // ── BLACK.XS ───────────────────────────────
+  {
+    title: 'For You',
+    era: 'BLACK.XS',
+    status: 'Released',
+    producer: '?',
+    notes: 'First song debutted by Rkenzo under the name BLACK.XS. Kenz stated "Your now listening to 14 year old Rkenzo ps this is also still not my first song 🤣" , song sees kenz experimenting with melodic / RnB aspects. Song was uploaded to Kenz soundcloud burner account "OS2S Vault" made in 2020',
+    rating: '',
+    filename: '',
+    links: ['https://soundcloud.com/rkenzo-769027022/for-you?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'],
+  },
+
 ];
 
 // ─── MUSIC VIDEOS ────────────────────────────
@@ -1567,6 +1659,18 @@ export const SONGS: Song[] = [
 
 export const MUSIC_VIDEOS: MusicVideo[] = [
   // ── Momentary Bliss ──
+
+{
+  title: 'Untilted Music Video',
+  era: 'Momentary Bliss',
+  youtubeId: '',
+  status: 'Released',
+  rating: '🥉',
+  releaseDate: '2026-07-28',
+  link: 'https://imgur.gg/f/gqUcNCq',
+ // thumbnail: 'https://img.youtube.com/vi/1Iexup64D6o/hqdefault.jpg',
+  notes: 'Kenz was spotted filming new content it is unknown what it is for tho. Fans think its the music video for FINER THINGS since kenz has been teasing it a lot or it could be the MV for his newly released single 1+9. But I think he would of made it more clear if that was the case and perhaps this is a recording for the trailer for Momentary Bliss'
+},
 
   {
     title: 'RICK OWENS',

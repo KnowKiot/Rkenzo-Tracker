@@ -270,26 +270,6 @@ export const ERAS: Era[] = [
 export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
   {
-    title: "Untilted Song",
-    era: 'Momentary Bliss',
-    status: 'Snippet',
-    producer: '?',
-    notes: 'Kenz spotted shooting a music video for a song that is unknown right now. Believed to be finer things music video but the music in the back suggests it another song',
-    rating: '',
-    filename: '',
-    links: ['https://imgur.gg/f/YAGbfFS'],
-    releaseDate: '2026-07-29',
-    altNames: ['G-Wagon'],
-    infoDump: [
-      {
-        title: 'Behind the scenes',
-        detail: 'Another angle of the shoot can be seen here. Kenz was spotted recording somewhere in London on the 29th July 2026. Song does not seem to be previewed before hand and was thought to be the FINER THINGS music video but this is false. This could potentially be the video for the momentary bliss trailer or an entirely different song',
-        link: 'https://imgur.gg/f/MyRoNsC',
-      },
-    ],
-  },  
-
-  {
     title: "RICK OWENS (SPED UP!!)",
     era: 'Momentary Bliss',
     status: 'Released',
@@ -336,6 +316,13 @@ export const SONGS: Song[] = [
     links: ['https://open.spotify.com/track/7LyI2AMFDDm2vmZ88xVXd5'],
     altNames: ["MINE", "Make Her Mine", 'MINE! (feat. LJ)'],
     releaseDate: '2026-07-24',
+    infoDump: [
+      {
+        title: 'Behind the scenes',
+        detail: 'Another angle of the shoot can be seen here. Kenz was spotted recording somewhere in London on the 29th July 2026. Song does not seem to be previewed before hand and was thought to be the FINER THINGS music video but this is false. This could potentially be the video for the momentary bliss trailer or an entirely different song',
+        link: 'https://imgur.gg/f/gqUcNCq',
+      },
+    ],
   },
 
 
@@ -1661,13 +1648,13 @@ export const MUSIC_VIDEOS: MusicVideo[] = [
   // ── Momentary Bliss ──
 
 {
-  title: 'Untilted Music Video',
+  title: '1+9',
   era: 'Momentary Bliss',
   youtubeId: '',
-  status: 'Released',
+  status: 'Unreleased',
   rating: '🥉',
   releaseDate: '2026-07-28',
-  link: 'https://imgur.gg/f/gqUcNCq',
+  link: 'https://www.tiktok.com/@rkenzo.1/video/7669424576215911702',
  // thumbnail: 'https://img.youtube.com/vi/1Iexup64D6o/hqdefault.jpg',
   notes: 'Kenz was spotted filming new content it is unknown what it is for tho. Fans think its the music video for FINER THINGS since kenz has been teasing it a lot or it could be the MV for his newly released single 1+9. But I think he would of made it more clear if that was the case and perhaps this is a recording for the trailer for Momentary Bliss'
 },

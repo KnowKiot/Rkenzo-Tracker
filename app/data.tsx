@@ -445,16 +445,17 @@ export const SONGS: Song[] = [
   {
     title: 'Black Cat - Capital P Ft Rkenzo',
     era: 'Momentary Bliss',
-    status: 'Unreleased',
+    status: 'Released',
     producer: 'Black Cat',
-    notes: 'Feature Rkenzo gave to Black Cat for free during the Momentary Bliss era',
-    rating: '',
+    notes: 'Feature Rkenzo gave to Black Cat for free during the Momentary Bliss era. Uses papercuts flow and then does another flow switch this is one of kenz best features during this era',
+    rating: '✨',
     filename: 'PPP.wav',
-    links: [],
+    links: ['https://www.youtube.com/watch?v=gOtkNM0ZMlU&list=RDgOtkNM0ZMlU&start_radio=1'],
+    releaseDate: '2026-08-14',
   },
 
   {
-    title: 'Lane Swtich',
+    title: 'Lane Switch',
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'Sogimura',
@@ -674,7 +675,7 @@ export const SONGS: Song[] = [
     status: 'Snippet',
     producer: 'Unknown',
     notes:
-      'Xylem recorded the song in 2025 which is why the song was believed to be made during the OS2S: Extended Edition era. But Rkenzo didnt actually lay down a verse till 2026. Kenz would snippet a part of his verse at the end of the EVISU JEANS music video but the song still hasnt released for unknown reasons. Song is speculated to be a finished song and was considered to be sent for mixing',
+      'Full song was previewed during his show in shoreditch, footage has not yet surfaced. Xylem recorded the song in 2025 which is why the song was believed to be made during the OS2S: Extended Edition era. But Rkenzo didnt actually lay down a verse till 2026. Kenz would snippet a part of his verse at the end of the EVISU JEANS music video but the song still hasnt released for unknown reasons. Song is speculated to be a finished song and was considered to be sent for mixing',
     rating: '🥈',
     filename: 'WASTE MY TIME X RKENZO.wav',
     links: ['https://youtu.be/GCz7GZODsv4?si=gEuhEfucQar2SyLu&t=112'],
@@ -1648,7 +1649,7 @@ export const MUSIC_VIDEOS: MusicVideo[] = [
   // ── Momentary Bliss ──
 
 {
-  title: '1+9',
+  title: '1+9 (Music Video)',
   era: 'Momentary Bliss',
   youtubeId: '',
   status: 'Unreleased',

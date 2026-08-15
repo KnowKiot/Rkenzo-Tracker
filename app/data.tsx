@@ -269,6 +269,20 @@ export const ERAS: Era[] = [
 
 export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
+
+  {
+    title: "Slap Me Again (Open Verse Challenge)",
+    era: 'Momentary Bliss',
+    status: 'Released',
+    producer: 'Faith Acen Onen',
+    notes: 'Throwaway freestyle to capitalise on the "Slap Me Again" trend on tiktok',
+    rating: '',
+    filename: '',
+    links: ['https://www.instagram.com/p/Dbv75S9sw4t/'],
+    releaseDate: '2026-08-7',
+    altNames: ['UK POO'],
+  }, 
+
   {
     title: "RICK OWENS (SPED UP!!)",
     era: 'Momentary Bliss',

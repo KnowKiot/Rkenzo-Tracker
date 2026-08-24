@@ -271,6 +271,18 @@ export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
 
   {
+    title: "Stay Lit",
+    era: 'Momentary Bliss',
+    status: 'Snippet',
+    producer: 'Segway',
+    notes: 'Snippet first seen on 24th August 2026, produced by segway, kenz uses a skepta like flow on the song and uses a nice beat',
+    rating: '',
+    filename: '?',
+    links: ['https://imgur.gg/f/BH54Fd4'],
+    releaseDate: '2026-08-24',
+  },
+
+  {
     title: "Slap Me Again (Open Verse Challenge)",
     era: 'Momentary Bliss',
     status: 'Released',
@@ -366,7 +378,7 @@ export const SONGS: Song[] = [
     title: 'Ride With The Crew',
     era: 'Momentary Bliss',
     status: 'Snippet',
-    producer: 'Sagemon',
+    producer: 'seigmon',
     notes: "Experimental song with a starry like instrumental similar to playboi carti's OMERTA & Pink Diamonds. Song is expected to release on Momentary Bliss",
     rating: '🏆',
     filename: 'RWTC.wav',
@@ -402,7 +414,7 @@ export const SONGS: Song[] = [
     title: 'REALIST!',
     era: 'Momentary Bliss',
     status: 'Snippet',
-    producer: 'Sagemon',
+    producer: 'seigmon',
     notes: 'Chill back song uses a bouncy beat similar to Out tha way. Kenz delivers solid bars on this song and it could possibly release on Momentary Bliss as bonus track make the main cut potentially',
     rating: '🥉',
     filename: 'REALIST.wav',
@@ -530,7 +542,7 @@ export const SONGS: Song[] = [
     status: 'Snippet',
     producer: 'Sogimura',
     notes: 'Unreleased song created in the Momentary Bliss era, song could potentially be saved for the EP release. Seen on old Momentary Bliss as "I WANNA ROCK"',
-    rating: '🥉',
+    rating: '🥈',
     filename: 'GO NIW.wav',
     links: ['https://imgur.gg/f/5Lluv1r'],
     altNames: ['I WANNA ROCK', "Go Now"]
@@ -744,15 +756,27 @@ export const SONGS: Song[] = [
   },
 
   {
-    title: "Can't Stay The Night",
+    title: "HISTORY",
     era: 'Momentary Bliss',
     status: 'Snippet',
+    producer: 'FinniX!Beats',
+    notes: 'UK underground freestyle produced by finnix. Song sounds very like its other underground song "Cant stay the night"',
+    rating: '🥉',
+    filename: '',
+    links: ['https://imgur.gg/f/9JqJJJR'],
+    altNames: ['Underground freestyle'],
+  },
+
+  {
+    title: "Can't Stay The Night",
+    era: 'Momentary Bliss',
+    status: 'Unreleased',
     producer: 'Ayo Sweddy',
     notes: 'Rkenzo would hop on an underground esdeekid type beat produced by Ayo Sweddy (same guy who produced Out Till Late), the original snippet is not found, Rkenzo actually recoreded on this song and the beat sounds like LV Sandalds',
     rating: '🥉',
     filename: '',
-    links: ['https://imgur.gg/f/9JqJJJR'],
-    altNames: ['HISTORY', 'CSTN'],
+    links: [''],
+    altNames: ['CSTN'],
   },
   
   {
@@ -1219,7 +1243,7 @@ export const SONGS: Song[] = [
     title: 'Rolling Wid It',
     era: 'OS2S: Extended Edition',
     status: 'Snippet',
-    producer: 'Unknown',
+    producer: 'Pronto',
     notes: 'Video was made 1st August 2025, speculated to be made during his time in Ghana. Fans think this could be song BACK CHAT but it is false. Freestyle can see Rkenzo using new flows and referencing bars from Say So and other songs. Not much is known about this song and looks to be recorded for an instagram / titkok clip but never released',
     rating: '🥉',
     filename: 'Rolling wid it Up to.wav',
@@ -1373,6 +1397,28 @@ export const SONGS: Song[] = [
     notes: "Song made during the OS2S era but never released",
     rating: '',
     filename: 'get it up - 26_06_2024, 22.31 1',
+    links: [],
+  }, 
+
+  {
+    title: 'No Love',
+    era: 'One Shot To Shine',
+    status: 'Unreleased',
+    producer: '',
+    notes: 'Song samples "So sick of long songs" made during the OS2S era but never released',
+    rating: '',
+    filename: 'No love freestyle.wav',
+    links: [],
+  }, 
+  
+  {
+    title: 'Take it slow',
+    era: 'One Shot To Shine',
+    status: 'Unreleased',
+    producer: '',
+    notes: 'Song made during the OS2S era but never released',
+    rating: '',
+    filename: '?',
     links: [],
   }, 
   
@@ -1560,9 +1606,20 @@ export const SONGS: Song[] = [
     notes: 'Not much is known about this song. It is apparently a throwaway song and the mix for this song came back terrible according to Kenz',
     rating: '—',
     filename: 'Racks.mp3',
-    links: [],
+    links: [''],
   },
 
+  {
+    title: 'Sweetest one',
+    era: 'Young Kenz',
+    status: 'Snippet',
+    producer: 'Zel',
+    notes: 'Another DND / Lets get it type song. ',
+    rating: '—',
+    filename: 'sweetestone.mp3',
+    links: ['https://imgur.gg/f/DX4a0lh'],
+  },
+  
   {
     title: 'Rolling',
     era: 'Young Kenz',
@@ -1897,7 +1954,7 @@ export const TRACKLISTS: Tracklist[] = [
         position: 7,
         title: 'RIDE WITH THE CREW',
         confirmed: true,
-        producer: 'Sagemon',
+        producer: 'seigmon',
         notes: 'After kadz reminded him that this song exists Kenz would reconsider adding RWTC to the EP but as a bonus track as he felt like it didnt fit the main sound of the EP. Kenz stated that he really wants this song to release tho and it along with "GO NOW / I WANNA ROCK" are the strongest contenders for a bonus track',
         isBonusTrack: true,
       },
@@ -1996,7 +2053,7 @@ export const TRACKLISTS: Tracklist[] = [
         position: 7,
         title: 'RIDE WITH THE CREW',
         confirmed: true,
-        producer: 'Sagemon',
+        producer: 'seigmon',
         notes: 'After kadz reminded him that this song exists Kenz would reconsider adding RWTC to the EP but as a bonus track as he felt like it didnt fit the main sound of the EP',
         isBonusTrack: true,
       },
@@ -2322,7 +2379,7 @@ export const TRACKLISTS: Tracklist[] = [
         position: 4,
         title: 'RIDE WITH THE CREW',
         confirmed: true,
-        producer: 'Sagemon',
+        producer: 'seigmon',
         notes: 'After kadz reminded him that this song exists Kenz would reconsider adding RWTC to the EP but as a bonus track as he felt like it didnt fit the main sound of the EP',
 
       },

@@ -149,7 +149,7 @@ export const ERAS: Era[] = [
     name: 'Momentary Bliss',
     image: '/images/MB FINAL.png',
     description:
-      "Momentary Bliss era marks the start of Kenz' music from 2026 leading up to the release of his upcoming EP expected to release August 22nd 2026, Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Project seems to experiment with different sounds and has a spacey-like theme. Fans believe this will be his biggest project yet",
+      "Momentary Bliss era marks the start of Kenz' music from 2026 leading up to the release of his upcoming EP expected to release August 22nd 2026. But was pushed back due to distribution disputes it's now expected to release October 16th 2026. Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Project seems to experiment with different sounds and has a spacey-like theme. Fans believe this will be his biggest project yet",
     accent: '#60ecff',
     accentBg: 'rgba(96,236,255,0.06)',
     infoDump: [
@@ -271,6 +271,18 @@ export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
 
   {
+    title: "Young Blanc - FINER THINGS [REMIX]",
+    era: 'Momentary Bliss',
+    status: 'Snippet',
+    producer: 'Segway',
+    notes: 'Blanco remixed FINER THINGS and previewed it on his snapchat story on 11th September 2026. Blanco throws a verse at the end of 2nd chorus',
+    rating: '',
+    filename: 'RKenzo X Young Blanc - Finer Things',
+    links: ['https://imgur.gg/f/tLTNj3e'],
+    releaseDate: '2026-09-11',
+  },
+
+  {
     title: "Stay Lit",
     era: 'Momentary Bliss',
     status: 'Snippet',
@@ -322,13 +334,20 @@ export const SONGS: Song[] = [
   {
     title: "Blancomadeit - Matcha ft Rkenzo",
     era: 'Momentary Bliss',
-    status: 'Snippet',
+    status: 'Released',
     producer: 'blancomadeit',
-    notes: 'Snippet first seen on 9th july 2026 posted by @blancomadeit. Song has an rkenzo feature and is apparently blancos song expected to release after momentery bliss',
+    notes: 'Snippet first seen on 9th july 2026 posted by @blancomadeit. Marks the first publics collaboration between Rkenzo and Blanco.',
     rating: '',
     filename: '?',
-    links: ['https://imgur.gg/f/XSv6odV'],
-    releaseDate: '2026-07-09',
+    links: ['https://open.spotify.com/album/6vWw8vPZjdCcFqQXdLWPyN'],
+    releaseDate: '2026-09-06',
+    infoDump: [
+      {
+        title: 'Behind the scenes',
+        detail: 'Snippet of RKenzo and Blanco in the studio together where Matcha was probably recorded',
+        link: 'https://imgur.gg/f/XSv6odV',
+      },
+    ],
   },
 
   {

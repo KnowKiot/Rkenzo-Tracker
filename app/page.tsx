@@ -835,16 +835,17 @@ function InfoDumpSection() {
               <div className="p-5 sm:p-6">
                 <p className="text-xs uppercase tracking-[0.24em] text-zinc-500 mb-2">{entry.title}</p>
                 <p className="text-sm text-zinc-300 leading-relaxed">{entry.detail}</p>
-                {entry.link ? (
+                {entry.links?.map((link, linkIndex, links) => (
                   <a
-                    href={entry.link}
+                    key={`${link}-${linkIndex}`}
+                    href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1 text-sm text-blue-400 hover:text-blue-300 underline underline-offset-2"
+                    className="mt-3 mr-4 inline-flex items-center gap-1 text-sm text-blue-400 hover:text-blue-300 underline underline-offset-2"
                   >
-                    Open link ↗
+                    {links.length > 1 ? `Open link ${linkIndex + 1} ↗` : 'Open link ↗'}
                   </a>
-                ) : null}
+                ))}
               </div>
             </div>
           );
@@ -1082,13 +1083,17 @@ export default function RkenzoTracker() {
               Golden spotlight on the most wanted unreleased tracks.
             </p>
           </div>
-          <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto p-6"
+            tabIndex={0}
+            aria-label="Grails Spotlight songs"
+          >
             {grails.map((song, i) => {
               const accent = eraAccent(song.era);
               return (
                 <div
                   key={i}
-                  className="rounded-xl p-4 border flex flex-col gap-2 transform transition-all duration-200 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl"
+                  className="w-[min(85vw,20rem)] shrink-0 snap-start rounded-xl p-4 border flex flex-col gap-2 transform transition-all duration-200 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl"
                   style={{ borderColor: `${accent}40`, background: `${accent}0d` }}
                 >
                   <div className="flex items-start justify-between gap-2">
@@ -1524,4 +1529,3 @@ export default function RkenzoTracker() {
     </div>
   );
 }
-

@@ -46,7 +46,7 @@ export interface Song {
 export interface EraInfoDumpEntry {
   title: string;
   detail: string;
-  link?: string;
+  links?: string[];
 }
 
 export interface Era {
@@ -89,6 +89,15 @@ export interface TrackerUpdateItem {
 }
 
 export const TRACKER_UPDATES: TrackerUpdateItem[] = [
+
+  {
+    title: 'MOMENTARY BLISS',
+    type: 'Song update',
+    detail: 'THE EP IS FINALLY OUT"',
+    date: '2026-10-23',
+    era: 'Momentary Bliss',
+    link: 'https://open.spotify.com/album/1AIvGt9lmgi001QRMewvnk',
+  },  
 
   {
     title: 'For You',
@@ -149,7 +158,7 @@ export const ERAS: Era[] = [
     name: 'Momentary Bliss',
     image: '/images/MB FINAL.png',
     description:
-      "Momentary Bliss era marks the start of Kenz' music from 2026 leading up to the release of his upcoming EP expected to release August 22nd 2026. But was pushed back due to distribution disputes it's now expected to release October 16th 2026. Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Project seems to experiment with different sounds and has a spacey-like theme. Fans believe this will be his biggest project yet",
+      "Momentary Bliss era marks the start of Kenz' music from 2026 leading up to the release of his EP released 23rd October 2026. But was pushed back due to distribution disputes it's now expected to release October 16th 2026. Momentary Bliss has fans anticipating the release of grails such as Alone Now and more production from FinniX!Beats. Project seems to experiment with different sounds and has a spacey-like theme. Fans believe this will be his biggest project yet",
     accent: '#60ecff',
     accentBg: 'rgba(96,236,255,0.06)',
     infoDump: [
@@ -218,7 +227,7 @@ export const ERAS: Era[] = [
       {
         title: 'Behind the scenes',
         detail: 'This is some behind-the-scene footage of the DND video shot during the Young Kenz era — a good place to dump the actual BTS clip, shoot context, and any lore around the session.',
-        link: 'https://imgur.gg/f/MyRoNsC',
+        links: ['https://imgur.gg/f/MyRoNsC'],
       },
       {
         title: 'Why fans talk about it',
@@ -271,15 +280,130 @@ export const SONGS: Song[] = [
   // ── Momentary Bliss ──────────────────────────
 
   {
+    title: 'Rick Owens',
+    era: 'Momentary Bliss',
+    status: 'Released',
+    producer: 'Sogimura',
+    notes: 'Snippet uploaded to TikTok 9th May 2026. Song samples "prolly my spookiest beat" and believed to also sample "FIELD TRIP" by Ye but this is all speculation. Released 23rd May 2026 as track 1 for Momentary Bliss"',
+    rating: '⭐',
+    filename: "Rick Owen’s mix.wav",
+    links: ['https://open.spotify.com/album/4GsqZMSH0Vay1LnL1KmNwt?si=HN3UreP5T5-HMFIh6ETOHQ'],
+    releaseDate: '2026-05-23',
+  },
+
+  {
+    title: "1+9",
+    era: 'Momentary Bliss',
+    status: 'Released',
+    producer: 'FinniX!Beats',
+    notes: 'Spotted as track 2 on the momentary bliss cover. Released on the 24th July 2026 as the 3rd single for Momentary Bliss. Kenz hosted an open verse challenge and said that the best verse will be featured on the Deluxe version of his EP Momentary Bliss. Beat was made by FinniX!Beats on facetime and it was later confirmed that LJ would not be on this track and it would be a solo record',
+    rating: '✨',
+    filename: 'kenz - 1+9 MIX 4.Wav',
+    links: ['https://open.spotify.com/track/7LyI2AMFDDm2vmZ88xVXd5'],
+    altNames: ["MINE", "Make Her Mine", 'MINE! (feat. LJ)'],
+    releaseDate: '2026-07-24',
+    infoDump: [
+      {
+        title: 'Behind the scenes',
+        detail: 'Another angle of the shoot can be seen here. Kenz was spotted recording somewhere in London on the 29th July 2026. Song does not seem to be previewed before hand and was thought to be the FINER THINGS music video but this is false. This could potentially be the video for the momentary bliss trailer or an entirely different song',
+        links: ['https://imgur.gg/f/gqUcNCq'],
+      },
+    ],
+  }, 
+
+  {
+    title: 'Milan Ft Tkandz',
+    era: 'Momentary Bliss',
+    status: 'Released',
+    producer: 'blancomadeit',
+    notes:
+      'Snippet uploaded to Instagram on April 18th 2026 where both boys are wearing light blue drip and tkandz previews a verse. Probably will drop leading up to the release of Momentary Bliss',
+    rating: '⭐',
+    filename: 'Milan [Rkenzo x Tkandz].MPEG',
+    links: ['https://www.youtube.com/watch?v=z2tr0qLNeDw'],
+    altNames: ["RECIPE", "BLUE BOYS"],
+    infoDump: [
+      {
+        title: 'Behind the scenes',
+        detail: 'Snippet uploaded to Instagram on April 18th 2026 where both boys are wearing light blue drip and tkandz previews a verse.',
+        links: ['https://imgur.gg/f/BT96XzG','https://imgur.gg/f/MleUvdu','https://www.instagram.com/reel/DXR_71rjGq4/'],
+      },
+    ],
+  },
+
+  {
+    title: 'NEVER (FALLING IN LOVE)',
+    era: 'Momentary Bliss',
+    status: 'Released',
+    producer: 'Ougby',
+    notes: "Song was first seen on early tracklists but would finally release on Momentary Bliss as track 4. Kenz collabs with Alex Blairr backs to his melodic drill roots and has a powerful background vocalist on a drill/trap beat song sounds really wavy.",
+    rating: '⭐',
+    filename: 'Fallin In Love.wav',
+    links: ['https://www.youtube.com/watch?v=LvmC5JMjHMQ'],
+    altNames: ['Fallin In', 'Fallin', 'Never Fallin In Love'],
+    infoDump: [
+      {
+        title: 'Behind the scenes',
+        detail: 'BTS of @itsmiriamm recording the hook.',
+        links: ['https://imgur.gg/f/BIsDM0r'],
+      },
+    ],
+  },
+
+  {
+    title: 'NO TIME = MONEY FAST',
+    era: 'Momentary Bliss',
+    status: 'Released',
+    producer: 'Gloyo',
+    notes:
+      'Song Rkenzo and Whiz made during the OS2S: Extended Edition and would finally see the light of day as track 5 on Momentary Bliss, Kenz pulled this from the vault as he felt like it needed to come out. Fans call this song Out Till Late 2. the alternate filename is WasteNoTimefeatRkenzo.AAC',
+    rating: '✨',
+    filename: 'Whiz x Kenz - 21:04:2025, 03.29.wav',
+    links: ['https://www.youtube.com/watch?v=bx5O-vhHWNk'],
+    altNames: ['No Time', 'Money Fast', 'Out Till Late 2'],
+    infoDump: [
+      {
+        title: 'Behind the scenes',
+        detail: 'Snippet of the track from early 2026 before it had released.',
+        links: ['https://imgur.gg/f/E8ffWVR'],
+      },
+    ],
+  },
+
+
+
+  {
+    title: "ALONE NOW V2",
+    era: 'Momentary Bliss',
+    status: 'Released',
+    producer: 'FinniX!Beats',
+    notes: 'Remade version of Alone. Song is structured differently and has way more additions to the song such as flow changes, clearer mixing and autotune. Song would release as the last song of Momentary Bliss after 10 months',
+    rating: '⭐',
+    filename: '?',
+    links: ['https://www.youtube.com/watch?v=u_JeSFnMOTY'],
+    releaseDate: '2026-10-23',
+  },
+
+
+
+  {
     title: "Young Blanc - FINER THINGS [REMIX]",
     era: 'Momentary Bliss',
-    status: 'Snippet',
-    producer: 'Segway',
-    notes: 'Blanco remixed FINER THINGS and previewed it on his snapchat story on 11th September 2026. Blanco throws a verse at the end of 2nd chorus',
-    rating: '',
-    filename: 'RKenzo X Young Blanc - Finer Things',
-    links: ['https://imgur.gg/f/tLTNj3e'],
+    status: 'Released',
+    producer: 'blancomadeit & Segway',
+    notes: '2nd lyrical collab of Blanco and Rkenzo. Reportedly stated that kenz had scrapped finer things because he had no use for it but blanco picked it up and would later throw on a verse at the end and ask kenz to release it in which he did.',
+    rating: '✨',
+    filename: 'RKenzo X Young Blanc - Finer Things.m4a',
+    links: ['https://open.spotify.com/track/4Wbi8Zeq7ETezeyrSO8x8K'],
     releaseDate: '2026-09-11',
+        infoDump: [
+      {
+        title: 'Behind the scenes',
+        detail: 'Blanco remixed FINER THINGS and previewed it on his snapchat story on 11th September 2026. Blanco throws a verse at the end of 2nd chorus',
+        links: ['https://imgur.gg/f/tLTNj3e'],
+      },
+    ],
+
   },
 
   {
@@ -345,27 +469,7 @@ export const SONGS: Song[] = [
       {
         title: 'Behind the scenes',
         detail: 'Snippet of RKenzo and Blanco in the studio together where Matcha was probably recorded',
-        link: 'https://imgur.gg/f/XSv6odV',
-      },
-    ],
-  },
-
-  {
-    title: "1+9",
-    era: 'Momentary Bliss',
-    status: 'Released',
-    producer: 'FinniX!Beats',
-    notes: 'Spotted as track 2 on the momentary bliss cover. Released on the 24th July 2026 as the 3rd single for Momentary Bliss. Kenz hosted an open verse challenge and said that the best verse will be featured on the Deluxe version of his EP Momentary Bliss. Beat was made by FinniX!Beats on facetime and it was later confirmed that LJ would not be on this track and it would be a solo record',
-    rating: '✨',
-    filename: 'kenz - 1+9 MIX 4.Wav',
-    links: ['https://open.spotify.com/track/7LyI2AMFDDm2vmZ88xVXd5'],
-    altNames: ["MINE", "Make Her Mine", 'MINE! (feat. LJ)'],
-    releaseDate: '2026-07-24',
-    infoDump: [
-      {
-        title: 'Behind the scenes',
-        detail: 'Another angle of the shoot can be seen here. Kenz was spotted recording somewhere in London on the 29th July 2026. Song does not seem to be previewed before hand and was thought to be the FINER THINGS music video but this is false. This could potentially be the video for the momentary bliss trailer or an entirely different song',
-        link: 'https://imgur.gg/f/gqUcNCq',
+        links: ['https://imgur.gg/f/XSv6odV'],
       },
     ],
   },
@@ -454,7 +558,7 @@ export const SONGS: Song[] = [
   },
 
   {
-    title: 'FINER THINGS',
+    title: 'FINER THINGS V1',
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'blancomadeit & Segway',
@@ -505,7 +609,7 @@ export const SONGS: Song[] = [
     status: 'Snippet',
     producer: 'Sogimura',
     notes: 'Spotted on the momentary tracklist as the intro so the song will probably make the album. Rkenzo experiments with a different sound and delivers a very good flow. Song has a 8-BIT vibe to it ',
-    rating: '🥇',
+    rating: '🏆',
     filename: 'Lane Switch.wav',
     links: ['https://imgur.gg/f/uXp1sCx'],
   },
@@ -561,18 +665,18 @@ export const SONGS: Song[] = [
     status: 'Snippet',
     producer: 'Sogimura',
     notes: 'Unreleased song created in the Momentary Bliss era, song could potentially be saved for the EP release. Seen on old Momentary Bliss as "I WANNA ROCK"',
-    rating: '🥈',
+    rating: '🏆',
     filename: 'GO NIW.wav',
     links: ['https://imgur.gg/f/5Lluv1r'],
     altNames: ['I WANNA ROCK', "Go Now"]
   },
 
   {
-    title: 'Popular Artist X Rkenzo',
+    title: 'SwitchOTR X Rkenzo',
     era: 'Momentary Bliss',
     status: 'Rumoured',
     producer: 'Unknown',
-    notes: 'Rkenzo claims to have a feature with a big artist but is not revealing who it is. Apparently this artist will make Momentary Bliss if Tkandz does not clear his verse on Milan',
+    notes: 'Switch OTR would send Kenz and open verse that he was allowed to release but chose not too. Apparently this artist will make Momentary Bliss if Tkandz does not clear his verse on Milan.',
     rating: '🥉',
     filename: '?',
     links: [],
@@ -599,18 +703,6 @@ export const SONGS: Song[] = [
     rating: '',
     filename: 'winning it now - 17_02_2026, 02.04 2.wav',
     links: [],
-  },
-
-  {
-    title: 'Rick Owens',
-    era: 'Momentary Bliss',
-    status: 'Released',
-    producer: 'Sogimura',
-    notes: 'Snippet uploaded to TikTok 9th May 2026. Song samples "prolly my spookiest beat" and believed to also sample "FIELD TRIP" by Ye but this is all speculation. Released 23rd May 2026 as track 1 for Momentary Bliss"',
-    rating: '⭐',
-    filename: "Rick Owen’s mix.wav",
-    links: ['https://open.spotify.com/album/4GsqZMSH0Vay1LnL1KmNwt?si=HN3UreP5T5-HMFIh6ETOHQ'],
-    releaseDate: '2026-05-23',
   },
 
   {
@@ -644,18 +736,7 @@ export const SONGS: Song[] = [
     filename: '—',
     links: ['https://www.youtube.com/watch?v=9xhi5VvcJPM&list=RD9xhi5VvcJPM&start_radio=1'],
   },
-  {
-    title: 'Milan Ft Tkandz',
-    era: 'Momentary Bliss',
-    status: 'Snippet',
-    producer: 'blancomadeit',
-    notes:
-      'Snippet uploaded to Instagram on April 18th 2026 where both boys are wearing light blue drip and tkandz previews a verse. Probably will drop leading up to the release of Momentary Bliss',
-    rating: '🥇',
-    filename: 'Milan [Rkenzo x Tkandz].MPEG',
-    links: ['https://imgur.gg/f/BT96XzG','https://www.tiktok.com/@rkenzo.1/photo/7660925042200562966','https://www.instagram.com/reel/DXR_71rjGq4/'],
-    altNames: ["RECIPE", "BLUE BOYS"]
-  },
+
 
   {
     title: 'WAGWAN Fresstyle',
@@ -751,18 +832,6 @@ export const SONGS: Song[] = [
   },
 
   {
-    title: 'NEVER (FALLING IN LOVE)',
-    era: 'Momentary Bliss',
-    status: 'Unreleased',
-    producer: 'OB',
-    notes: "Kenz go backs to his melodic drill roots and has a powerful background vocalist on a drill/trap beat song sounds really wavy. Song could be on the Momentary Bliss EP. It is quite experimetnal taking elements from Dave's Raindance Rkenzo collabs with a female artist to deliver power melodies accompanied with hard hitting bars.",
-    rating: '🥉',
-    filename: 'Fallin In Love.wav',
-    links: [],
-    altNames: ['Fallin In', 'Fallin', 'Never Fallin In Love'],
-  },
-
-  {
     title: 'Blancomadeit - In My Feels Ft Rkenzo',
     era: 'Momentary Bliss',
     status: 'Snippet',
@@ -821,13 +890,13 @@ export const SONGS: Song[] = [
   },
 
   {
-    title: 'ALONE NOW',
+    title: 'ALONE NOW V1',
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'FinniX!Beats',
     notes:
       'Instagram live preview. Instantly hailed as a grail — part of the collection of songs Rkenzo made with FinniX Switzerland. Reportedly this song is on its 5th version and kenz plans to change studio to finish it for a fresher sound and new creative environment. It is highly liked that this grail will drop as the outro for Momentary Bliss',
-    rating: '🏆',
+    rating: '🥉',
     filename: 'ALONE NOW.wav',
     links: ['https://imgur.gg/f/EgxCX5j'],
     altNames: ['Alone', 'Alone Now'],
@@ -1049,18 +1118,6 @@ export const SONGS: Song[] = [
     links: [],
   },
 
-  {
-    title: 'NO TIME = MONEY FAST',
-    era: 'OS2S: Extended Edition',
-    status: 'Snippet',
-    producer: 'Unknown',
-    notes:
-      'Song Rkenzo and Whiz made together in the studio. Fans call this song Out Till Late 2. the alternate filename is WasteNoTimefeatRkenzo.AAC',
-    rating: '🥈',
-    filename: 'Whiz x Kenz - 21:04:2025, 03.29.wav',
-    links: ['https://imgur.gg/f/E8ffWVR'],
-    altNames: ["NTMF",'No Time', 'Money Fast', 'Out Till Late 2'],
-  },
 
   {
     title: 'On Go',
@@ -1122,14 +1179,14 @@ export const SONGS: Song[] = [
   },
 
   {
-    title: 'Mr Imagination - Ambrosia Ft Rkenzo',
+    title: 'Mr Imagination - Ambrosia Ft Rkenzo & Phoenix Da IceFire',
     era: 'OS2S: Extended Edition',
-    status: 'Unreleased',
+    status: 'Released',
     producer: 'Unknown',
-    notes: 'Song is seen as track 11 on Mr Imaginations "War Of Reflections" expected to release as part of his mixtape. Rkenzo recorded on Mr Imaginations "Ambrosia" during his time in Ghana',
-    rating: '🥉',
+    notes: 'Song is seen as track 4 on Mr Imaginations "War Of Reflections" expected to release as part of his mixtape. Rkenzo recorded on Mr Imaginations "Ambrosia" during his time in Ghana',
+    rating: '',
     filename: '—',
-    links: [],
+    links: ['https://open.spotify.com/track/3YcYdrhO0DDRvXoxq2myHP?si=1b10813e64f44eab'],
   },
 
   {
@@ -1140,7 +1197,7 @@ export const SONGS: Song[] = [
     notes: 'Song is seen as track 08 on Mr Imaginations "War Of Reflections" expected to release as part of his mixtape. Part of the collections of songs Rkenzo hopped on whilst in Ghana with Mr Imagination',
     rating: '',
     filename: '—',
-    links: ['https://imgur.gg/f/QqUgXW3'],
+    links: ['https://open.spotify.com/track/07qjiY5vXd5s2nZu0j9Wiz?si=ff68688166cd4249'],
     altNames: ['acute loops','Disassemble']
   },
 
@@ -1241,7 +1298,7 @@ export const SONGS: Song[] = [
     producer: 'Unknown',
     notes:
       'Song made during the OS2S: Extended Edition era uses a new flow and the snippet of the song sounds pretty good. its a shame this song wont release but could potentially be released on the OS2S anniversay',
-    rating: '🥉',
+    rating: '🥈',
     filename: 'take a toke - 13_06_2025, 21.31 1.wav',
     links: ['https://imgur.gg/f/ZVPzejr'],
   },
@@ -1264,7 +1321,7 @@ export const SONGS: Song[] = [
     status: 'Snippet',
     producer: 'Pronto',
     notes: 'Video was made 1st August 2025, speculated to be made during his time in Ghana. Fans think this could be song BACK CHAT but it is false. Freestyle can see Rkenzo using new flows and referencing bars from Say So and other songs. Not much is known about this song and looks to be recorded for an instagram / titkok clip but never released',
-    rating: '🥉',
+    rating: '🥇',
     filename: 'Rolling wid it Up to.wav',
     links: ['https://imgur.gg/f/Ffzl2z7'],
     releaseDate: '2026-07-25',
@@ -1572,7 +1629,7 @@ export const SONGS: Song[] = [
     status: 'Snippet',
     producer: 'ZEL',
     notes: 'Unreleased song made during the Young Kenz era which he shared to Mr Imagination. This song never released but the people who have heard it consider it as the best song from this era. Apparently Kenz snipped this song during this era but no media footage can be found of it. This song should of released during this era but didnt for unknown reasons.',
-    rating: '🥇',
+    rating: '🏆',
     filename: "Let's Get It.mp3",
     links: ['https://imgur.gg/f/e1zbCzl'],
     altNames: ['LGI', 'Ay come lets get it']
@@ -1601,7 +1658,7 @@ export const SONGS: Song[] = [
       {
         title: 'Behind the scenes',
         detail: 'This is some behind-the-scene footage of the DND video shot during the Young Kenz era — use this spot for the shoot context, the actual BTS clip, and any extra lore that belongs to the song itself.',
-        link: 'https://imgur.gg/f/MyRoNsC',
+        links: ['https://imgur.gg/f/MyRoNsC'],
       },
     ],
   },

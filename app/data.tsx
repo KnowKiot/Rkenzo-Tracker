@@ -91,9 +91,9 @@ export interface TrackerUpdateItem {
 export const TRACKER_UPDATES: TrackerUpdateItem[] = [
 
   {
-    title: 'MOMENTARY BLISS',
+    title: 'MOMENTARY BLISS OUT NOW!',
     type: 'Song update',
-    detail: 'THE EP IS FINALLY OUT"',
+    detail: 'THE EP IS FINALLY OUT GO CLICK THE LINK!',
     date: '2026-10-23',
     era: 'Momentary Bliss',
     link: 'https://open.spotify.com/album/1AIvGt9lmgi001QRMewvnk',
@@ -502,7 +502,7 @@ export const SONGS: Song[] = [
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'seigmon',
-    notes: "Experimental song with a starry like instrumental similar to playboi carti's OMERTA & Pink Diamonds. Song is expected to release on Momentary Bliss",
+    notes: "Experimental song with a starry like instrumental expected to drop as a bonus track during the Momentary Bliss era. ",
     rating: '🏆',
     filename: 'RWTC.wav',
     links: ['https://imgur.gg/f/HxxKboZ', 'https://imgur.gg/f/YGmbPXM'],
@@ -608,7 +608,7 @@ export const SONGS: Song[] = [
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'Sogimura',
-    notes: 'Spotted on the momentary tracklist as the intro so the song will probably make the album. Rkenzo experiments with a different sound and delivers a very good flow. Song has a 8-BIT vibe to it ',
+    notes: 'Spotted on early momentary tracklist as the intro but unfortunately didnt make the EP. Rkenzo experiments with a different sound and delivers a very good flow. Song has a 8-BIT vibe to it. Full beat would surface on a Jake Morris song',
     rating: '🏆',
     filename: 'Lane Switch.wav',
     links: ['https://imgur.gg/f/uXp1sCx'],
@@ -664,7 +664,7 @@ export const SONGS: Song[] = [
     era: 'Momentary Bliss',
     status: 'Snippet',
     producer: 'Sogimura',
-    notes: 'Unreleased song created in the Momentary Bliss era, song could potentially be saved for the EP release. Seen on old Momentary Bliss as "I WANNA ROCK"',
+    notes: 'Song was made before Rick Owens and apparently Kenz was whilst kenz was working on this song sogimura sent the rick owens beat through which kenz just fell in love with so stopped working on this song and focused on Rick Owens as they have a similar sound. Seen on old Momentary Bliss as "I WANNA ROCK"',
     rating: '🏆',
     filename: 'GO NIW.wav',
     links: ['https://imgur.gg/f/5Lluv1r'],

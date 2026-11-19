@@ -91,6 +91,24 @@ export interface TrackerUpdateItem {
 export const TRACKER_UPDATES: TrackerUpdateItem[] = [
 
   {
+    title: 'NEW ERA! MOMENTARY BLISS: EXTENDED EDITION',
+    type: 'Song update',
+    detail: 'Rkenzo has announced that he working on an extended edition of his upcoming EP Momentary Bliss. The extended edition will feature 4 new songs and may release this year.',
+    date: '2026-11-19',
+    era: 'MB: Expanded Edition',
+    link: '',
+  },  
+
+  {
+    title: 'MOMENTARY BLISS LISTENING PARTY',
+    type: 'Song update',
+    detail: 'Kenz is working on an after party listening event to celebrate momentary bliss the date is currently unknown but it is hinted to take place around Late Novemeber, early Decemeber 2026',
+    date: '2026-11-19',
+    era: 'MB: Expanded Edition',
+    link: '',
+  }, 
+
+  {
     title: 'MOMENTARY BLISS OUT NOW!',
     type: 'Song update',
     detail: 'THE EP IS FINALLY OUT GO CLICK THE LINK!',
@@ -99,32 +117,6 @@ export const TRACKER_UPDATES: TrackerUpdateItem[] = [
     link: 'https://open.spotify.com/album/1AIvGt9lmgi001QRMewvnk',
   },  
 
-  {
-    title: 'For You',
-    type: 'Song update',
-    detail: 'Earliest song recorded by Rkenzo was recently found on his soundcloud burner account "OS2S Vault"',
-    date: '2026-07-29',
-    era: 'BLACK.XS',
-    link: 'https://soundcloud.com/rkenzo-769027022/for-you?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
-  },  
-
-  {
-    title: 'FINER THINGS',
-    type: 'Song update',
-    detail: 'New snippet of Rkenzo making FINER THINGS surfaced on 22nd July 2026 via his instragram story. Was also revealed 23rd April 2026',
-    date: '2026-07-22',
-    era: 'Momentary Bliss',
-    link: 'https://imgur.gg/f/SaO9vim',
-  },
-
-  {
-    title: 'Milan',
-    type: 'Song update',
-    detail: 'Another snippet of Milan where more of Tkandz is verse can be heard was seen in a instragram story in the car with Tkandz and Blanco, most likely recorded just after they had made the song. Rkenzo also previewed some of his verse during the instragram live freestyle this day can be found in the links',
-    date: '2026-07-22',
-    era: 'Momentary Bliss',
-    link: 'https://imgur.gg/f/BT96XzG',
-  },
 ];
 
 export type TracklistStatus = 'Confirmed' | 'Rumoured' | 'Scrapped' | 'Unreleased' | 'Released';
@@ -154,6 +146,30 @@ export interface Tracklist {
 // ─── ERAS ────────────────────────────────────
 
 export const ERAS: Era[] = [
+
+  {
+    name: 'MB: Expanded Edition',
+    image: '/images/MB EX.png',
+    description:
+      "Expanded edition to Momentary Bliss which will feature 4 new songs. This extended edition is expected to release in 2026 but no official date has been confirmed. It is rumoured that grails such as 'RIDE WITH THE CREW' will be included but nothing is confirmed.",
+    accent: '#1a1eff',
+    accentBg: 'rgba(96,236,255,0.06)',
+    infoDump: [
+      {
+        title: 'Behind the Scenes',
+        detail: 'This project is the most current era and leans into a spacey, experimental sound with fans expecting a big leap in production and songwriting.',
+      },
+      {
+        title: 'Fan lore',
+        detail: 'A lot of the hype comes from tracks like Alone Now, FINER THINGS, and the wider circle of people involved in the sessions and snippets.',
+      },
+      {
+        title: 'What to watch',
+        detail: 'The era has a mix of confirmed snippets, throwaways, and unreleased ideas that could still make the final cut or surface later.',
+      },
+    ],
+  },
+
   {
     name: 'Momentary Bliss',
     image: '/images/MB FINAL.png',
@@ -277,6 +293,20 @@ export const ERAS: Era[] = [
 // ─── SONGS ───────────────────────────────────
 
 export const SONGS: Song[] = [
+
+
+
+  {
+    title: 'Tiktok Live Freestyle',
+    era: 'MB: Expanded Edition',
+    status: 'Throwaway',
+    producer: 'Blancomadeit',
+    notes: 'Freestyle he done on tiktok live',
+    rating: '',
+    filename: "(TT Freestyle)",
+    links: ['https://imgur.gg/f/eebRgD2'],
+    releaseDate: '2026-11-11',
+  },
   // ── Momentary Bliss ──────────────────────────
 
   {
@@ -377,7 +407,7 @@ export const SONGS: Song[] = [
     era: 'Momentary Bliss',
     status: 'Released',
     producer: 'FinniX!Beats',
-    notes: 'Remade version of Alone. Song is structured differently and has way more additions to the song such as flow changes, clearer mixing and autotune. Song would release as the last song of Momentary Bliss after 10 months',
+    notes: 'Remade version of Alone. Song is structured differently and has way more additions to the song such as flow changes, clearer mixing and autotune. Song would release as the last song of Momentary Bliss after 10 months. Streets are saying this is his best song',
     rating: '⭐',
     filename: '?',
     links: ['https://www.youtube.com/watch?v=u_JeSFnMOTY'],
